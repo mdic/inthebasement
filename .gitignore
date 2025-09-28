@@ -1,0 +1,5 @@
+.venv/
+converted/
+songs.csv
+*.flac
+rationale
