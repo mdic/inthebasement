@@ -31,4 +31,4 @@ nav:
       # aggiungi altre pagine manuali
   - Versions:
       - versions/v01.md
-  - Songs: !include docs/songs/_songs_nav.yml
+  # - Songs: !include docs/songs/_songs_nav.yml
