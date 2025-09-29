@@ -9,7 +9,7 @@ RESULTS_DIR = "results"
 DOCS_DIR = "docs"
 SONGS_DIR = os.path.join(DOCS_DIR, "songs")
 ASSETS_DIR = os.path.join(DOCS_DIR, "assets", "songs")
-NAV_YML = os.path.join(SONGS_DIR, ".nav.yml")   # <- plugin awesome-nav legge questo
+NAV_YML = os.path.join(SONGS_DIR, ".nav.yml")  # <- plugin awesome-nav legge questo
 INDEX_MD = os.path.join(SONGS_DIR, "index.md")
 
 # order by "label" or "title"
@@ -21,6 +21,7 @@ This page lists all analysed songs with their unique IDs and titles.
 Click on any entry to view detailed comparisons and plots.
 """
 
+
 # ----------------------------
 # Helpers
 # ----------------------------
@@ -28,7 +29,6 @@ def get_song_title(md_file):
     """Extract song title from the YAML front matter in the .md file."""
     title = None
     with open(md_file, "r", encoding="utf-8") as f:
-        # very simple front-matter scan
         in_front = False
         for line in f:
             if line.strip() == "---":
@@ -39,6 +39,7 @@ def get_song_title(md_file):
                 break
     return title or "Untitled"
 
+
 def rewrite_links(md_content, song_label, song_path):
     """Replace local links with ../assets/songs/<label>/..."""
     for fname in os.listdir(song_path):
@@ -47,11 +48,37 @@ def rewrite_links(md_content, song_label, song_path):
         md_content = md_content.replace(
             f"({fname})", f"(../assets/songs/{song_label}/{fname})"
         )
-        # make sure image syntax also works even if was bare
         md_content = md_content.replace(
             f"]({fname})", f"](../assets/songs/{song_label}/{fname})"
         )
     return md_content
+
+
+def inject_notes(md_content, notes_file):
+    """Insert contents of notes.md (if present) after the main title."""
+    if not os.path.exists(notes_file):
+        return md_content
+
+    with open(notes_file, "r", encoding="utf-8") as f:
+        notes_content = f.read().strip()
+    if not notes_content:
+        return md_content
+
+    lines = md_content.splitlines()
+    injected = []
+    inserted = False
+    for i, line in enumerate(lines):
+        injected.append(line)
+        # Dopo il primo heading di livello 1 (# titolo)
+        if not inserted and line.startswith("# "):
+            injected.append("")
+            injected.append("## Notes")
+            injected.append("")
+            injected.append(notes_content)
+            injected.append("")
+            inserted = True
+    return "\n".join(injected)
+
 
 # ----------------------------
 # Main sync
@@ -88,15 +115,21 @@ def sync_docs():
             md_content = f.read()
         md_content = rewrite_links(md_content, song_label, song_path)
 
+        # inject notes.md if present
+        notes_file = os.path.join(song_path, "notes.md")
+        md_content = inject_notes(md_content, notes_file)
+
         dest_md = os.path.join(SONGS_DIR, f"{song_label}.md")
         with open(dest_md, "w", encoding="utf-8") as f:
             f.write(md_content)
 
-        entries.append({
-            "label": song_label,
-            "title": song_title,
-            "md_file": f"{song_label}.md",
-        })
+        entries.append(
+            {
+                "label": song_label,
+                "title": song_title,
+                "md_file": f"{song_label}.md",
+            }
+        )
 
     # sort entries
     if ORDER_BY == "title":
@@ -107,7 +140,6 @@ def sync_docs():
     # write songs/index.md
     index_lines = [INDEX_INTRO.strip(), ""]
     for e in entries:
-        # only show title (no label)
         index_lines.append(f"- [{e['title']}](./{e['md_file']})")
     with open(INDEX_MD, "w", encoding="utf-8") as f:
         f.write("\n".join(index_lines) + "\n")
@@ -115,14 +147,15 @@ def sync_docs():
     # write songs/.nav.yml for awesome-nav
     nav_yaml = {
         "title": "Songs",
-        "nav": [{"All Songs": "index.md"}] + [
-            {e["title"]: e["md_file"]} for e in entries
-        ]
+        "nav": [{"All Songs": "index.md"}]
+        + [{e["title"]: e["md_file"]} for e in entries],
     }
     with open(NAV_YML, "w", encoding="utf-8") as f:
         yaml.dump(nav_yaml, f, sort_keys=False, allow_unicode=True)
 
-    print(f"[OK] Synced {len(entries)} songs into docs with index + .nav.yml (titles only)")
+    print(
+        f"[OK] Synced {len(entries)} songs into docs with index + .nav.yml (titles only)"
+    )
 
 
 if __name__ == "__main__":
