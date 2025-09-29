@@ -1,7 +1,6 @@
-
 site_name: In the Basement
 site_description: Comparative analysis of multiple versions of the Basement Tapes
-site_url: https://username.github.io/inthebasement/
+site_url: https://mdic.github.io/inthebasement/
 
 theme:
   name: material

@@ -1,5 +1,5 @@
-label,orig_file,disc,track,duration_sec,duration_fmt,loudness,rms,spectral_centroid
-HHBST,08 you ain't going nowhere.flac,1,8,0.9065879606176082,02:45:466,1.0,1.0,0.6679441322024221
-TBT,Dylan & Band - Safety Tape_Track08.flac,1,8,0.04532939803088041,02:41:919,0.9585719252110081,0.9789917361675883,0.0
-CBST,08 You Ain't Goin' Nowhere.flac,1,8,1.0,02:45:851,0.7668370365218581,0.7241273639489014,1.0
-FTR,20. You Ain't Going Nowhere.flac,4,20,0.0,02:41:733,0.0,0.0,0.055351186539332235
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,rms,spectral_centroid
+HHBST,08 you ain't going nowhere.flac,5038ca1a0ca8959dd430d9bccbdb9d9b,1,8,0.9065879606176082,02:45:466,1.0,1.0,0.6679441322024221
+TBT,Dylan & Band - Safety Tape_Track08.flac,26b51386f50c7ca8ad26b414ab9da24e,1,8,0.04532939803088041,02:41:919,0.9585719252110081,0.9789917361675883,0.0
+CBST,08 You Ain't Goin' Nowhere.flac,079ddac644de299bc4433f07699ee8f3,1,8,1.0,02:45:851,0.7668370365218581,0.7241273639489014,1.0
+FTR,20. You Ain't Going Nowhere.flac,ad035069f5990e1d9a1b4b3ccee70625,4,20,0.0,02:41:733,0.0,0.0,0.055351186539332235
