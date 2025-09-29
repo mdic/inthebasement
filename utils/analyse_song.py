@@ -16,9 +16,9 @@ import hashlib
 # --------------------------------------------
 LABEL_COLORS = {
     "HHST": "skyblue",
-    "ALT1": "orange",
-    "ALT2": "green",
-    "ALT3": "purple",
+    "TBT": "orange",
+    "CBST": "green",
+    "FTR": "purple",
 }
 
 

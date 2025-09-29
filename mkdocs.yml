@@ -1,0 +1,34 @@
+
+site_name: In the Basement
+site_description: Comparative analysis of multiple versions of the Basement Tapes
+site_url: https://username.github.io/inthebasement/
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+
+plugins:
+  - search
+  - awesome-nav:
+      files:
+        - docs/songs/_songs_nav.yml
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Editions:
+      - editions/hhbst.md
+      # aggiungi altre pagine manuali
+  - Versions:
+      - versions/v01.md
+  - Songs: !include docs/songs/_songs_nav.yml

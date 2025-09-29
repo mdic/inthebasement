@@ -14,9 +14,9 @@ song_label: yagn
 - **FTR** — Disc 04, Track 20 — Duration 02:41:733 — Loudness -30.08 LUFS — RMS 0.027033 — Spectral Centroid 1803.85 Hz
 
 ## Plots
-![Waveforms](waveforms.png)
-![Radar Plot](radar_plot.png)
-![MFCC Similarity](similarity_matrix.png)
+![Waveforms](../assets/songs/yagn/waveforms.png)
+![Radar Plot](../assets/songs/yagn/radar_plot.png)
+![MFCC Similarity](../assets/songs/yagn/similarity_matrix.png)
 
 ## features.csv
 | label   | orig_file                               |   disc |   track |   duration_sec | duration_fmt   |   loudness |       rms |   spectral_centroid |
@@ -26,7 +26,7 @@ song_label: yagn
 | CBST    | 08 You Ain't Goin' Nowhere.flac         |      1 |       8 |        165.851 | 02:45:851      |   -21.1045 | 0.0877545 |             2365.49 |
 | FTR     | 20. You Ain't Going Nowhere.flac        |      4 |      20 |        161.733 | 02:41:733      |   -30.0751 | 0.0270326 |             1803.85 |
 
-- [features.csv](features.csv)
+- [features.csv](../assets/songs/yagn/features.csv)
 
 ## features_normalised.csv
 | label   | orig_file                               |   disc |   track |   duration_sec | duration_fmt   |   loudness |      rms |   spectral_centroid |
@@ -36,5 +36,5 @@ song_label: yagn
 | CBST    | 08 You Ain't Goin' Nowhere.flac         |      1 |       8 |      1         | 02:45:851      |   0.766837 | 0.724127 |           1         |
 | FTR     | 20. You Ain't Going Nowhere.flac        |      4 |      20 |      0         | 02:41:733      |   0        | 0        |           0.0553512 |
 
-- [features_normalised.csv](features_normalised.csv)
+- [features_normalised.csv](../assets/songs/yagn/features_normalised.csv)
 
