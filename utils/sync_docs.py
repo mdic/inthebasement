@@ -147,8 +147,9 @@ def sync_docs():
     # write songs/.nav.yml for awesome-nav
     nav_yaml = {
         "title": "Songs",
-        "nav": [{"All Songs": "index.md"}]
-        + [{e["title"]: e["md_file"]} for e in entries],
+        "nav": [{"All Songs": "index.md"}],
+        # Line below activates the list of all songs in the navbar
+        # + [{e["title"]: e["md_file"]} for e in entries],
     }
     with open(NAV_YML, "w", encoding="utf-8") as f:
         yaml.dump(nav_yaml, f, sort_keys=False, allow_unicode=True)

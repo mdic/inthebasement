@@ -30,12 +30,16 @@ LABEL_COLORS = {
 # (customise as needed)
 # --------------------------------------------
 VERSION_LABEL_MAP = {
-    "The Genuine Basement Tapes": "TGBT",
-    "Home Tape": "HHST",
-    "The Basement Tapes - Captain Acid 2020 restoration": "CAR",
-    "Basement Tapes Anthology [FLAC]": "TCB",
-    "Mixin Up The Medicine": "MUTM",
     "A Tree With Roots": "ATWR",
+    "The Basement Tapes - Captain Acid 2020 restoration": "CAR",
+    "Basement Tapes Anthology [FLAC]": "CB",
+    "Complete Basement Safety Tape": "CBST",
+    "Down In The Basement": "DITB",
+    "From The Reels": "FTR",
+    "Mixin Up The Medicine": "MUTM",
+    "The Basement Tape RSD (24 Bit Vinyl FLAC)": "RSD",
+    "Sweet Bourbon Daddy": "SBD",
+    "The Genuine Basement Tapes": "TGBT",
 }
 
 
@@ -275,9 +279,10 @@ def generate_markdown(song_label, song_title, features, outdir):
         fmd.write(df.to_markdown(index=False))
         fmd.write("\n\n")
 
-        fmd.write("## Details (normalised)\n\n")
-        fmd.write(df_norm.to_markdown(index=False))
-        fmd.write("\n\n")
+        # Section with normalised details - useless as of now
+        # fmd.write("## Details (normalised)\n\n")
+        # fmd.write(df_norm.to_markdown(index=False))
+        # fmd.write("\n\n")
 
         fmd.write("## Plots\n")
         fmd.write("![Waveforms](waveforms.png)\n")
