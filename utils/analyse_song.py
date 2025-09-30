@@ -18,10 +18,11 @@ import sys
 # --------------------------------------------
 LABEL_COLORS = {
     "HHST": "skyblue",
-    "ALT1": "orange",
-    "ALT2": "green",
-    "ALT3": "purple",
-    "TGBT": "red",
+    "TGBT": "orange",
+    "CAR": "green",
+    "TCB": "purple",
+    "MUTM": "red",
+    "ATWR": "blue",
 }
 
 # --------------------------------------------
@@ -31,9 +32,10 @@ LABEL_COLORS = {
 VERSION_LABEL_MAP = {
     "The Genuine Basement Tapes": "TGBT",
     "Home Tape": "HHST",
-    "Alternate Take 1": "ALT1",
-    "Alternate Take 2": "ALT2",
-    "Alternate Take 3": "ALT3",
+    "The Basement Tapes - Captain Acid 2020 restoration": "CAR",
+    "Basement Tapes Anthology [FLAC]": "TCB",
+    "Mixin Up The Medicine": "MUTM",
+    "A Tree With Roots": "ATWR",
 }
 
 
@@ -352,7 +354,7 @@ def analyse_song(
         [
             {
                 "label": f["label"],
-                "orig_file": f["orig_file"],
+                "orig_file": os.path.basename(f["orig_file"]),
                 "md5": f["md5"],
                 "disc": f["disc"],
                 "track": f["track"],

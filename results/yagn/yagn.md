@@ -5,52 +5,52 @@ song_label: yagn
 
 # You Ain't Going Nowhere [take 1]
 
+## Details
+
+| label   | orig_file                                              | md5                              |   disc |   track |   duration_sec | duration_fmt   |   loudness |       rms |   spectral_centroid |
+|:--------|:-------------------------------------------------------|:---------------------------------|-------:|--------:|---------------:|:---------------|-----------:|----------:|--------------------:|
+| TCB     | 03 You Ain't Going Nowhere.flac                        | 2c4c2435d5dff0f7cfee15aec4afb08c |      1 |       8 |        158.907 | 02:38:906      |   -22.6638 | 0.066491  |             1301.44 |
+| CAR     | 03-18-Bob_Dylan-You_Ain_t_Goin_Nowhere_Take_2-SMR.flac | a2e0474b1f4a6b1ca8c560b613d243dc |      1 |       8 |        165.586 | 02:45:586      |   -18.0316 | 0.125645  |             2214.41 |
+| MUTM    | 08 You Ain't Going Nowhere.flac                        | 1979579aad01620fedb490bbfed5a243 |      1 |       8 |        163.853 | 02:43:853      |   -18.372  | 0.111866  |             2135.98 |
+| ATWR    | 25 You Ain't Going Nowhere - Take 2.flac               | 6ea00dd92a20550b24e171e5344258f3 |      4 |      20 |        166.093 | 02:46:093      |   -22.2106 | 0.0733092 |             2264.23 |
+
+## Details (normalised)
+
+| label   | orig_file                                              | md5                              |   disc |   track |   duration_sec | duration_fmt   |   loudness |      rms |   spectral_centroid |
+|:--------|:-------------------------------------------------------|:---------------------------------|-------:|--------:|---------------:|:---------------|-----------:|---------:|--------------------:|
+| TCB     | 03 You Ain't Going Nowhere.flac                        | 2c4c2435d5dff0f7cfee15aec4afb08c |      1 |       8 |       0        | 02:38:906      |  0         | 0        |            0        |
+| CAR     | 03-18-Bob_Dylan-You_Ain_t_Goin_Nowhere_Take_2-SMR.flac | a2e0474b1f4a6b1ca8c560b613d243dc |      1 |       8 |       0.929452 | 02:45:586      |  1         | 1        |            0.948256 |
+| MUTM    | 08 You Ain't Going Nowhere.flac                        | 1979579aad01620fedb490bbfed5a243 |      1 |       8 |       0.688312 | 02:43:853      |  0.926518  | 0.767065 |            0.866795 |
+| ATWR    | 25 You Ain't Going Nowhere - Take 2.flac               | 6ea00dd92a20550b24e171e5344258f3 |      4 |      20 |       1        | 02:46:093      |  0.0978387 | 0.115263 |            1        |
+
 ## Plots
 ![Waveforms](waveforms.png)
 ![Radar Plot](radar_plot.png)
 ![MFCC Similarity](similarity_matrix.png)
 
-## Details
-
-| label   | orig_file                               | md5                              |   disc |   track |   duration_sec | duration_fmt   |   loudness |       rms |   spectral_centroid |
-|:--------|:----------------------------------------|:---------------------------------|-------:|--------:|---------------:|:---------------|-----------:|----------:|--------------------:|
-| HHBST   | 08 you ain't going nowhere.flac         | 5038ca1a0ca8959dd430d9bccbdb9d9b |      1 |       8 |        165.467 | 02:45:466      |   -18.377  | 0.110888  |             2168.07 |
-| TBT     | Dylan & Band - Safety Tape_Track08.flac | 26b51386f50c7ca8ad26b414ab9da24e |      1 |       8 |        161.92  | 02:41:919      |   -18.8616 | 0.109126  |             1770.94 |
-| CBST    | 08 You Ain't Goin' Nowhere.flac         | 079ddac644de299bc4433f07699ee8f3 |      1 |       8 |        165.851 | 02:45:851      |   -21.1045 | 0.0877545 |             2365.49 |
-| FTR     | 20. You Ain't Going Nowhere.flac        | ad035069f5990e1d9a1b4b3ccee70625 |      4 |      20 |        161.733 | 02:41:733      |   -30.0751 | 0.0270326 |             1803.85 |
-
-## Details (normalised)
-
-| label   | orig_file                               | md5                              |   disc |   track |   duration_sec | duration_fmt   |   loudness |      rms |   spectral_centroid |
-|:--------|:----------------------------------------|:---------------------------------|-------:|--------:|---------------:|:---------------|-----------:|---------:|--------------------:|
-| HHBST   | 08 you ain't going nowhere.flac         | 5038ca1a0ca8959dd430d9bccbdb9d9b |      1 |       8 |      0.906588  | 02:45:466      |   1        | 1        |           0.667944  |
-| TBT     | Dylan & Band - Safety Tape_Track08.flac | 26b51386f50c7ca8ad26b414ab9da24e |      1 |       8 |      0.0453294 | 02:41:919      |   0.958572 | 0.978992 |           0         |
-| CBST    | 08 You Ain't Goin' Nowhere.flac         | 079ddac644de299bc4433f07699ee8f3 |      1 |       8 |      1         | 02:45:851      |   0.766837 | 0.724127 |           1         |
-| FTR     | 20. You Ain't Going Nowhere.flac        | ad035069f5990e1d9a1b4b3ccee70625 |      4 |      20 |      0         | 02:41:733      |   0        | 0        |           0.0553512 |
-
 ## Spectrograms
 
-### HHBST
+### TCB
 
-![STFT Spectrogram](HHBST_spectrogram.png)
+![STFT Spectrogram](TCB_spectrogram.png)
 
-![Mel Spectrogram](HHBST_melspec.png)
+![Mel Spectrogram](TCB_melspec.png)
 
-### TBT
+### CAR
 
-![STFT Spectrogram](TBT_spectrogram.png)
+![STFT Spectrogram](CAR_spectrogram.png)
 
-![Mel Spectrogram](TBT_melspec.png)
+![Mel Spectrogram](CAR_melspec.png)
 
-### CBST
+### MUTM
 
-![STFT Spectrogram](CBST_spectrogram.png)
+![STFT Spectrogram](MUTM_spectrogram.png)
 
-![Mel Spectrogram](CBST_melspec.png)
+![Mel Spectrogram](MUTM_melspec.png)
 
-### FTR
+### ATWR
 
-![STFT Spectrogram](FTR_spectrogram.png)
+![STFT Spectrogram](ATWR_spectrogram.png)
 
-![Mel Spectrogram](FTR_melspec.png)
+![Mel Spectrogram](ATWR_melspec.png)
 

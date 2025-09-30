@@ -3,3 +3,4 @@ converted/
 songs.csv
 *.flac
 rationale
+.~lock.*
