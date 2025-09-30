@@ -21,12 +21,32 @@ LABEL_COLORS = {
     "ALT1": "orange",
     "ALT2": "green",
     "ALT3": "purple",
+    "TGBT": "red",
+}
+
+# --------------------------------------------
+# Version label mapping from filepath
+# (customise as needed)
+# --------------------------------------------
+VERSION_LABEL_MAP = {
+    "The Genuine Basement Tapes": "TGBT",
+    "Home Tape": "HHST",
+    "Alternate Take 1": "ALT1",
+    "Alternate Take 2": "ALT2",
+    "Alternate Take 3": "ALT3",
 }
 
 
 # --------------------------------------------
 # Utilities
 # --------------------------------------------
+def derive_version_label(filepath: str) -> str:
+    for key, val in VERSION_LABEL_MAP.items():
+        if key in filepath:
+            return val
+    return "UNKNOWN"
+
+
 def convert_to_wav(infile, outdir="converted", force=False):
     os.makedirs(outdir, exist_ok=True)
     base = os.path.splitext(os.path.basename(infile))[0]
@@ -240,14 +260,12 @@ def generate_markdown(song_label, song_title, features, outdir):
         fmd.write("---\n\n")
         fmd.write(f"# {song_title}\n\n")
 
-        # Optional Notes.md
         notes_path = os.path.join(outdir, "notes.md")
         if os.path.exists(notes_path):
             with open(notes_path) as nf:
                 fmd.write("## Notes\n\n")
                 fmd.write(nf.read() + "\n\n")
 
-        # Inline CSVs
         df = pd.read_csv(os.path.join(outdir, "features.csv"))
         df_norm = pd.read_csv(os.path.join(outdir, "features_normalised.csv"))
 
@@ -264,7 +282,6 @@ def generate_markdown(song_label, song_title, features, outdir):
         fmd.write("![Radar Plot](radar_plot.png)\n")
         fmd.write("![MFCC Similarity](similarity_matrix.png)\n\n")
 
-        # Spectrograms inline
         fmd.write("## Spectrograms\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
@@ -274,7 +291,6 @@ def generate_markdown(song_label, song_title, features, outdir):
     return md_path
 
 
-# --------------------------------------------
 # Smoke check
 # --------------------------------------------
 def _smoke_check_outputs(outdir, features):
@@ -297,6 +313,7 @@ def _smoke_check_outputs(outdir, features):
             print(f"  - {m}")
 
 
+# --------------------------------------------
 # --------------------------------------------
 # Song analysis
 # --------------------------------------------
@@ -331,7 +348,6 @@ def analyse_song(
     if dry_run or not features:
         return
 
-    # Save CSVs
     df = pd.DataFrame(
         [
             {
@@ -360,17 +376,14 @@ def analyse_song(
             df_norm[col] = 0.0
     df_norm.to_csv(os.path.join(outdir, "features_normalised.csv"), index=False)
 
-    # Plots
     plot_waveforms(features, outdir)
     plot_spectrograms(features, outdir, song_title)
     plot_mel_spectrograms(features, outdir, song_title)
     plot_similarity_matrix(features, outdir)
     plot_radar_chart(features, outdir)
 
-    # Markdown
     generate_markdown(song_label, song_title, features, outdir)
 
-    # JSONL append
     with open("metadata.jsonl", "a") as fjson:
         for f in features:
             entry = {
@@ -391,6 +404,7 @@ def analyse_song(
             fjson.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
     _smoke_check_outputs(outdir, features)
+
     print(
         f"[OK] Analysis completed for '{song_label}' ({song_title}). Results in: {outdir}"
     )
@@ -417,13 +431,14 @@ if __name__ == "__main__":
     with open(input_csv, newline="") as csvfile:
         reader = csv.DictReader(csvfile, delimiter=",", quotechar='"')
         for row in reader:
+            version_label = derive_version_label(row["filepath"])
             songs.setdefault(
                 row["song_label"], {"title": row["song_title"], "versions": []}
             )
             songs[row["song_label"]]["versions"].append(
                 {
                     "file": os.path.expanduser(row["filepath"]),
-                    "label": row["version_label"],
+                    "label": version_label,
                     "disc": row["version_disc"],
                     "track": row["version_track"],
                 }

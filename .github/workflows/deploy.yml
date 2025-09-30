@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-awesome-nav
+          pip install mkdocs mkdocs-material mkdocs-awesome-nav mkdocs-cinder
 
       - name: Build and deploy
         run: mkdocs gh-deploy --force
