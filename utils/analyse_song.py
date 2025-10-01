@@ -556,14 +556,14 @@ def pitch_speed_analysis(features, outdir, song_label, ref_label=None):
                 f"duration_ratio(ref/cmp)={r['duration_ratio_ref_over_cmp']:.4f}\n"
             )
 
-    # Plot offsets
+    # Plot offsets (in cents)
     labels = [r["cmp_label"] for r in rows]
-    shifts = [r["semitone_shift_vs_ref"] for r in rows]
+    shifts_cents = [r["delta_tuning_cents"] for r in rows]
     plt.figure(figsize=(6, 4))
-    plt.bar(labels, shifts, color="purple")
+    plt.bar(labels, shifts_cents, color="orange")
     plt.axhline(0, color="k", linewidth=1)
-    plt.ylabel("Semitone shift vs reference")
-    plt.title(f"Pitch offsets — {song_label} (ref={ref_label_used})")
+    plt.ylabel("Δ Tuning (cents vs reference)")
+    plt.title(f"Pitch offsets (cents) — {song_label} (ref={ref_label_used})")
     plt.tight_layout()
     out_png = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
     plt.savefig(out_png, dpi=150)
@@ -644,7 +644,7 @@ def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
         pitch_summary = os.path.join(outdir, f"{song_label}-pitch_summary.txt")
         pitch_plot = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
         if os.path.exists(pitch_csv):
-            fmd.write("## Pitch & Speed Analysis\n\n")
+            fmd.write("## Pitch & Speed Analysis (cents)\n\n")
             fmd.write(f"Reference version: **{ref_label or features[0]['label']}**\n\n")
 
             df_pitch = pd.read_csv(pitch_csv)
@@ -660,6 +660,11 @@ def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
                     fmd.write("```\n")
                     fmd.write(ps.read())
                     fmd.write("```\n\n")
+                    # Links to CSV and TXT
+                    # fmd.write(f"- [Pitch report CSV]({os.path.basename(pitch_csv)})\n")
+                    # fmd.write(
+                    # f"- [Pitch summary TXT]({os.path.basename(pitch_summary)})\n\n"
+                    # )
 
     return md_path
 

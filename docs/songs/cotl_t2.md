@@ -101,7 +101,7 @@ song_label: cotl_t2
 
 ![Mel Spectrogram (Mono)](../assets/songs/cotl_t2/cotl_t2-MUTM_melspec_Mono.png)
 
-## Pitch & Speed Analysis
+## Pitch & Speed Analysis (cents)
 
 Reference version: **BS11**
 
@@ -123,4 +123,7 @@ CAR: shift=0 st ; Δtuning=-2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio
 ATWR: shift=0 st ; Δtuning=9.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9955
 MUTM: shift=0 st ; Δtuning=43.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0170
 ```
+
+- [Pitch report CSV](../assets/songs/cotl_t2/cotl_t2-pitch_report.csv)
+- [Pitch summary TXT](../assets/songs/cotl_t2/cotl_t2-pitch_summary.txt)
 
