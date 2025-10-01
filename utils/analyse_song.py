@@ -613,6 +613,11 @@ def analyse_song(
     plot_radar_chart(features, outdir, song_label)
     plot_lr_balance_bars(features, outdir, song_label)
 
+    # Free audio data to save memory
+    for f in features:
+        if "signal" in f:
+            del f["signal"]
+
     # Markdown (UPDATED)
     generate_markdown(song_label, song_title, features, outdir)
 
