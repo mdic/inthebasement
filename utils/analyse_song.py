@@ -212,12 +212,13 @@ def plot_similarity_matrix(features, outdir, song_label):
     plt.savefig(os.path.join(outdir, f"{song_label}-similarity_matrix.png"), dpi=150)
     plt.close()
 
+    # --- CSV now prefix with song_label ---
     sim_df = pd.DataFrame(
         sim,
         index=[f["label"] for f in features],
         columns=[f["label"] for f in features],
     )
-    sim_df.to_csv(os.path.join(outdir, "similarity_matrix.csv"))
+    sim_df.to_csv(os.path.join(outdir, f"{song_label}-similarity_matrix.csv"))
 
 
 def plot_radar_chart(features, outdir, song_label):
@@ -273,7 +274,8 @@ def generate_markdown(song_label, song_title, features, outdir):
                 fmd.write("## Notes\n\n")
                 fmd.write(nf.read() + "\n\n")
 
-        df = pd.read_csv(os.path.join(outdir, "features.csv"))
+        # --- read the CSV with song_label prefix ---
+        df = pd.read_csv(os.path.join(outdir, f"{song_label}-features.csv"))
 
         fmd.write("## Details\n\n")
         fmd.write(df.to_markdown(index=False))
@@ -293,6 +295,33 @@ def generate_markdown(song_label, song_title, features, outdir):
             fmd.write(f"![Mel Spectrogram]({song_label}-{f['label']}_melspec.png)\n\n")
 
     return md_path
+
+
+# Smoke check
+# --------------------------------------------
+def _smoke_check_outputs(outdir, features):
+    # derive song_label from the output directory name to avoid changing callers
+    song_label = os.path.basename(outdir)
+
+    expected = [
+        os.path.join(outdir, f"{song_label}-waveforms.png"),
+        os.path.join(outdir, f"{song_label}-radar_plot.png"),
+        os.path.join(outdir, f"{song_label}-similarity_matrix.png"),
+        os.path.join(outdir, f"{song_label}-features.csv"),
+        os.path.join(outdir, f"{song_label}-features_normalised.csv"),
+    ]
+
+    for f in features:
+        expected += [
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec.png"),
+        ]
+
+    missing = [p for p in expected if not os.path.exists(p)]
+    if missing:
+        print("[WARN] Missing outputs:")
+        for m in missing:
+            print(f"  - {m}")
 
 
 # --------------------------------------------
@@ -329,6 +358,7 @@ def analyse_song(
     if dry_run or not features:
         return
 
+    # --- CSVs now prefixed with song_label ---
     df = pd.DataFrame(
         [
             {
@@ -346,7 +376,7 @@ def analyse_song(
             for f in features
         ]
     )
-    df.to_csv(os.path.join(outdir, "features.csv"), index=False)
+    df.to_csv(os.path.join(outdir, f"{song_label}-features.csv"), index=False)
 
     df_norm = df.copy()
     for col in ["duration_sec", "loudness", "rms", "spectral_centroid"]:
@@ -355,7 +385,9 @@ def analyse_song(
             df_norm[col] = (df[col] - col_min) / (col_max - col_min)
         else:
             df_norm[col] = 0.0
-    df_norm.to_csv(os.path.join(outdir, "features_normalised.csv"), index=False)
+    df_norm.to_csv(
+        os.path.join(outdir, f"{song_label}-features_normalised.csv"), index=False
+    )
 
     plot_waveforms(features, outdir, song_label)
     plot_spectrograms(features, outdir, song_title, song_label)
@@ -383,6 +415,9 @@ def analyse_song(
                 "melspec": f"{song_label}-{f['label']}_melspec.png",
             }
             fjson.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+    # call smoke check (signature unchanged; it derives song_label from outdir)
+    _smoke_check_outputs(outdir, features)
 
     print(
         f"[OK] Analysis completed for '{song_label}' ({song_title}). Results in: {outdir}"
