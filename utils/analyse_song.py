@@ -398,26 +398,39 @@ def plot_radar_chart(features, outdir, song_label):
 
 def plot_lr_balance_bars(features, outdir, song_label):
     for f in features:
-        fig, ax = plt.subplots(figsize=(6, 4))
+        fig, ax1 = plt.subplots(figsize=(6, 4))
         x = np.arange(2)  # L, R
 
-        # RMS (blu)
+        # RMS bars (blu) su ax1
         rms_vals = [f["rms_left"], f["rms_right"]]
-        ax.bar(x - 0.2, rms_vals, width=0.4, color="tab:blue", label="RMS")
+        ax1.bar(x - 0.2, rms_vals, width=0.4, color="blue", alpha=0.7, label="RMS")
+        ax1.set_ylabel("RMS (avg)", color="blue")
+        ax1.tick_params(axis="y", labelcolor="blue")
 
-        # Loudness (arancione)
+        # Loudness (LUFS) su ax2 (arancione)
+        ax2 = ax1.twinx()
         lufs_vals = [f["loudness_left"], f["loudness_right"]]
-        ax.bar(
-            x + 0.2, lufs_vals, width=0.4, color="tab:orange", label="Loudness (LUFS)"
+        ax2.bar(
+            x + 0.2,
+            lufs_vals,
+            width=0.4,
+            color="orange",
+            alpha=0.7,
+            label="Loudness (LUFS)",
         )
+        ax2.set_ylabel("Loudness (LUFS)", color="orange")
+        ax2.tick_params(axis="y", labelcolor="orange")
 
-        ax.set_xticks(x)
-        ax.set_xticklabels(["L", "R"])
-        ax.set_ylabel("Value")
-        ax.legend()
+        ax1.set_xticks(x)
+        ax1.set_xticklabels(["L", "R"])
         plt.title(f"Stereo Balance — {song_label} {f['label']}")
-        fig.tight_layout()
 
+        # Legenda combinata
+        h1, l1 = ax1.get_legend_handles_labels()
+        h2, l2 = ax2.get_legend_handles_labels()
+        ax1.legend(h1 + h2, l1 + l2, loc="upper left")
+
+        fig.tight_layout()
         outname = os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
         plt.savefig(outname, dpi=150)
         plt.close(fig)
