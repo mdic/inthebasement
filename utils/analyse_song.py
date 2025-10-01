@@ -436,39 +436,179 @@ def plot_lr_balance_bars(features, outdir, song_label):
         plt.close(fig)
 
 
+# --- PITCH & SPEED ANALYSIS ----------------------------------------------
+
+
+def _compute_tuning_and_chroma(y, sr):
+    """
+    Compute global tuning (in cents) and time-averaged chroma vector (12-dim).
+    Uses CQT chroma, robust to timbre; average across time for global profile.
+    """
+    # Librosa's estimate_tuning returns number of bins (1/12 tone) offset.
+    # Convert to cents (100 cents per semitone).
+    tuning_bins = librosa.estimate_tuning(y=y, sr=sr)  # bins of 1/12 tone
+    tuning_cents = float(tuning_bins * 100.0)
+
+    # Beat-synchronous or plain mean chroma: plain mean is simpler and fast
+    chroma = librosa.feature.chroma_cqt(y=y, sr=sr)
+    chroma_mean = np.mean(chroma, axis=1)  # shape (12,)
+    # Normalize to unit sum to be correlation-friendly
+    if np.sum(chroma_mean) > 0:
+        chroma_mean = chroma_mean / np.maximum(np.linalg.norm(chroma_mean), 1e-9)
+    return tuning_cents, chroma_mean
+
+
+def _best_semitone_shift(chroma_ref, chroma_cmp):
+    """
+    Find the circular chroma shift (in semitones) that maximizes cosine similarity.
+    Returns an integer shift in [-6, +5] with sign convention:
+    Positive shift means 'cmp' is higher than 'ref' by that many semitones.
+    """
+    best_shift = 0
+    best_sim = -1e9
+    for k in range(12):
+        # roll cmp upwards by k semitones
+        rolled = np.roll(chroma_cmp, k)
+        sim = float(np.dot(chroma_ref, rolled))
+        if sim > best_sim:
+            best_sim = sim
+            best_shift = k
+    # map 0..11 to signed neighborhood (-6..+5) for readability
+    if best_shift > 6:
+        best_shift = best_shift - 12
+    return int(best_shift), float(best_sim)
+
+
+def attach_pitch_features(features):
+    """
+    For each features dict (already containing mono 'signal' and 'sr'),
+    attach: 'tuning_cents' and 'chroma_mean'.
+    """
+    for f in features:
+        tc, ch = _compute_tuning_and_chroma(f["signal"], f["sr"])
+        f["tuning_cents"] = tc
+        f["chroma_mean"] = ch
+
+
+def pitch_speed_analysis(features, outdir, song_label, ref_label=None):
+    """
+    Build CSV, summary, and plot comparing pitch/tempo between versions.
+    If ref_label is None, uses the first version as reference.
+    """
+    if not features:
+        return
+
+    # Ensure pitch descriptors are attached
+    need = any(("tuning_cents" not in f or "chroma_mean" not in f) for f in features)
+    if need:
+        attach_pitch_features(features)
+
+    # Scegli la versione di riferimento
+    ref = None
+    if ref_label is not None:
+        for f in features:
+            if f["label"] == ref_label:
+                ref = f
+                break
+    if ref is None:
+        ref = features[0]  # fallback
+
+    ref_label_used = ref["label"]
+    ref_chroma = ref["chroma_mean"]
+    ref_dur = float(ref["duration_sec"])
+    ref_tuning = float(ref["tuning_cents"])
+
+    rows = []
+    for f in features:
+        shift_semitones, sim = _best_semitone_shift(ref_chroma, f["chroma_mean"])
+        speed_from_pitch = float(2.0 ** (shift_semitones / 12.0))
+        dur_ratio = ref_dur / max(float(f["duration_sec"]), 1e-9)
+
+        rows.append(
+            {
+                "song_label": song_label,
+                "ref_label": ref_label_used,
+                "cmp_label": f["label"],
+                "tuning_cents_cmp": float(f["tuning_cents"]),
+                "tuning_cents_ref": ref_tuning,
+                "delta_tuning_cents": float(f["tuning_cents"] - ref_tuning),
+                "semitone_shift_vs_ref": int(shift_semitones),
+                "chroma_similarity": sim,
+                "speed_factor_from_pitch": speed_from_pitch,
+                "duration_ratio_ref_over_cmp": dur_ratio,
+            }
+        )
+
+    # Salva CSV
+    pitch_csv = os.path.join(outdir, f"{song_label}-pitch_report.csv")
+    pd.DataFrame(rows).to_csv(pitch_csv, index=False)
+
+    # Salva Summary
+    summary_path = os.path.join(outdir, f"{song_label}-pitch_summary.txt")
+    with open(summary_path, "w") as fh:
+        fh.write(f"Pitch/Speed analysis (reference = {ref_label_used})\n")
+        fh.write("=" * 60 + "\n\n")
+        for r in rows:
+            fh.write(
+                f"{r['cmp_label']}: shift={r['semitone_shift_vs_ref']} st ; "
+                f"Δtuning={r['delta_tuning_cents']:.1f} cents ; "
+                f"speed_from_pitch={r['speed_factor_from_pitch']:.4f} ; "
+                f"duration_ratio(ref/cmp)={r['duration_ratio_ref_over_cmp']:.4f}\n"
+            )
+
+    # Plot offsets
+    labels = [r["cmp_label"] for r in rows]
+    shifts = [r["semitone_shift_vs_ref"] for r in rows]
+    plt.figure(figsize=(6, 4))
+    plt.bar(labels, shifts, color="purple")
+    plt.axhline(0, color="k", linewidth=1)
+    plt.ylabel("Semitone shift vs reference")
+    plt.title(f"Pitch offsets — {song_label} (ref={ref_label_used})")
+    plt.tight_layout()
+    out_png = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
+    plt.savefig(out_png, dpi=150)
+    plt.close()
+
+    return pitch_csv, summary_path, out_png
+
+
 # --------------------------------------------
 # Markdown generation  (UPDATED: Stereo Balance section)
 # --------------------------------------------
-def generate_markdown(song_label, song_title, features, outdir):
+
+
+def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
     md_path = os.path.join(outdir, f"{song_label}.md")
     with open(md_path, "w") as fmd:
+        # Front matter per MkDocs Material
         fmd.write("---\n")
         fmd.write(f'title: "{song_title}"\n')
         fmd.write(f"song_label: {song_label}\n")
         fmd.write("---\n\n")
         fmd.write(f"# {song_title}\n\n")
 
+        # Notes (se presenti in results/<song_label>/notes.md)
         notes_path = os.path.join(outdir, "notes.md")
         if os.path.exists(notes_path):
             with open(notes_path) as nf:
                 fmd.write("## Notes\n\n")
                 fmd.write(nf.read() + "\n\n")
 
-        # Details table
+        # Tabella dettagli principali
         df = pd.read_csv(os.path.join(outdir, f"{song_label}-features.csv"))
         fmd.write("## Details\n\n")
         fmd.write(df.to_markdown(index=False))
         fmd.write("\n\n")
 
-        # Plots (comparative waveforms & matrices)
+        # Plots principali
         fmd.write("## Plots\n")
         fmd.write(f"![Waveforms (Mono)]({song_label}-waveforms_Mono.png)\n\n")
         fmd.write(f"![Waveforms (Left)]({song_label}-waveforms_L.png)\n\n")
         fmd.write(f"![Waveforms (Right)]({song_label}-waveforms_R.png)\n\n")
         fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n\n")
-        fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.png)\n\n")
+        fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.csv)\n\n")
 
-        # Stereo Balance section: L/R images per version + bar charts
+        # Stereo Balance
         fmd.write("## Stereo Balance\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
@@ -488,7 +628,7 @@ def generate_markdown(song_label, song_title, features, outdir):
                 f"![Stereo Balance Bars]({song_label}-{f['label']}_balance.png)\n\n"
             )
 
-        # Spectrograms (Mono) per version
+        # Spectrograms (Mono)
         fmd.write("## Spectrograms (Mono)\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
@@ -498,6 +638,28 @@ def generate_markdown(song_label, song_title, features, outdir):
             fmd.write(
                 f"![Mel Spectrogram (Mono)]({song_label}-{f['label']}_melspec_Mono.png)\n\n"
             )
+
+        # Pitch & Speed Analysis
+        pitch_csv = os.path.join(outdir, f"{song_label}-pitch_report.csv")
+        pitch_summary = os.path.join(outdir, f"{song_label}-pitch_summary.txt")
+        pitch_plot = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
+        if os.path.exists(pitch_csv):
+            fmd.write("## Pitch & Speed Analysis\n\n")
+            fmd.write(f"Reference version: **{ref_label or features[0]['label']}**\n\n")
+
+            df_pitch = pd.read_csv(pitch_csv)
+            fmd.write(df_pitch.to_markdown(index=False))
+            fmd.write("\n\n")
+
+            if os.path.exists(pitch_plot):
+                pitch_img = os.path.basename(pitch_plot)
+                fmd.write(f"![Pitch Offsets]({pitch_img})\n\n")
+
+            if os.path.exists(pitch_summary):
+                with open(pitch_summary, "r") as ps:
+                    fmd.write("```\n")
+                    fmd.write(ps.read())
+                    fmd.write("```\n\n")
 
     return md_path
 
@@ -626,6 +788,10 @@ def analyse_song(
     plot_radar_chart(features, outdir, song_label)
     plot_lr_balance_bars(features, outdir, song_label)
 
+    pitch_csv, pitch_summary, pitch_plot = pitch_speed_analysis(
+        features, outdir, song_label, ref_label=args.ref_label
+    )
+
     # Free audio data to save memory
     for f in features:
         if "signal" in f:
@@ -676,6 +842,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--song", type=str, help="Process only the given song_label", default=None
     )
+    parser.add_argument(
+        "--ref-label",
+        type=str,
+        default=None,
+        help="Version label da usare come riferimento per l'analisi del pitch/speed (default: la prima versione)",
+    )
+
     args = parser.parse_args()
 
     EXISTING_MD5S = load_existing_md5s()
