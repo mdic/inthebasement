@@ -397,25 +397,27 @@ def plot_radar_chart(features, outdir, song_label):
 
 
 def plot_lr_balance_bars(features, outdir, song_label):
-    # Create per-version bar charts for RMS and Loudness (L/R)
     for f in features:
-        fig, ax1 = plt.subplots(figsize=(6, 4))
+        fig, ax = plt.subplots(figsize=(6, 4))
         x = np.arange(2)  # L, R
-        # RMS bars
+
+        # RMS (blu)
         rms_vals = [f["rms_left"], f["rms_right"]]
-        ax1.bar(x - 0.15, rms_vals, width=0.3, label="RMS")
-        ax1.set_xticks(x)
-        ax1.set_xticklabels(["L", "R"])
-        ax1.set_ylabel("RMS (avg)")
+        ax.bar(x - 0.2, rms_vals, width=0.4, color="tab:blue", label="RMS")
 
-        # Twin axis for Loudness (LUFS)
-        ax2 = ax1.twinx()
+        # Loudness (arancione)
         lufs_vals = [f["loudness_left"], f["loudness_right"]]
-        ax2.bar(x + 0.15, lufs_vals, width=0.3, label="Loudness (LUFS)")
-        ax2.set_ylabel("Loudness (LUFS)")
+        ax.bar(
+            x + 0.2, lufs_vals, width=0.4, color="tab:orange", label="Loudness (LUFS)"
+        )
 
+        ax.set_xticks(x)
+        ax.set_xticklabels(["L", "R"])
+        ax.set_ylabel("Value")
+        ax.legend()
         plt.title(f"Stereo Balance — {song_label} {f['label']}")
         fig.tight_layout()
+
         outname = os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
         plt.savefig(outname, dpi=150)
         plt.close(fig)

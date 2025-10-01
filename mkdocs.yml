@@ -12,7 +12,7 @@ theme:
     - content.code.copy
     - toc.follow
   palette:
-    scheme: default
+    scheme: preferences
     primary: green
     accent: red
 
