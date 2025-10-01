@@ -361,15 +361,22 @@ def plot_similarity_matrix(features, outdir, song_label):
 
 
 def plot_radar_chart(features, outdir, song_label):
-    # Keep MONO-derived metrics for radar (as before)
+    # Metrics da visualizzare
     metrics = ["duration_sec", "loudness", "rms", "spectral_centroid"]
     num_vars = len(metrics)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False)
     angles = np.concatenate([angles, angles[:1]])
 
     eps = 1e-9
-    mins = {m: min(float(f[m]) for f in features) for m in metrics}
-    maxs = {m: max(float(f[m]) for f in features) for m in metrics}
+
+    # Calcola 5° e 95° percentile per ogni metrica
+    percentiles = {
+        m: (
+            np.percentile([float(f[m]) for f in features], 5),
+            np.percentile([float(f[m]) for f in features], 95),
+        )
+        for m in metrics
+    }
 
     plt.figure(figsize=(6, 6))
     ax = plt.subplot(111, polar=True)
@@ -377,20 +384,28 @@ def plot_radar_chart(features, outdir, song_label):
     for f in features:
         vals = []
         for m in metrics:
-            rng = maxs[m] - mins[m]
-            v = (float(f[m]) - mins[m]) / (rng + eps)
-            vals.append(v)
+            pmin, pmax = percentiles[m]
+            v = float(f[m])
+            # Trimming → clamp valori fuori dal range
+            if v < pmin:
+                v = pmin
+            if v > pmax:
+                v = pmax
+            # Normalizzazione su [0,1]
+            norm = (v - pmin) / (pmax - pmin + eps)
+            vals.append(norm)
+
         vals = np.array(vals)
         vals = np.concatenate([vals, vals[:1]])
 
         color = LABEL_COLORS.get(f["label"], None)
-        ax.plot(angles, vals, label=f["label"], color=color)
-        ax.fill(angles, vals, alpha=0.1, color=color)
+        ax.plot(angles, vals, label=f["label"], color=color, linewidth=2)
+        ax.fill(angles, vals, alpha=0.15, color=color)
 
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(metrics)
     plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1))
-    plt.title("Radar Plot of Main Features")
+    plt.title("Radar Plot of Main Features (5–95 percentile scaling)")
     plt.tight_layout()
     plt.savefig(os.path.join(outdir, f"{song_label}-radar_plot.png"), dpi=150)
     plt.close()
@@ -606,7 +621,7 @@ def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
         fmd.write(f"![Waveforms (Left)]({song_label}-waveforms_L.png)\n\n")
         fmd.write(f"![Waveforms (Right)]({song_label}-waveforms_R.png)\n\n")
         fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n\n")
-        fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.csv)\n\n")
+        fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.png)\n\n")
 
         # Stereo Balance
         fmd.write("## Stereo Balance\n\n")
