@@ -143,7 +143,7 @@ def extract_features(wavfile, label, orig_file, version_disc, version_track, md5
 # --------------------------------------------
 # Plotting
 # --------------------------------------------
-def plot_waveforms(features, outdir):
+def plot_waveforms(features, outdir, song_label):
     plt.figure(figsize=(10, 6))
     for f in features:
         color = LABEL_COLORS.get(f["label"], None)
@@ -157,11 +157,11 @@ def plot_waveforms(features, outdir):
     plt.legend()
     plt.title("Comparative Waveforms")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, "waveforms.png"), dpi=150)
+    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms.png"), dpi=150)
     plt.close()
 
 
-def plot_spectrograms(features, outdir, song_title):
+def plot_spectrograms(features, outdir, song_title, song_label):
     for f in features:
         D = np.abs(librosa.stft(f["signal"]))
         plt.figure(figsize=(8, 5))
@@ -175,12 +175,12 @@ def plot_spectrograms(features, outdir, song_title):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"STFT Spectrogram - {f['label']} {song_title}")
         plt.tight_layout()
-        fname = f"{f['label']}_spectrogram.png"
+        fname = f"{song_label}-{f['label']}_spectrogram.png"
         plt.savefig(os.path.join(outdir, fname), dpi=150)
         plt.close()
 
 
-def plot_mel_spectrograms(features, outdir, song_title):
+def plot_mel_spectrograms(features, outdir, song_title, song_label):
     for f in features:
         S = librosa.feature.melspectrogram(y=f["signal"], sr=f["sr"], n_mels=128)
         S_dB = librosa.power_to_db(S, ref=np.max)
@@ -191,12 +191,12 @@ def plot_mel_spectrograms(features, outdir, song_title):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"Mel Spectrogram - {f['label']} {song_title}")
         plt.tight_layout()
-        fname = f"{f['label']}_melspec.png"
+        fname = f"{song_label}-{f['label']}_melspec.png"
         plt.savefig(os.path.join(outdir, fname), dpi=150)
         plt.close()
 
 
-def plot_similarity_matrix(features, outdir):
+def plot_similarity_matrix(features, outdir, song_label):
     mfcc_matrix = np.array([f["mfcc"] for f in features])
     sim = cosine_similarity(mfcc_matrix)
 
@@ -209,7 +209,7 @@ def plot_similarity_matrix(features, outdir):
     plt.yticks(range(len(features)), [f["label"] for f in features])
     plt.title("MFCC Similarity Matrix")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, "similarity_matrix.png"), dpi=150)
+    plt.savefig(os.path.join(outdir, f"{song_label}-similarity_matrix.png"), dpi=150)
     plt.close()
 
     sim_df = pd.DataFrame(
@@ -220,7 +220,7 @@ def plot_similarity_matrix(features, outdir):
     sim_df.to_csv(os.path.join(outdir, "similarity_matrix.csv"))
 
 
-def plot_radar_chart(features, outdir):
+def plot_radar_chart(features, outdir, song_label):
     metrics = ["duration_sec", "loudness", "rms", "spectral_centroid"]
     num_vars = len(metrics)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False)
@@ -251,7 +251,7 @@ def plot_radar_chart(features, outdir):
     plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1))
     plt.title("Radar Plot of Main Features")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, "radar_plot.png"), dpi=150)
+    plt.savefig(os.path.join(outdir, f"{song_label}-radar_plot.png"), dpi=150)
     plt.close()
 
 
@@ -274,54 +274,27 @@ def generate_markdown(song_label, song_title, features, outdir):
                 fmd.write(nf.read() + "\n\n")
 
         df = pd.read_csv(os.path.join(outdir, "features.csv"))
-        df_norm = pd.read_csv(os.path.join(outdir, "features_normalised.csv"))
 
         fmd.write("## Details\n\n")
         fmd.write(df.to_markdown(index=False))
         fmd.write("\n\n")
 
-        # Section with normalised details - useless as of now
-        # fmd.write("## Details (normalised)\n\n")
-        # fmd.write(df_norm.to_markdown(index=False))
-        # fmd.write("\n\n")
-
         fmd.write("## Plots\n")
-        fmd.write("![Waveforms](waveforms.png)\n")
-        fmd.write("![Radar Plot](radar_plot.png)\n")
-        fmd.write("![MFCC Similarity](similarity_matrix.png)\n\n")
+        fmd.write(f"![Waveforms]({song_label}-waveforms.png)\n")
+        fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n")
+        fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.png)\n\n")
 
         fmd.write("## Spectrograms\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
-            fmd.write(f"![STFT Spectrogram]({f['label']}_spectrogram.png)\n\n")
-            fmd.write(f"![Mel Spectrogram]({f['label']}_melspec.png)\n\n")
+            fmd.write(
+                f"![STFT Spectrogram]({song_label}-{f['label']}_spectrogram.png)\n\n"
+            )
+            fmd.write(f"![Mel Spectrogram]({song_label}-{f['label']}_melspec.png)\n\n")
 
     return md_path
 
 
-# Smoke check
-# --------------------------------------------
-def _smoke_check_outputs(outdir, features):
-    expected = [
-        os.path.join(outdir, "waveforms.png"),
-        os.path.join(outdir, "radar_plot.png"),
-        os.path.join(outdir, "similarity_matrix.png"),
-        os.path.join(outdir, "features.csv"),
-        os.path.join(outdir, "features_normalised.csv"),
-    ]
-    for f in features:
-        expected += [
-            os.path.join(outdir, f"{f['label']}_spectrogram.png"),
-            os.path.join(outdir, f"{f['label']}_melspec.png"),
-        ]
-    missing = [p for p in expected if not os.path.exists(p)]
-    if missing:
-        print("[WARN] Missing outputs:")
-        for m in missing:
-            print(f"  - {m}")
-
-
-# --------------------------------------------
 # --------------------------------------------
 # Song analysis
 # --------------------------------------------
@@ -384,11 +357,11 @@ def analyse_song(
             df_norm[col] = 0.0
     df_norm.to_csv(os.path.join(outdir, "features_normalised.csv"), index=False)
 
-    plot_waveforms(features, outdir)
-    plot_spectrograms(features, outdir, song_title)
-    plot_mel_spectrograms(features, outdir, song_title)
-    plot_similarity_matrix(features, outdir)
-    plot_radar_chart(features, outdir)
+    plot_waveforms(features, outdir, song_label)
+    plot_spectrograms(features, outdir, song_title, song_label)
+    plot_mel_spectrograms(features, outdir, song_title, song_label)
+    plot_similarity_matrix(features, outdir, song_label)
+    plot_radar_chart(features, outdir, song_label)
 
     generate_markdown(song_label, song_title, features, outdir)
 
@@ -406,12 +379,10 @@ def analyse_song(
                 "rms": f["rms"],
                 "spectral_centroid": f"{f['spectral_centroid']:.2f} Hz",
                 "md5": f["md5"],
-                "spectrogram": f"{f['label']}_spectrogram.png",
-                "melspec": f"{f['label']}_melspec.png",
+                "spectrogram": f"{song_label}-{f['label']}_spectrogram.png",
+                "melspec": f"{song_label}-{f['label']}_melspec.png",
             }
             fjson.write(json.dumps(entry, ensure_ascii=False) + "\n")
-
-    _smoke_check_outputs(outdir, features)
 
     print(
         f"[OK] Analysis completed for '{song_label}' ({song_title}). Results in: {outdir}"
@@ -428,6 +399,9 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--keep", action="store_true", help="Keep intermediate wav files"
+    )
+    parser.add_argument(
+        "--song", type=str, help="Process only the given song_label", default=None
     )
     args = parser.parse_args()
 
@@ -453,6 +427,8 @@ if __name__ == "__main__":
             )
 
     for song_label, data in songs.items():
+        if args.song and song_label != args.song:
+            continue
         analyse_song(
             song_label,
             data["title"],
