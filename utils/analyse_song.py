@@ -109,18 +109,48 @@ def load_existing_md5s(jsonl_path="metadata.jsonl"):
 
 
 # --------------------------------------------
-# Feature extraction
+# Feature extraction  (UPDATED: stereo-aware)
 # --------------------------------------------
 def extract_features(wavfile, label, orig_file, version_disc, version_track, md5):
-    y, sr = librosa.load(wavfile, sr=44100, mono=True)
+    # Load stereo (do NOT collapse to mono)
+    y, sr = librosa.load(wavfile, sr=44100, mono=False)
 
-    duration = librosa.get_duration(y=y, sr=sr)
+    # Ensure two channels (duplicate mono to pseudo-stereo)
+    if y.ndim == 1:
+        y = np.vstack([y, y])
+
+    left, right = y[0], y[1]
+    mono = (left + right) / 2
+
+    duration = librosa.get_duration(y=mono, sr=sr)
+
+    # Loudness per channel + mono
     meter = pyln.Meter(sr)
-    loudness = meter.integrated_loudness(y)
-    rms = float(np.mean(librosa.feature.rms(y=y)))
-    spectral_centroid = float(np.mean(librosa.feature.spectral_centroid(y=y, sr=sr)))
-    mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+    loudness_left = meter.integrated_loudness(left)
+    loudness_right = meter.integrated_loudness(right)
+    loudness = meter.integrated_loudness(mono)
+
+    # RMS per channel + mono
+    rms_left = float(np.mean(librosa.feature.rms(y=left)))
+    rms_right = float(np.mean(librosa.feature.rms(y=right)))
+    rms = float(np.mean(librosa.feature.rms(y=mono)))
+
+    # Optional correlation (Pearson) between L and R
+    if len(left) == len(right) and len(left) > 1:
+        lr_corr = float(np.corrcoef(left, right)[0, 1])
+    else:
+        lr_corr = np.nan
+
+    # Spectral centroid on MONO (coerenza storica con i confronti)
+    spectral_centroid = float(np.mean(librosa.feature.spectral_centroid(y=mono, sr=sr)))
+
+    # MFCC on MONO (per similarità)
+    mfcc = librosa.feature.mfcc(y=mono, sr=sr, n_mfcc=13)
     mfcc_mean = np.mean(mfcc, axis=1)
+
+    # Balance metrics (diff L-R)
+    rms_balance = rms_left - rms_right
+    loudness_balance = loudness_left - loudness_right
 
     return {
         "label": label,
@@ -131,72 +161,181 @@ def extract_features(wavfile, label, orig_file, version_disc, version_track, md5
         "duration_sec": duration,
         "duration_fmt": format_duration(duration),
         "loudness": loudness,
+        "loudness_left": loudness_left,
+        "loudness_right": loudness_right,
+        "loudness_balance": loudness_balance,
         "rms": rms,
+        "rms_left": rms_left,
+        "rms_right": rms_right,
+        "rms_balance": rms_balance,
+        "lr_corr": lr_corr,
         "spectral_centroid": spectral_centroid,
         "mfcc": mfcc_mean,
-        "signal": y,
+        # store signals for plotting
+        "signal": mono,
+        "signal_left": left,
+        "signal_right": right,
         "sr": sr,
         "md5": md5,
     }
 
 
 # --------------------------------------------
-# Plotting
+# Plotting  (UPDATED: L/R/Mono variants)
 # --------------------------------------------
 def plot_waveforms(features, outdir, song_label):
+    # Generate three comparative waveform plots: Mono, Left, Right
+    # MONO
     plt.figure(figsize=(10, 6))
     for f in features:
         color = LABEL_COLORS.get(f["label"], None)
-        plt.plot(
-            np.linspace(0, f["duration_sec"], num=len(f["signal"])),
-            f["signal"],
-            alpha=0.6,
-            label=f["label"],
-            color=color,
-        )
+        t = np.linspace(0, f["duration_sec"], num=len(f["signal"]))
+        plt.plot(t, f["signal"], alpha=0.6, label=f["label"], color=color)
     plt.legend()
-    plt.title("Comparative Waveforms")
+    plt.title("Comparative Waveforms (Mono)")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms.png"), dpi=150)
+    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms_Mono.png"), dpi=150)
+    plt.close()
+
+    # LEFT
+    plt.figure(figsize=(10, 6))
+    for f in features:
+        color = LABEL_COLORS.get(f["label"], None)
+        sig = f["signal_left"]
+        t = np.linspace(0, f["duration_sec"], num=len(sig))
+        plt.plot(t, sig, alpha=0.6, label=f["label"], color=color)
+    plt.legend()
+    plt.title("Comparative Waveforms (Left)")
+    plt.tight_layout()
+    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms_L.png"), dpi=150)
+    plt.close()
+
+    # RIGHT
+    plt.figure(figsize=(10, 6))
+    for f in features:
+        color = LABEL_COLORS.get(f["label"], None)
+        sig = f["signal_right"]
+        t = np.linspace(0, f["duration_sec"], num=len(sig))
+        plt.plot(t, sig, alpha=0.6, label=f["label"], color=color)
+    plt.legend()
+    plt.title("Comparative Waveforms (Right)")
+    plt.tight_layout()
+    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms_R.png"), dpi=150)
     plt.close()
 
 
 def plot_spectrograms(features, outdir, song_title, song_label):
+    # For each version: STFT spectrograms for Mono, Left, Right
     for f in features:
-        D = np.abs(librosa.stft(f["signal"]))
+        # MONO
+        Dm = np.abs(librosa.stft(f["signal"]))
         plt.figure(figsize=(8, 5))
         librosa.display.specshow(
-            librosa.amplitude_to_db(D, ref=np.max),
+            librosa.amplitude_to_db(Dm, ref=np.max),
             sr=f["sr"],
             x_axis="time",
             y_axis="log",
             cmap="magma",
         )
         plt.colorbar(format="%+2.0f dB")
-        plt.title(f"STFT Spectrogram - {f['label']} {song_title}")
+        plt.title(f"STFT Spectrogram (Mono) - {f['label']} {song_title}")
         plt.tight_layout()
-        fname = f"{song_label}-{f['label']}_spectrogram.png"
-        plt.savefig(os.path.join(outdir, fname), dpi=150)
+        plt.savefig(
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png"),
+            dpi=150,
+        )
+        plt.close()
+
+        # LEFT
+        Dl = np.abs(librosa.stft(f["signal_left"]))
+        plt.figure(figsize=(8, 5))
+        librosa.display.specshow(
+            librosa.amplitude_to_db(Dl, ref=np.max),
+            sr=f["sr"],
+            x_axis="time",
+            y_axis="log",
+            cmap="magma",
+        )
+        plt.colorbar(format="%+2.0f dB")
+        plt.title(f"STFT Spectrogram (Left) - {f['label']} {song_title}")
+        plt.tight_layout()
+        plt.savefig(
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png"),
+            dpi=150,
+        )
+        plt.close()
+
+        # RIGHT
+        Dr = np.abs(librosa.stft(f["signal_right"]))
+        plt.figure(figsize=(8, 5))
+        librosa.display.specshow(
+            librosa.amplitude_to_db(Dr, ref=np.max),
+            sr=f["sr"],
+            x_axis="time",
+            y_axis="log",
+            cmap="magma",
+        )
+        plt.colorbar(format="%+2.0f dB")
+        plt.title(f"STFT Spectrogram (Right) - {f['label']} {song_title}")
+        plt.tight_layout()
+        plt.savefig(
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png"),
+            dpi=150,
+        )
         plt.close()
 
 
 def plot_mel_spectrograms(features, outdir, song_title, song_label):
+    # For each version: Mel spectrograms for Mono, Left, Right
     for f in features:
-        S = librosa.feature.melspectrogram(y=f["signal"], sr=f["sr"], n_mels=128)
-        S_dB = librosa.power_to_db(S, ref=np.max)
+        # MONO
+        Sm = librosa.feature.melspectrogram(y=f["signal"], sr=f["sr"], n_mels=128)
+        Sm_dB = librosa.power_to_db(Sm, ref=np.max)
         plt.figure(figsize=(8, 5))
         librosa.display.specshow(
-            S_dB, sr=f["sr"], x_axis="time", y_axis="mel", cmap="inferno"
+            Sm_dB, sr=f["sr"], x_axis="time", y_axis="mel", cmap="inferno"
         )
         plt.colorbar(format="%+2.0f dB")
-        plt.title(f"Mel Spectrogram - {f['label']} {song_title}")
+        plt.title(f"Mel Spectrogram (Mono) - {f['label']} {song_title}")
         plt.tight_layout()
-        fname = f"{song_label}-{f['label']}_melspec.png"
-        plt.savefig(os.path.join(outdir, fname), dpi=150)
+        plt.savefig(
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png"), dpi=150
+        )
+        plt.close()
+
+        # LEFT
+        Sl = librosa.feature.melspectrogram(y=f["signal_left"], sr=f["sr"], n_mels=128)
+        Sl_dB = librosa.power_to_db(Sl, ref=np.max)
+        plt.figure(figsize=(8, 5))
+        librosa.display.specshow(
+            Sl_dB, sr=f["sr"], x_axis="time", y_axis="mel", cmap="inferno"
+        )
+        plt.colorbar(format="%+2.0f dB")
+        plt.title(f"Mel Spectrogram (Left) - {f['label']} {song_title}")
+        plt.tight_layout()
+        plt.savefig(
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png"), dpi=150
+        )
+        plt.close()
+
+        # RIGHT
+        Sr = librosa.feature.melspectrogram(y=f["signal_right"], sr=f["sr"], n_mels=128)
+        Sr_dB = librosa.power_to_db(Sr, ref=np.max)
+        plt.figure(figsize=(8, 5))
+        librosa.display.specshow(
+            Sr_dB, sr=f["sr"], x_axis="time", y_axis="mel", cmap="inferno"
+        )
+        plt.colorbar(format="%+2.0f dB")
+        plt.title(f"Mel Spectrogram (Right) - {f['label']} {song_title}")
+        plt.tight_layout()
+        plt.savefig(
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png"), dpi=150
+        )
         plt.close()
 
 
 def plot_similarity_matrix(features, outdir, song_label):
+    # Same as before: use MFCC (mono) for similarity
     mfcc_matrix = np.array([f["mfcc"] for f in features])
     sim = cosine_similarity(mfcc_matrix)
 
@@ -212,7 +351,7 @@ def plot_similarity_matrix(features, outdir, song_label):
     plt.savefig(os.path.join(outdir, f"{song_label}-similarity_matrix.png"), dpi=150)
     plt.close()
 
-    # --- CSV now prefix with song_label ---
+    # Save also CSV (unchanged prefix rule)
     sim_df = pd.DataFrame(
         sim,
         index=[f["label"] for f in features],
@@ -222,6 +361,7 @@ def plot_similarity_matrix(features, outdir, song_label):
 
 
 def plot_radar_chart(features, outdir, song_label):
+    # Keep MONO-derived metrics for radar (as before)
     metrics = ["duration_sec", "loudness", "rms", "spectral_centroid"]
     num_vars = len(metrics)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False)
@@ -256,8 +396,33 @@ def plot_radar_chart(features, outdir, song_label):
     plt.close()
 
 
+def plot_lr_balance_bars(features, outdir, song_label):
+    # Create per-version bar charts for RMS and Loudness (L/R)
+    for f in features:
+        fig, ax1 = plt.subplots(figsize=(6, 4))
+        x = np.arange(2)  # L, R
+        # RMS bars
+        rms_vals = [f["rms_left"], f["rms_right"]]
+        ax1.bar(x - 0.15, rms_vals, width=0.3, label="RMS")
+        ax1.set_xticks(x)
+        ax1.set_xticklabels(["L", "R"])
+        ax1.set_ylabel("RMS (avg)")
+
+        # Twin axis for Loudness (LUFS)
+        ax2 = ax1.twinx()
+        lufs_vals = [f["loudness_left"], f["loudness_right"]]
+        ax2.bar(x + 0.15, lufs_vals, width=0.3, label="Loudness (LUFS)")
+        ax2.set_ylabel("Loudness (LUFS)")
+
+        plt.title(f"Stereo Balance — {song_label} {f['label']}")
+        fig.tight_layout()
+        outname = os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
+        plt.savefig(outname, dpi=150)
+        plt.close(fig)
+
+
 # --------------------------------------------
-# Markdown generation
+# Markdown generation  (UPDATED: Stereo Balance section)
 # --------------------------------------------
 def generate_markdown(song_label, song_title, features, outdir):
     md_path = os.path.join(outdir, f"{song_label}.md")
@@ -274,37 +439,64 @@ def generate_markdown(song_label, song_title, features, outdir):
                 fmd.write("## Notes\n\n")
                 fmd.write(nf.read() + "\n\n")
 
-        # --- read the CSV with song_label prefix ---
+        # Details table
         df = pd.read_csv(os.path.join(outdir, f"{song_label}-features.csv"))
-
         fmd.write("## Details\n\n")
         fmd.write(df.to_markdown(index=False))
         fmd.write("\n\n")
 
+        # Plots (comparative waveforms & matrices)
         fmd.write("## Plots\n")
-        fmd.write(f"![Waveforms]({song_label}-waveforms.png)\n")
-        fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n")
+        fmd.write(f"![Waveforms (Mono)]({song_label}-waveforms_Mono.png)\n\n")
+        fmd.write(f"![Waveforms (Left)]({song_label}-waveforms_L.png)\n\n")
+        fmd.write(f"![Waveforms (Right)]({song_label}-waveforms_R.png)\n\n")
+        fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n\n")
         fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.png)\n\n")
 
-        fmd.write("## Spectrograms\n\n")
+        # Stereo Balance section: L/R images per version + bar charts
+        fmd.write("## Stereo Balance\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
             fmd.write(
-                f"![STFT Spectrogram]({song_label}-{f['label']}_spectrogram.png)\n\n"
+                f"![STFT Spectrogram (Left)]({song_label}-{f['label']}_spectrogram_L.png)\n\n"
             )
-            fmd.write(f"![Mel Spectrogram]({song_label}-{f['label']}_melspec.png)\n\n")
+            fmd.write(
+                f"![STFT Spectrogram (Right)]({song_label}-{f['label']}_spectrogram_R.png)\n\n"
+            )
+            fmd.write(
+                f"![Mel Spectrogram (Left)]({song_label}-{f['label']}_melspec_L.png)\n\n"
+            )
+            fmd.write(
+                f"![Mel Spectrogram (Right)]({song_label}-{f['label']}_melspec_R.png)\n\n"
+            )
+            fmd.write(
+                f"![Stereo Balance Bars]({song_label}-{f['label']}_balance.png)\n\n"
+            )
+
+        # Spectrograms (Mono) per version
+        fmd.write("## Spectrograms (Mono)\n\n")
+        for f in features:
+            fmd.write(f"### {f['label']}\n\n")
+            fmd.write(
+                f"![STFT Spectrogram (Mono)]({song_label}-{f['label']}_spectrogram_Mono.png)\n\n"
+            )
+            fmd.write(
+                f"![Mel Spectrogram (Mono)]({song_label}-{f['label']}_melspec_Mono.png)\n\n"
+            )
 
     return md_path
 
 
-# Smoke check
+# --------------------------------------------
+# Smoke check  (UPDATED for new outputs)
 # --------------------------------------------
 def _smoke_check_outputs(outdir, features):
-    # derive song_label from the output directory name to avoid changing callers
     song_label = os.path.basename(outdir)
 
     expected = [
-        os.path.join(outdir, f"{song_label}-waveforms.png"),
+        os.path.join(outdir, f"{song_label}-waveforms_Mono.png"),
+        os.path.join(outdir, f"{song_label}-waveforms_L.png"),
+        os.path.join(outdir, f"{song_label}-waveforms_R.png"),
         os.path.join(outdir, f"{song_label}-radar_plot.png"),
         os.path.join(outdir, f"{song_label}-similarity_matrix.png"),
         os.path.join(outdir, f"{song_label}-features.csv"),
@@ -313,8 +505,13 @@ def _smoke_check_outputs(outdir, features):
 
     for f in features:
         expected += [
-            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram.png"),
-            os.path.join(outdir, f"{song_label}-{f['label']}_melspec.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png"),
+            os.path.join(outdir, f"{song_label}-{f['label']}_balance.png"),
         ]
 
     missing = [p for p in expected if not os.path.exists(p)]
@@ -358,7 +555,7 @@ def analyse_song(
     if dry_run or not features:
         return
 
-    # --- CSVs now prefixed with song_label ---
+    # --- CSV (UPDATED: include stereo metrics) ---
     df = pd.DataFrame(
         [
             {
@@ -370,7 +567,14 @@ def analyse_song(
                 "duration_sec": f["duration_sec"],
                 "duration_fmt": f["duration_fmt"],
                 "loudness": f["loudness"],
+                "loudness_left": f["loudness_left"],
+                "loudness_right": f["loudness_right"],
+                "loudness_balance": f["loudness_balance"],
                 "rms": f["rms"],
+                "rms_left": f["rms_left"],
+                "rms_right": f["rms_right"],
+                "rms_balance": f["rms_balance"],
+                "lr_corr": f["lr_corr"],
                 "spectral_centroid": f["spectral_centroid"],
             }
             for f in features
@@ -378,8 +582,18 @@ def analyse_song(
     )
     df.to_csv(os.path.join(outdir, f"{song_label}-features.csv"), index=False)
 
+    # Normalised (unchanged columns + keep only the numeric ones)
     df_norm = df.copy()
-    for col in ["duration_sec", "loudness", "rms", "spectral_centroid"]:
+    for col in [
+        "duration_sec",
+        "loudness",
+        "loudness_left",
+        "loudness_right",
+        "rms",
+        "rms_left",
+        "rms_right",
+        "spectral_centroid",
+    ]:
         col_min, col_max = df[col].min(), df[col].max()
         if col_max > col_min:
             df_norm[col] = (df[col] - col_min) / (col_max - col_min)
@@ -389,14 +603,18 @@ def analyse_song(
         os.path.join(outdir, f"{song_label}-features_normalised.csv"), index=False
     )
 
+    # Plots (UPDATED)
     plot_waveforms(features, outdir, song_label)
     plot_spectrograms(features, outdir, song_title, song_label)
     plot_mel_spectrograms(features, outdir, song_title, song_label)
     plot_similarity_matrix(features, outdir, song_label)
     plot_radar_chart(features, outdir, song_label)
+    plot_lr_balance_bars(features, outdir, song_label)
 
+    # Markdown (UPDATED)
     generate_markdown(song_label, song_title, features, outdir)
 
+    # JSONL append (unchanged fields)
     with open("metadata.jsonl", "a") as fjson:
         for f in features:
             entry = {
@@ -411,12 +629,12 @@ def analyse_song(
                 "rms": f["rms"],
                 "spectral_centroid": f"{f['spectral_centroid']:.2f} Hz",
                 "md5": f["md5"],
-                "spectrogram": f"{song_label}-{f['label']}_spectrogram.png",
-                "melspec": f"{song_label}-{f['label']}_melspec.png",
+                "spectrogram": f"{song_label}-{f['label']}_spectrogram_Mono.png",
+                "melspec": f"{song_label}-{f['label']}_melspec_Mono.png",
             }
             fjson.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    # call smoke check (signature unchanged; it derives song_label from outdir)
+    # Smoke check updated
     _smoke_check_outputs(outdir, features)
 
     print(
