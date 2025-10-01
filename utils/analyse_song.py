@@ -40,6 +40,7 @@ VERSION_LABEL_MAP = {
     "The Basement Tape RSD (24 Bit Vinyl FLAC)": "RSD",
     "Sweet Bourbon Daddy": "SBD",
     "The Genuine Basement Tapes": "TGBT",
+    "The Bootleg Series Vol. 11": "BS11",
 }
 
 
