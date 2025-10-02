@@ -27,15 +27,15 @@ song_label: ojb_i
 
 ### FTR
 
-![STFT Spectrogram (Left)](ojb_i-FTR_spectrogram_L(2).png)
+![STFT Spectrogram (Left)](ojb_i-FTR_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](ojb_i-FTR_spectrogram_R(2).png)
+![STFT Spectrogram (Right)](ojb_i-FTR_spectrogram_R.png)
 
-![Mel Spectrogram (Left)](ojb_i-FTR_melspec_L(2).png)
+![Mel Spectrogram (Left)](ojb_i-FTR_melspec_L.png)
 
-![Mel Spectrogram (Right)](ojb_i-FTR_melspec_R(2).png)
+![Mel Spectrogram (Right)](ojb_i-FTR_melspec_R.png)
 
-![Stereo Balance Bars](ojb_i-FTR_balance(2).png)
+![Stereo Balance Bars](ojb_i-FTR_balance.png)
 
 ### FTR
 
@@ -53,9 +53,9 @@ song_label: ojb_i
 
 ### FTR
 
-![STFT Spectrogram (Mono)](ojb_i-FTR_spectrogram_Mono(2).png)
+![STFT Spectrogram (Mono)](ojb_i-FTR_spectrogram_Mono.png)
 
-![Mel Spectrogram (Mono)](ojb_i-FTR_melspec_Mono(2).png)
+![Mel Spectrogram (Mono)](ojb_i-FTR_melspec_Mono.png)
 
 ### FTR
 

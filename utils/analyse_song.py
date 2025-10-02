@@ -274,8 +274,8 @@ def plot_spectrograms(features, outdir, song_title, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["spectrogram_Mono"] = out_name
+        # for f in features:
+        f["spectrogram_Mono"] = out_name
         plt.close()
 
         # LEFT
@@ -296,8 +296,8 @@ def plot_spectrograms(features, outdir, song_title, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["spectrogram_L"] = out_name
+        # for f in features:
+        f["spectrogram_L"] = out_name
         plt.close()
 
         # RIGHT
@@ -318,8 +318,8 @@ def plot_spectrograms(features, outdir, song_title, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["spectrogram_R"] = out_name
+        # for f in features:
+        f["spectrogram_R"] = out_name
         plt.close()
 
 
@@ -341,8 +341,8 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["melspec_Mono"] = out_name
+        # for f in features:
+        f["melspec_Mono"] = out_name
         plt.close()
 
         # LEFT
@@ -360,8 +360,8 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["melspec_L"] = out_name
+        # for f in features:
+        f["melspec_L"] = out_name
         plt.close()
 
         # RIGHT
@@ -378,8 +378,8 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["melspec_R"] = out_name
+        # for f in features:
+        f["melspec_R"] = out_name
         plt.close()
 
 
@@ -593,8 +593,8 @@ def plot_lr_balance_bars(features, outdir, song_label):
             os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
         )
         plt.savefig(out_path, dpi=150)
-        for f in features:
-            f["balance_plot"] = out_name
+        # for f in features:
+        f["balance_plot"] = out_name
         plt.close()
 
 
