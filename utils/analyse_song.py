@@ -108,6 +108,20 @@ def load_existing_md5s(jsonl_path="metadata.jsonl"):
     return md5s
 
 
+def unique_path(path):
+    """
+    Ensure that the file path does not overwrite an existing file.
+    If path exists, append (2), (3), ... before the extension.
+    """
+    base, ext = os.path.splitext(path)
+    counter = 2
+    new_path = path
+    while os.path.exists(new_path):
+        new_path = f"{base}({counter}){ext}"
+        counter += 1
+    return new_path
+
+
 # --------------------------------------------
 # Feature extraction  (UPDATED: stereo-aware)
 # --------------------------------------------
@@ -194,7 +208,9 @@ def plot_waveforms(features, outdir, song_label):
     plt.legend()
     plt.title("Comparative Waveforms (Mono)")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms_Mono.png"), dpi=150)
+    plt.savefig(
+        unique_path(os.path.join(outdir, f"{song_label}-waveforms_Mono.png")), dpi=150
+    )
     plt.close()
 
     # LEFT
@@ -207,7 +223,9 @@ def plot_waveforms(features, outdir, song_label):
     plt.legend()
     plt.title("Comparative Waveforms (Left)")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms_L.png"), dpi=150)
+    plt.savefig(
+        unique_path(os.path.join(outdir, f"{song_label}-waveforms_L.png")), dpi=150
+    )
     plt.close()
 
     # RIGHT
@@ -220,7 +238,9 @@ def plot_waveforms(features, outdir, song_label):
     plt.legend()
     plt.title("Comparative Waveforms (Right)")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, f"{song_label}-waveforms_R.png"), dpi=150)
+    plt.savefig(
+        unique_path(os.path.join(outdir, f"{song_label}-waveforms_R.png")), dpi=150
+    )
     plt.close()
 
 
@@ -241,7 +261,9 @@ def plot_spectrograms(features, outdir, song_title, song_label):
         plt.title(f"STFT Spectrogram (Mono) - {f['label']} {song_title}")
         plt.tight_layout()
         plt.savefig(
-            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png"),
+            unique_path(
+                os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png")
+            ),
             dpi=150,
         )
         plt.close()
@@ -260,7 +282,9 @@ def plot_spectrograms(features, outdir, song_title, song_label):
         plt.title(f"STFT Spectrogram (Left) - {f['label']} {song_title}")
         plt.tight_layout()
         plt.savefig(
-            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png"),
+            unique_path(
+                os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png")
+            ),
             dpi=150,
         )
         plt.close()
@@ -279,7 +303,9 @@ def plot_spectrograms(features, outdir, song_title, song_label):
         plt.title(f"STFT Spectrogram (Right) - {f['label']} {song_title}")
         plt.tight_layout()
         plt.savefig(
-            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png"),
+            unique_path(
+                os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png")
+            ),
             dpi=150,
         )
         plt.close()
@@ -299,7 +325,10 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
         plt.title(f"Mel Spectrogram (Mono) - {f['label']} {song_title}")
         plt.tight_layout()
         plt.savefig(
-            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png"), dpi=150
+            unique_path(
+                os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png")
+            ),
+            dpi=150,
         )
         plt.close()
 
@@ -314,7 +343,10 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
         plt.title(f"Mel Spectrogram (Left) - {f['label']} {song_title}")
         plt.tight_layout()
         plt.savefig(
-            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png"), dpi=150
+            unique_path(
+                os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png")
+            ),
+            dpi=150,
         )
         plt.close()
 
@@ -329,7 +361,10 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
         plt.title(f"Mel Spectrogram (Right) - {f['label']} {song_title}")
         plt.tight_layout()
         plt.savefig(
-            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png"), dpi=150
+            unique_path(
+                os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png")
+            ),
+            dpi=150,
         )
         plt.close()
 
@@ -348,7 +383,10 @@ def plot_similarity_matrix(features, outdir, song_label):
     plt.yticks(range(len(features)), [f["label"] for f in features])
     plt.title("MFCC Similarity Matrix")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, f"{song_label}-similarity_matrix.png"), dpi=150)
+    plt.savefig(
+        unique_path(os.path.join(outdir, f"{song_label}-similarity_matrix.png")),
+        dpi=150,
+    )
     plt.close()
 
     # Save also CSV (unchanged prefix rule)
@@ -443,7 +481,9 @@ def plot_radar_chart(features, outdir, song_label):
     plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1))
     plt.title("Radar Plot of Main Features (5–95 percentile scaling)")
     plt.tight_layout()
-    plt.savefig(os.path.join(outdir, f"{song_label}-radar_plot.png"), dpi=150)
+    plt.savefig(
+        unique_path(os.path.join(outdir, f"{song_label}-radar_plot.png")), dpi=150
+    )
     # here, if lines overlap in radar plot, a note is added to the .md file;
     # here's where the overlap is detected and saved
     dup_notes = []
@@ -530,7 +570,7 @@ def plot_lr_balance_bars(features, outdir, song_label):
 
         fig.tight_layout()
         outname = os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
-        plt.savefig(outname, dpi=150)
+        plt.savefig(unique_path(outname), dpi=150)
         plt.close(fig)
 
 
