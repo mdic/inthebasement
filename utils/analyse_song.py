@@ -444,6 +444,53 @@ def plot_radar_chart(features, outdir, song_label):
     plt.title("Radar Plot of Main Features (5–95 percentile scaling)")
     plt.tight_layout()
     plt.savefig(os.path.join(outdir, f"{song_label}-radar_plot.png"), dpi=150)
+    # here, if lines overlap in radar plot, a note is added to the .md file;
+    # here's where the overlap is detected and saved
+    dup_notes = []
+    for vals, label in seen_vals.items():
+        # cerca chi altro ha la stessa chiave
+        overlaps = [
+            f["label"]
+            for f in features
+            if tuple(
+                np.round(
+                    np.concatenate(
+                        [
+                            [
+                                (
+                                    float(f[m])
+                                    - np.percentile(
+                                        [float(ff[m]) for ff in features], 5
+                                    )
+                                )
+                                / (
+                                    np.percentile([float(ff[m]) for ff in features], 95)
+                                    - np.percentile(
+                                        [float(ff[m]) for ff in features], 5
+                                    )
+                                    + eps
+                                )
+                                for m in metrics
+                            ],
+                            [0],
+                        ]
+                    ),
+                    6,
+                )
+            )
+            in seen_vals
+            and seen_vals[vals] != f["label"]
+        ]
+        if overlaps:
+            dup_notes.append(
+                f"{label} overlaps with {', '.join(set(overlaps))} in radar plot"
+            )
+    if dup_notes:
+        with open(
+            os.path.join(outdir, f"{song_label}-radar_duplicates.txt"), "w"
+        ) as df:
+            for note in dup_notes:
+                df.write(note + "\n")
     plt.close()
 
 
@@ -657,6 +704,15 @@ def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
         fmd.write(f"![Waveforms (Left)]({song_label}-waveforms_L.png)\n\n")
         fmd.write(f"![Waveforms (Right)]({song_label}-waveforms_R.png)\n\n")
         fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n\n")
+        # Note about overlapping radar plot lines
+        dup_file = os.path.join(outdir, f"{song_label}-radar_duplicates.txt")
+        if os.path.exists(dup_file):
+            fmd.write("\n**Note:** Some versions overlap in the radar plot:\n\n")
+            with open(dup_file) as df:
+                for line in df:
+                    fmd.write(f"- {line.strip()}\n")
+            fmd.write("\n")
+
         fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.png)\n\n")
 
         # Stereo Balance
