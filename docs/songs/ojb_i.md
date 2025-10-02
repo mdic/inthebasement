@@ -27,41 +27,41 @@ song_label: ojb_i
 
 ### FTR
 
-![STFT Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_L.png)
+![STFT Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_L(2).png)
 
-![STFT Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_R.png)
+![STFT Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_R(2).png)
 
-![Mel Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_melspec_L.png)
+![Mel Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_melspec_L(2).png)
 
-![Mel Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_melspec_R.png)
+![Mel Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_melspec_R(2).png)
 
-![Stereo Balance Bars](../assets/songs/ojb_i/ojb_i-FTR_balance.png)
+![Stereo Balance Bars](../assets/songs/ojb_i/ojb_i-FTR_balance(2).png)
 
 ### FTR
 
-![STFT Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_L.png)
+![STFT Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_L(2).png)
 
-![STFT Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_R.png)
+![STFT Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_R(2).png)
 
-![Mel Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_melspec_L.png)
+![Mel Spectrogram (Left)](../assets/songs/ojb_i/ojb_i-FTR_melspec_L(2).png)
 
-![Mel Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_melspec_R.png)
+![Mel Spectrogram (Right)](../assets/songs/ojb_i/ojb_i-FTR_melspec_R(2).png)
 
-![Stereo Balance Bars](../assets/songs/ojb_i/ojb_i-FTR_balance.png)
+![Stereo Balance Bars](../assets/songs/ojb_i/ojb_i-FTR_balance(2).png)
 
 ## Spectrograms (Mono)
 
 ### FTR
 
-![STFT Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_Mono(2).png)
 
-![Mel Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_melspec_Mono.png)
+![Mel Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_melspec_Mono(2).png)
 
 ### FTR
 
-![STFT Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_spectrogram_Mono(2).png)
 
-![Mel Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_melspec_Mono.png)
+![Mel Spectrogram (Mono)](../assets/songs/ojb_i/ojb_i-FTR_melspec_Mono(2).png)
 
 ## Pitch & Speed Analysis (cents)
 

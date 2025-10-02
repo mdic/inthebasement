@@ -112,6 +112,7 @@ def unique_path(path):
     """
     Ensure that the file path does not overwrite an existing file.
     If path exists, append (2), (3), ... before the extension.
+    Returns both the final path and the basename (for markdown).
     """
     base, ext = os.path.splitext(path)
     counter = 2
@@ -119,7 +120,7 @@ def unique_path(path):
     while os.path.exists(new_path):
         new_path = f"{base}({counter}){ext}"
         counter += 1
-    return new_path
+    return new_path, os.path.basename(new_path)
 
 
 # --------------------------------------------
@@ -208,9 +209,12 @@ def plot_waveforms(features, outdir, song_label):
     plt.legend()
     plt.title("Comparative Waveforms (Mono)")
     plt.tight_layout()
-    plt.savefig(
-        unique_path(os.path.join(outdir, f"{song_label}-waveforms_Mono.png")), dpi=150
+    out_path, out_name = unique_path(
+        os.path.join(outdir, f"{song_label}-waveforms_Mono.png")
     )
+    plt.savefig(out_path, dpi=150)
+    for f in features:
+        f["waveform_mono"] = out_name
     plt.close()
 
     # LEFT
@@ -223,9 +227,12 @@ def plot_waveforms(features, outdir, song_label):
     plt.legend()
     plt.title("Comparative Waveforms (Left)")
     plt.tight_layout()
-    plt.savefig(
-        unique_path(os.path.join(outdir, f"{song_label}-waveforms_L.png")), dpi=150
+    out_path, out_name = unique_path(
+        os.path.join(outdir, f"{song_label}-waveforms_L.png")
     )
+    plt.savefig(out_path, dpi=150)
+    for f in features:
+        f["waveform_L"] = out_name
     plt.close()
 
     # RIGHT
@@ -238,9 +245,12 @@ def plot_waveforms(features, outdir, song_label):
     plt.legend()
     plt.title("Comparative Waveforms (Right)")
     plt.tight_layout()
-    plt.savefig(
-        unique_path(os.path.join(outdir, f"{song_label}-waveforms_R.png")), dpi=150
+    out_path, out_name = unique_path(
+        os.path.join(outdir, f"{song_label}-waveforms_R.png")
     )
+    plt.savefig(out_path, dpi=150)
+    for f in features:
+        f["waveform_R"] = out_name
     plt.close()
 
 
@@ -260,12 +270,12 @@ def plot_spectrograms(features, outdir, song_title, song_label):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"STFT Spectrogram (Mono) - {f['label']} {song_title}")
         plt.tight_layout()
-        plt.savefig(
-            unique_path(
-                os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png")
-            ),
-            dpi=150,
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_Mono.png")
         )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["spectrogram_Mono"] = out_name
         plt.close()
 
         # LEFT
@@ -281,12 +291,13 @@ def plot_spectrograms(features, outdir, song_title, song_label):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"STFT Spectrogram (Left) - {f['label']} {song_title}")
         plt.tight_layout()
-        plt.savefig(
-            unique_path(
-                os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png")
-            ),
-            dpi=150,
+
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_L.png")
         )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["spectrogram_L"] = out_name
         plt.close()
 
         # RIGHT
@@ -302,12 +313,13 @@ def plot_spectrograms(features, outdir, song_title, song_label):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"STFT Spectrogram (Right) - {f['label']} {song_title}")
         plt.tight_layout()
-        plt.savefig(
-            unique_path(
-                os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png")
-            ),
-            dpi=150,
+
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_spectrogram_R.png")
         )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["spectrogram_R"] = out_name
         plt.close()
 
 
@@ -324,12 +336,13 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"Mel Spectrogram (Mono) - {f['label']} {song_title}")
         plt.tight_layout()
-        plt.savefig(
-            unique_path(
-                os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png")
-            ),
-            dpi=150,
+
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_Mono.png")
         )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["melspec_Mono"] = out_name
         plt.close()
 
         # LEFT
@@ -342,12 +355,13 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"Mel Spectrogram (Left) - {f['label']} {song_title}")
         plt.tight_layout()
-        plt.savefig(
-            unique_path(
-                os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png")
-            ),
-            dpi=150,
+
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_L.png")
         )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["melspec_L"] = out_name
         plt.close()
 
         # RIGHT
@@ -360,12 +374,12 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
         plt.colorbar(format="%+2.0f dB")
         plt.title(f"Mel Spectrogram (Right) - {f['label']} {song_title}")
         plt.tight_layout()
-        plt.savefig(
-            unique_path(
-                os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png")
-            ),
-            dpi=150,
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_melspec_R.png")
         )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["melspec_R"] = out_name
         plt.close()
 
 
@@ -383,10 +397,12 @@ def plot_similarity_matrix(features, outdir, song_label):
     plt.yticks(range(len(features)), [f["label"] for f in features])
     plt.title("MFCC Similarity Matrix")
     plt.tight_layout()
-    plt.savefig(
-        unique_path(os.path.join(outdir, f"{song_label}-similarity_matrix.png")),
-        dpi=150,
+
+    out_path, out_name = unique_path(
+        os.path.join(outdir, f"{song_label}-similarity_matrix.png")
     )
+    plt.savefig(out_path, dpi=150)
+    features[0]["similarity_plot"] = out_name
     plt.close()
 
     # Save also CSV (unchanged prefix rule)
@@ -481,9 +497,13 @@ def plot_radar_chart(features, outdir, song_label):
     plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1))
     plt.title("Radar Plot of Main Features (5–95 percentile scaling)")
     plt.tight_layout()
-    plt.savefig(
-        unique_path(os.path.join(outdir, f"{song_label}-radar_plot.png")), dpi=150
+    out_path, out_name = unique_path(
+        os.path.join(outdir, f"{song_label}-radar_plot.png")
     )
+    plt.savefig(out_path, dpi=150)
+    # salvalo in un campo globale (non per-versione ma per tutta la canzone)
+    features[0]["radar_plot"] = out_name
+
     # here, if lines overlap in radar plot, a note is added to the .md file;
     # here's where the overlap is detected and saved
     dup_notes = []
@@ -569,9 +589,13 @@ def plot_lr_balance_bars(features, outdir, song_label):
         ax1.legend(h1 + h2, l1 + l2, loc="upper left")
 
         fig.tight_layout()
-        outname = os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
-        plt.savefig(unique_path(outname), dpi=150)
-        plt.close(fig)
+        out_path, out_name = unique_path(
+            os.path.join(outdir, f"{song_label}-{f['label']}_balance.png")
+        )
+        plt.savefig(out_path, dpi=150)
+        for f in features:
+            f["balance_plot"] = out_name
+        plt.close()
 
 
 # --- PITCH & SPEED ANALYSIS ----------------------------------------------
@@ -714,8 +738,12 @@ def pitch_speed_analysis(features, outdir, song_label, ref_label=None):
     plt.ylabel("Δ Tuning (cents vs reference)")
     plt.title(f"Pitch offsets (cents) — {song_label} (ref={ref_label_used})")
     plt.tight_layout()
-    out_png = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
-    plt.savefig(out_png, dpi=150)
+    out_path, out_name = unique_path(
+        os.path.join(outdir, f"{song_label}-pitch_offsets.png")
+    )
+    out_png = os.path.join(out_path, out_name)
+    plt.savefig(out_path, dpi=150)
+    features[0]["pitch_plot"] = out_name
     plt.close()
 
     return pitch_csv, summary_path, out_png
@@ -760,10 +788,10 @@ def generate_markdown(
 
         # Plots principali
         fmd.write("## Plots\n")
-        fmd.write(f"![Waveforms (Mono)]({song_label}-waveforms_Mono.png)\n\n")
-        fmd.write(f"![Waveforms (Left)]({song_label}-waveforms_L.png)\n\n")
-        fmd.write(f"![Waveforms (Right)]({song_label}-waveforms_R.png)\n\n")
-        fmd.write(f"![Radar Plot]({song_label}-radar_plot.png)\n\n")
+        fmd.write(f"![Waveforms (Mono)]({features[0]['waveform_mono']})\n\n")
+        fmd.write(f"![Waveforms (Left)]({features[0]['waveform_L']})\n\n")
+        fmd.write(f"![Waveforms (Right)]({features[0]['waveform_R']})\n\n")
+        fmd.write(f"![Radar Plot]({features[0]['radar_plot']})\n\n")
         # Note about overlapping radar plot lines
         dup_file = os.path.join(outdir, f"{song_label}-radar_duplicates.txt")
         if os.path.exists(dup_file):
@@ -773,38 +801,24 @@ def generate_markdown(
                     fmd.write(f"- {line.strip()}\n")
             fmd.write("\n")
 
-        fmd.write(f"![MFCC Similarity]({song_label}-similarity_matrix.png)\n\n")
+        fmd.write(f"![MFCC Similarity]({features[0]['similarity_plot']})\n\n")
 
         # Stereo Balance
         fmd.write("## Stereo Balance\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
-            fmd.write(
-                f"![STFT Spectrogram (Left)]({song_label}-{f['label']}_spectrogram_L.png)\n\n"
-            )
-            fmd.write(
-                f"![STFT Spectrogram (Right)]({song_label}-{f['label']}_spectrogram_R.png)\n\n"
-            )
-            fmd.write(
-                f"![Mel Spectrogram (Left)]({song_label}-{f['label']}_melspec_L.png)\n\n"
-            )
-            fmd.write(
-                f"![Mel Spectrogram (Right)]({song_label}-{f['label']}_melspec_R.png)\n\n"
-            )
-            fmd.write(
-                f"![Stereo Balance Bars]({song_label}-{f['label']}_balance.png)\n\n"
-            )
+            fmd.write(f"![STFT Spectrogram (Left)]({f['spectrogram_L']})\n\n")
+            fmd.write(f"![STFT Spectrogram (Right)]({f['spectrogram_R']})\n\n")
+            fmd.write(f"![Mel Spectrogram (Left)]({f['melspec_L']})\n\n")
+            fmd.write(f"![Mel Spectrogram (Right)]({f['melspec_R']})\n\n")
+            fmd.write(f"![Stereo Balance Bars]({f['balance_plot']})\n\n")
 
         # Spectrograms (Mono)
         fmd.write("## Spectrograms (Mono)\n\n")
         for f in features:
             fmd.write(f"### {f['label']}\n\n")
-            fmd.write(
-                f"![STFT Spectrogram (Mono)]({song_label}-{f['label']}_spectrogram_Mono.png)\n\n"
-            )
-            fmd.write(
-                f"![Mel Spectrogram (Mono)]({song_label}-{f['label']}_melspec_Mono.png)\n\n"
-            )
+            fmd.write(f"![STFT Spectrogram (Mono)]({f['spectrogram_Mono']})\n\n")
+            fmd.write(f"![Mel Spectrogram (Mono)]({f['melspec_Mono']})\n\n")
 
         # Pitch & Speed Analysis
         pitch_csv = os.path.join(outdir, f"{song_label}-pitch_report.csv")
@@ -824,8 +838,7 @@ def generate_markdown(
             fmd.write("\n\n")
 
             if os.path.exists(pitch_plot):
-                pitch_img = os.path.basename(pitch_plot)
-                fmd.write(f"![Pitch Offsets]({pitch_img})\n\n")
+                fmd.write(f"![Pitch Offsets]({features[0]['pitch_plot']})\n\n")
 
             if os.path.exists(pitch_summary):
                 with open(pitch_summary, "r") as ps:
