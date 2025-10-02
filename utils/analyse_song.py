@@ -696,7 +696,7 @@ def generate_markdown(
         fmd.write("---\n")
         fmd.write(f'title: "{song_title}"\n')
         fmd.write(f"song_label: {song_label}\n")
-        if ref_title:
+        if ref_title is not None:
             fmd.write(f"ref_title_version: {ref_title}\n")
         fmd.write("---\n\n")
 
@@ -934,21 +934,25 @@ def analyse_song(
         if "signal" in f:
             del f["signal"]
 
-    # Markdown (UPDATED with ref_title fallback)
+    # Determine which version provides the reference title
     ref_title_used = None
-    if args.ref_title:
-        ref_title_feat = pick_reference(features, args.ref_title)
-        if ref_title_feat:
-            ref_title_used = ref_title_feat["label"]
+    resolved_song_title = song_title  # fallback: the title from the first CSV row
 
-    generate_markdown(
-        song_label,
-        song_title,
-        features,
-        outdir,
-        ref_label=args.ref_label,
-        ref_title=ref_title_used,
-    )
+    if args.ref_title:
+        # Build lookup: version_label -> song_title from CSV input
+        version_to_title = {
+            v["label"]: v["song_title"] for v in files if "song_title" in v
+        }
+
+        for candidate in args.ref_title:
+            if candidate in version_to_title and version_to_title[candidate].strip():
+                ref_title_used = candidate
+                resolved_song_title = version_to_title[candidate]
+                break
+
+    # Markdown (UPDATED with ref_title fallback)
+
+    generate_markdown(song_label, resolved_song_title, features, outdir, ref_title_used)
 
     # JSONL append (unchanged fields)
     with open("metadata.jsonl", "a") as fjson:

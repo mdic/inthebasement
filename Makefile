@@ -25,6 +25,11 @@ sync:
 serve:
 	$(MKDOCS) serve
 
+# Sync and serve:
+sas:
+	$(SYNC)
+	$(MKDOCS) serve
+
 # Pulizia file temporanei/intermedi (se usi .wav intermedi)
 clean:
 	find results -name "*.wav" -delete

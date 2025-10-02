@@ -5,6 +5,7 @@ Click on any entry to view detailed comparisons and plots.
 
 - [Crash On The Levee (Take 2)](./cotl_t2.md)
 - [I Forgot To Remember To Forget](./iftrtf.md)
+- [Instrumental #4](./inst4.md)
 - [Lock Your Door](./lyd.md)
 - [Nothing Was Delivered (Take 3)](./nwd_t3.md)
 - [See You Later Allen Ginsberg (Take 2)](./sylag_t2.md)
