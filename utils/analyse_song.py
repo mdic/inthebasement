@@ -588,6 +588,20 @@ def attach_pitch_features(features):
         f["chroma_mean"] = ch
 
 
+def pick_reference(features, candidates):
+    """
+    Given a list of feature dicts and a list of candidate labels,
+    return the first matching feature. If none match, return None.
+    """
+    if not candidates:
+        return None
+    for cand in candidates:
+        for f in features:
+            if f["label"] == cand:
+                return f
+    return None
+
+
 def pitch_speed_analysis(features, outdir, song_label, ref_label=None):
     """
     Build CSV, summary, and plot comparing pitch/tempo between versions.
@@ -601,15 +615,12 @@ def pitch_speed_analysis(features, outdir, song_label, ref_label=None):
     if need:
         attach_pitch_features(features)
 
-    # Scegli la versione di riferimento
+    # Choose ref version
     ref = None
-    if ref_label is not None:
-        for f in features:
-            if f["label"] == ref_label:
-                ref = f
-                break
+    if ref_label:
+        ref = pick_reference(features, ref_label)
     if ref is None:
-        ref = features[0]  # fallback
+        ref = features[0]  # absolute fallback
 
     ref_label_used = ref["label"]
     ref_chroma = ref["chroma_mean"]
@@ -675,15 +686,24 @@ def pitch_speed_analysis(features, outdir, song_label, ref_label=None):
 # --------------------------------------------
 
 
-def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
+def generate_markdown(
+    song_label, song_title, features, outdir, ref_label=None, ref_title=None
+):
     md_path = os.path.join(outdir, f"{song_label}.md")
     with open(md_path, "w") as fmd:
         # Front matter per MkDocs Material
+
         fmd.write("---\n")
         fmd.write(f'title: "{song_title}"\n')
         fmd.write(f"song_label: {song_label}\n")
+        if ref_title:
+            fmd.write(f"ref_title_version: {ref_title}\n")
         fmd.write("---\n\n")
-        fmd.write(f"# {song_title}\n\n")
+
+        if ref_title:
+            fmd.write(f"# {song_title} (title taken from {ref_title})\n\n")
+        else:
+            fmd.write(f"# {song_title}\n\n")
 
         # Notes (se presenti in results/<song_label>/notes.md)
         notes_path = os.path.join(outdir, "notes.md")
@@ -752,7 +772,12 @@ def generate_markdown(song_label, song_title, features, outdir, ref_label=None):
         pitch_plot = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
         if os.path.exists(pitch_csv):
             fmd.write("## Pitch & Speed Analysis (cents)\n\n")
-            fmd.write(f"Reference version: **{ref_label or features[0]['label']}**\n\n")
+            ref_used = None
+            if ref_label:
+                ref_used = ref_label[0] if isinstance(ref_label, list) else ref_label
+            else:
+                ref_used = features[0]["label"]
+            fmd.write(f"Reference version: **{ref_used}**\n\n")
 
             df_pitch = pd.read_csv(pitch_csv)
             fmd.write(df_pitch.to_markdown(index=False))
@@ -909,8 +934,21 @@ def analyse_song(
         if "signal" in f:
             del f["signal"]
 
-    # Markdown (UPDATED)
-    generate_markdown(song_label, song_title, features, outdir)
+    # Markdown (UPDATED with ref_title fallback)
+    ref_title_used = None
+    if args.ref_title:
+        ref_title_feat = pick_reference(features, args.ref_title)
+        if ref_title_feat:
+            ref_title_used = ref_title_feat["label"]
+
+    generate_markdown(
+        song_label,
+        song_title,
+        features,
+        outdir,
+        ref_label=args.ref_label,
+        ref_title=ref_title_used,
+    )
 
     # JSONL append (unchanged fields)
     with open("metadata.jsonl", "a") as fjson:
@@ -954,11 +992,19 @@ if __name__ == "__main__":
     parser.add_argument(
         "--song", type=str, help="Process only the given song_label", default=None
     )
+
     parser.add_argument(
         "--ref-label",
-        type=str,
+        nargs="+",
         default=None,
-        help="Version label da usare come riferimento per l'analisi del pitch/speed (default: la prima versione)",
+        help="One or more version labels to use as reference for pitch/speed analysis. If the first is not found, fall back to the next.",
+    )
+
+    parser.add_argument(
+        "--ref-title",
+        nargs="+",
+        default=None,
+        help="One or more version labels to use as reference for extracting the song title. Fallback order as listed.",
     )
 
     args = parser.parse_args()

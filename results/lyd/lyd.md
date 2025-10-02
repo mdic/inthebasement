@@ -16,91 +16,91 @@ ref_title_version: FTR
 | FTR     | 01 Lock Your Door.flac                         | 0f5f4f5febce4d0cde3766f9d5a3c5cf |      1 |       1 |        18.7333 | 00:18:733      |   -29.0341 |        -24.871  |         -26.0067 |           1.13572  | 0.0318216 |  0.0320438 |   0.0490645 |   -0.0170207  | 0.0638756   |             1339.66 |
 
 ## Plots
-![Waveforms (Mono)](../assets/songs/lyd/lyd-waveforms_Mono.png)
+![Waveforms (Mono)](lyd-waveforms_Mono.png)
 
-![Waveforms (Left)](../assets/songs/lyd/lyd-waveforms_L.png)
+![Waveforms (Left)](lyd-waveforms_L.png)
 
-![Waveforms (Right)](../assets/songs/lyd/lyd-waveforms_R.png)
+![Waveforms (Right)](lyd-waveforms_R.png)
 
-![Radar Plot](../assets/songs/lyd/lyd-radar_plot.png)
+![Radar Plot](lyd-radar_plot.png)
 
-![MFCC Similarity](../assets/songs/lyd/lyd-similarity_matrix.png)
+![MFCC Similarity](lyd-similarity_matrix.png)
 
 ## Stereo Balance
 
 ### BS11
 
-![STFT Spectrogram (Left)](../assets/songs/lyd/lyd-BS11_spectrogram_L.png)
+![STFT Spectrogram (Left)](lyd-BS11_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](../assets/songs/lyd/lyd-BS11_spectrogram_R.png)
+![STFT Spectrogram (Right)](lyd-BS11_spectrogram_R.png)
 
-![Mel Spectrogram (Left)](../assets/songs/lyd/lyd-BS11_melspec_L.png)
+![Mel Spectrogram (Left)](lyd-BS11_melspec_L.png)
 
-![Mel Spectrogram (Right)](../assets/songs/lyd/lyd-BS11_melspec_R.png)
+![Mel Spectrogram (Right)](lyd-BS11_melspec_R.png)
 
-![Stereo Balance Bars](../assets/songs/lyd/lyd-BS11_balance.png)
+![Stereo Balance Bars](lyd-BS11_balance.png)
 
 ### CAR
 
-![STFT Spectrogram (Left)](../assets/songs/lyd/lyd-CAR_spectrogram_L.png)
+![STFT Spectrogram (Left)](lyd-CAR_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](../assets/songs/lyd/lyd-CAR_spectrogram_R.png)
+![STFT Spectrogram (Right)](lyd-CAR_spectrogram_R.png)
 
-![Mel Spectrogram (Left)](../assets/songs/lyd/lyd-CAR_melspec_L.png)
+![Mel Spectrogram (Left)](lyd-CAR_melspec_L.png)
 
-![Mel Spectrogram (Right)](../assets/songs/lyd/lyd-CAR_melspec_R.png)
+![Mel Spectrogram (Right)](lyd-CAR_melspec_R.png)
 
-![Stereo Balance Bars](../assets/songs/lyd/lyd-CAR_balance.png)
+![Stereo Balance Bars](lyd-CAR_balance.png)
 
 ### ATWR
 
-![STFT Spectrogram (Left)](../assets/songs/lyd/lyd-ATWR_spectrogram_L.png)
+![STFT Spectrogram (Left)](lyd-ATWR_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](../assets/songs/lyd/lyd-ATWR_spectrogram_R.png)
+![STFT Spectrogram (Right)](lyd-ATWR_spectrogram_R.png)
 
-![Mel Spectrogram (Left)](../assets/songs/lyd/lyd-ATWR_melspec_L.png)
+![Mel Spectrogram (Left)](lyd-ATWR_melspec_L.png)
 
-![Mel Spectrogram (Right)](../assets/songs/lyd/lyd-ATWR_melspec_R.png)
+![Mel Spectrogram (Right)](lyd-ATWR_melspec_R.png)
 
-![Stereo Balance Bars](../assets/songs/lyd/lyd-ATWR_balance.png)
+![Stereo Balance Bars](lyd-ATWR_balance.png)
 
 ### FTR
 
-![STFT Spectrogram (Left)](../assets/songs/lyd/lyd-FTR_spectrogram_L.png)
+![STFT Spectrogram (Left)](lyd-FTR_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](../assets/songs/lyd/lyd-FTR_spectrogram_R.png)
+![STFT Spectrogram (Right)](lyd-FTR_spectrogram_R.png)
 
-![Mel Spectrogram (Left)](../assets/songs/lyd/lyd-FTR_melspec_L.png)
+![Mel Spectrogram (Left)](lyd-FTR_melspec_L.png)
 
-![Mel Spectrogram (Right)](../assets/songs/lyd/lyd-FTR_melspec_R.png)
+![Mel Spectrogram (Right)](lyd-FTR_melspec_R.png)
 
-![Stereo Balance Bars](../assets/songs/lyd/lyd-FTR_balance.png)
+![Stereo Balance Bars](lyd-FTR_balance.png)
 
 ## Spectrograms (Mono)
 
 ### BS11
 
-![STFT Spectrogram (Mono)](../assets/songs/lyd/lyd-BS11_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](lyd-BS11_spectrogram_Mono.png)
 
-![Mel Spectrogram (Mono)](../assets/songs/lyd/lyd-BS11_melspec_Mono.png)
+![Mel Spectrogram (Mono)](lyd-BS11_melspec_Mono.png)
 
 ### CAR
 
-![STFT Spectrogram (Mono)](../assets/songs/lyd/lyd-CAR_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](lyd-CAR_spectrogram_Mono.png)
 
-![Mel Spectrogram (Mono)](../assets/songs/lyd/lyd-CAR_melspec_Mono.png)
+![Mel Spectrogram (Mono)](lyd-CAR_melspec_Mono.png)
 
 ### ATWR
 
-![STFT Spectrogram (Mono)](../assets/songs/lyd/lyd-ATWR_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](lyd-ATWR_spectrogram_Mono.png)
 
-![Mel Spectrogram (Mono)](../assets/songs/lyd/lyd-ATWR_melspec_Mono.png)
+![Mel Spectrogram (Mono)](lyd-ATWR_melspec_Mono.png)
 
 ### FTR
 
-![STFT Spectrogram (Mono)](../assets/songs/lyd/lyd-FTR_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](lyd-FTR_spectrogram_Mono.png)
 
-![Mel Spectrogram (Mono)](../assets/songs/lyd/lyd-FTR_melspec_Mono.png)
+![Mel Spectrogram (Mono)](lyd-FTR_melspec_Mono.png)
 
 ## Pitch & Speed Analysis (cents)
 
@@ -113,7 +113,7 @@ Reference version: **BS11**
 | lyd          | BS11        | ATWR        |                 12 |                -18 |                   30 |                       0 |            0.992853 |                  1        |                       1.10253 |
 | lyd          | BS11        | FTR         |                -35 |                -18 |                  -17 |                      -1 |            0.992091 |                  0.943874 |                       1.20925 |
 
-![Pitch Offsets](../assets/songs/lyd/lyd-pitch_offsets.png)
+![Pitch Offsets](lyd-pitch_offsets.png)
 
 ```
 Pitch/Speed analysis (reference = BS11)
