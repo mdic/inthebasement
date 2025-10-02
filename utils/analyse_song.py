@@ -381,6 +381,11 @@ def plot_radar_chart(features, outdir, song_label):
     plt.figure(figsize=(6, 6))
     ax = plt.subplot(111, polar=True)
 
+    # NEW: marker pool e stato per duplicati
+    markers = ["o", "x", "^", "s", "D", "v", "*", "P", "X", ">", "<"]
+    marker_idx = 0
+    seen_vals = {}
+
     for f in features:
         vals = []
         for m in metrics:
@@ -398,9 +403,49 @@ def plot_radar_chart(features, outdir, song_label):
         vals = np.array(vals)
         vals = np.concatenate([vals, vals[:1]])
 
+        key = tuple(np.round(vals, 6))
+        if key in seen_vals:
+            linestyle = "--"
+            marker = markers[marker_idx % len(markers)]
+            marker_idx += 1
+            fill_alpha = 0.08
+        else:
+            linestyle = "-"
+            marker = None
+            fill_alpha = 0.15
+            seen_vals[key] = f["label"]
+
         color = LABEL_COLORS.get(f["label"], None)
-        ax.plot(angles, vals, label=f["label"], color=color, linewidth=2)
-        ax.fill(angles, vals, alpha=0.15, color=color)
+
+        # IMPORTANT: fill below, line above
+        ax.fill(angles, vals, alpha=fill_alpha, color=color, zorder=1)
+
+        ax.plot(
+            angles,
+            vals,
+            label=f["label"],
+            color=color,
+            linewidth=2,
+            linestyle=linestyle,
+            marker=marker,
+            markersize=7,
+            markerfacecolor="white",
+            markeredgecolor=color,
+            zorder=3,  # sopra tutte le patch
+            solid_capstyle="round",  # estetica migliore
+        )
+
+        if marker is not None:
+            ax.scatter(
+                angles,
+                vals,
+                marker=marker,
+                s=80,  # grandezza
+                facecolor="white",
+                edgecolor=color,
+                zorder=4,
+                label=f"{f['label']} (dup)",
+            )
 
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(metrics)
