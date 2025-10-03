@@ -10,4 +10,5 @@ Click on any entry to view detailed comparisons and plots.
 - [Nothing Was Delivered (Take 3)](./nwd_t3.md)
 - [Orange Juice Blues (Instrumental)](./ojb_i.md)
 - [See You Later Allen Ginsberg (Take 2)](./sylag_t2.md)
+- [You Ain't Goin' Nowhere (Take 2)](./yagn_t2.md)
 - [You Win Again](./ywa.md)
