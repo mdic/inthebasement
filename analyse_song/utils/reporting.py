@@ -21,7 +21,8 @@ def generate_markdown(
         fmd.write("---\n\n")
 
         if ref_title:
-            fmd.write(f"# {song_title} (title taken from {ref_title})\n\n")
+            fmd.write(f"# {song_title}\n\n")
+            fmd.write(f"**(title taken from {ref_title})**\n\n")
         else:
             fmd.write(f"# {song_title}\n\n")
 

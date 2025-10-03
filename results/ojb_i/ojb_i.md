@@ -4,7 +4,9 @@ song_label: ojb_i
 ref_title_version: FTR
 ---
 
-# Orange Juice Blues (Instrumental) (title taken from FTR)
+# Orange Juice Blues (Instrumental)
+
+**(title taken from FTR)**
 
 ## Details
 
@@ -14,55 +16,55 @@ ref_title_version: FTR
 | FTR     | Track No25.flac | 3ea0ad3b53d377b132a2131b3b2049e1 |      6 |      25 |        194.093 | 03:14:093      |   -27.6976 |        -28.8    |         -24.7901 |           -4.00993 | 0.0419166 |   0.034209 |   0.0564667 |    -0.0222577 |  0.686711  |             1331.67 |
 
 ## Plots
-![Waveforms (Mono)](ojb_i-waveforms_Mono.png)
+![Waveforms (Mono)](ojb_i-waveforms_Mono(2).png)
 
-![Waveforms (Left)](ojb_i-waveforms_L.png)
+![Waveforms (Left)](ojb_i-waveforms_L(2).png)
 
-![Waveforms (Right)](ojb_i-waveforms_R.png)
+![Waveforms (Right)](ojb_i-waveforms_R(2).png)
 
-![Radar Plot](ojb_i-radar_plot.png)
+![Radar Plot](ojb_i-radar_plot(2).png)
 
-![MFCC Similarity](ojb_i-similarity_matrix.png)
+![MFCC Similarity](ojb_i-similarity_matrix(2).png)
 
 ## Stereo Balance
 
 ### FTR
 
-![STFT Spectrogram (Left)](ojb_i-FTR_spectrogram_L.png)
+![STFT Spectrogram (Left)](ojb_i-FTR_spectrogram_L(3).png)
 
-![STFT Spectrogram (Right)](ojb_i-FTR_spectrogram_R.png)
+![STFT Spectrogram (Right)](ojb_i-FTR_spectrogram_R(3).png)
 
-![Mel Spectrogram (Left)](ojb_i-FTR_melspec_L.png)
+![Mel Spectrogram (Left)](ojb_i-FTR_melspec_L(3).png)
 
-![Mel Spectrogram (Right)](ojb_i-FTR_melspec_R.png)
+![Mel Spectrogram (Right)](ojb_i-FTR_melspec_R(3).png)
 
-![Stereo Balance Bars](ojb_i-FTR_balance.png)
+![Stereo Balance Bars](ojb_i-FTR_balance(3).png)
 
 ### FTR
 
-![STFT Spectrogram (Left)](ojb_i-FTR_spectrogram_L(2).png)
+![STFT Spectrogram (Left)](ojb_i-FTR_spectrogram_L(4).png)
 
-![STFT Spectrogram (Right)](ojb_i-FTR_spectrogram_R(2).png)
+![STFT Spectrogram (Right)](ojb_i-FTR_spectrogram_R(4).png)
 
-![Mel Spectrogram (Left)](ojb_i-FTR_melspec_L(2).png)
+![Mel Spectrogram (Left)](ojb_i-FTR_melspec_L(4).png)
 
-![Mel Spectrogram (Right)](ojb_i-FTR_melspec_R(2).png)
+![Mel Spectrogram (Right)](ojb_i-FTR_melspec_R(4).png)
 
-![Stereo Balance Bars](ojb_i-FTR_balance(2).png)
+![Stereo Balance Bars](ojb_i-FTR_balance(4).png)
 
 ## Spectrograms (Mono)
 
 ### FTR
 
-![STFT Spectrogram (Mono)](ojb_i-FTR_spectrogram_Mono.png)
+![STFT Spectrogram (Mono)](ojb_i-FTR_spectrogram_Mono(3).png)
 
-![Mel Spectrogram (Mono)](ojb_i-FTR_melspec_Mono.png)
+![Mel Spectrogram (Mono)](ojb_i-FTR_melspec_Mono(3).png)
 
 ### FTR
 
-![STFT Spectrogram (Mono)](ojb_i-FTR_spectrogram_Mono(2).png)
+![STFT Spectrogram (Mono)](ojb_i-FTR_spectrogram_Mono(4).png)
 
-![Mel Spectrogram (Mono)](ojb_i-FTR_melspec_Mono(2).png)
+![Mel Spectrogram (Mono)](ojb_i-FTR_melspec_Mono(4).png)
 
 ## Pitch & Speed Analysis (cents)
 
@@ -73,7 +75,7 @@ Reference version: **FTR**
 | ojb_i        | FTR         | FTR         |                 25 |                 25 |                    0 |                       0 |            1        |                         1 |                      1        |
 | ojb_i        | FTR         | FTR         |                 11 |                 25 |                  -14 |                       0 |            0.995957 |                         1 |                      0.992787 |
 
-![Pitch Offsets](ojb_i-pitch_offsets.png)
+![Pitch Offsets](ojb_i-pitch_offsets(2).png)
 
 ````text
 Pitch/Speed analysis (reference = FTR)
