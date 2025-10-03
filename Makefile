@@ -2,7 +2,7 @@
 
 # Variables
 PYRUN = uv run
-ANALYSE = $(PYRUN) utils/analyse_song.py
+ANALYSE = $(PYRUN) -m analyse_song
 SYNC = $(PYRUN) utils/sync_docs.py
 MKDOCS = $(PYRUN) mkdocs
 
@@ -30,6 +30,6 @@ sas:
 	$(SYNC)
 	$(MKDOCS) serve
 
-# Pulizia file temporanei/intermedi (se usi .wav intermedi)
+# Clean intermediate/temporary .wav files
 clean:
 	find results -name "*.wav" -delete

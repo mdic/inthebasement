@@ -334,7 +334,9 @@ def plot_mel_spectrograms(features, outdir, song_title, song_label):
             Sm_dB, sr=f["sr"], x_axis="time", y_axis="mel", cmap="inferno"
         )
         plt.colorbar(format="%+2.0f dB")
-        plt.title(f"Mel Spectrogram (Mono) - {f['label']} {song_title}")
+        plt.title(
+            f"Mel Spectrogram (Mono) - {f['label']} {os.path.basename(f['orig_file'])} - {song_label}"
+        )
         plt.tight_layout()
 
         out_path, out_name = unique_path(

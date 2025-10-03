@@ -4,3 +4,4 @@ songs.csv
 *.flac
 rationale
 .~lock.*
+__pycache__/
