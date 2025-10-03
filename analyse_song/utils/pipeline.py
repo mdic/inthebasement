@@ -167,16 +167,16 @@ class SongAnalyser:
         plot_radar_chart(versions, outdir, song_label)
         plot_lr_balance_bars(versions, outdir, song_label)
 
-        # Pitch/Speed
-        pitch_csv, pitch_summary, pitch_plot = self._pitch_speed_analysis(
-            versions, outdir, song_label
-        )
-
         # Free heavy arrays before reporting
         for v in versions:
             v.signal_mono = None
             v.signal_left = None
             v.signal_right = None
+
+        # Pitch/Speed
+        pitch_csv, pitch_summary, pitch_plot = self._pitch_speed_analysis(
+            versions, outdir, song_label
+        )
 
         # Resolve title provider (ref_title fallback)
         ref_title_used, resolved_title = self._resolve_title(versions, song_title)

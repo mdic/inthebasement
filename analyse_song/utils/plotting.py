@@ -13,13 +13,24 @@ from .io_utils import unique_path
 from .models import SongVersion
 
 
+def _downsample_for_plot(y: np.ndarray, max_points: int = 10000) -> np.ndarray:
+    """Downsample a signal to at most max_points for efficient plotting."""
+    if y is None:
+        return np.array([])
+    if len(y) <= max_points:
+        return y
+    step = max(1, len(y) // max_points)
+    return y[::step]
+
+
 def plot_waveforms(versions: List[SongVersion], outdir: str, song_label: str) -> None:
     # MONO
     plt.figure(figsize=(10, 6))
     for v in versions:
         color = LABEL_COLORS.get(v.label)
-        t = np.linspace(0, v.duration_sec, num=len(v.signal_mono))
-        plt.plot(t, v.signal_mono, alpha=0.6, label=v.label, color=color)
+        y_plot = _downsample_for_plot(v.signal_mono)
+        t = np.linspace(0, v.duration_sec, num=len(y_plot))
+        plt.plot(t, y_plot.astype(np.float32), alpha=0.6, label=v.label, color=color)
     plt.legend()
     plt.title("Comparative Waveforms (Mono)")
     plt.tight_layout()
@@ -27,14 +38,15 @@ def plot_waveforms(versions: List[SongVersion], outdir: str, song_label: str) ->
     plt.savefig(path, dpi=150)
     for v in versions:
         v.plots["waveform_mono"] = name
-    plt.close()
+    plt.close("all")
 
     # LEFT
     plt.figure(figsize=(10, 6))
     for v in versions:
         color = LABEL_COLORS.get(v.label)
-        t = np.linspace(0, v.duration_sec, num=len(v.signal_left))
-        plt.plot(t, v.signal_left, alpha=0.6, label=v.label, color=color)
+        y_plot = _downsample_for_plot(v.signal_left)
+        t = np.linspace(0, v.duration_sec, num=len(y_plot))
+        plt.plot(t, y_plot.astype(np.float32), alpha=0.6, label=v.label, color=color)
     plt.legend()
     plt.title("Comparative Waveforms (Left)")
     plt.tight_layout()
@@ -42,14 +54,15 @@ def plot_waveforms(versions: List[SongVersion], outdir: str, song_label: str) ->
     plt.savefig(path, dpi=150)
     for v in versions:
         v.plots["waveform_L"] = name
-    plt.close()
+    plt.close("all")
 
     # RIGHT
     plt.figure(figsize=(10, 6))
     for v in versions:
         color = LABEL_COLORS.get(v.label)
-        t = np.linspace(0, v.duration_sec, num=len(v.signal_right))
-        plt.plot(t, v.signal_right, alpha=0.6, label=v.label, color=color)
+        y_plot = _downsample_for_plot(v.signal_right)
+        t = np.linspace(0, v.duration_sec, num=len(y_plot))
+        plt.plot(t, y_plot.astype(np.float32), alpha=0.6, label=v.label, color=color)
     plt.legend()
     plt.title("Comparative Waveforms (Right)")
     plt.tight_layout()
@@ -57,7 +70,7 @@ def plot_waveforms(versions: List[SongVersion], outdir: str, song_label: str) ->
     plt.savefig(path, dpi=150)
     for v in versions:
         v.plots["waveform_R"] = name
-    plt.close()
+    plt.close("all")
 
 
 def plot_spectrograms(

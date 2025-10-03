@@ -24,7 +24,7 @@ def convert_to_wav(infile: str, outdir: str = "converted", force: bool = False) 
 
 
 def _stereo_load(wavfile: str, target_sr: int = 44100) -> Tuple[np.ndarray, int]:
-    y, sr = librosa.load(wavfile, sr=target_sr, mono=False)
+    y, sr = librosa.load(wavfile, sr=target_sr, mono=False, dtype=np.float32)
     if y.ndim == 1:
         y = np.vstack([y, y])
     return y, sr
@@ -36,8 +36,8 @@ def extract_features(wavfile: str, version, md5: str) -> None:
     Mutates *version* in place to keep memory churn lower.
     """
     y, sr = _stereo_load(wavfile)
-    left, right = y[0], y[1]
-    mono = (left + right) / 2
+    left, right = y[0].astype(np.float32), y[1].astype(np.float32)
+    mono = ((left + right) / 2).astype(np.float32)
 
     version.wav_path = wavfile
     version.sr = sr
