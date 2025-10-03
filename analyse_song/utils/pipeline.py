@@ -159,6 +159,9 @@ class SongAnalyser:
             os.path.join(outdir, f"{song_label}-features_normalised.csv"), index=False
         )
 
+        # Attach pitch features here so we can liberate/free them after the plots
+        attach_pitch_features(versions)
+
         # Plots
         plot_waveforms(versions, outdir, song_label)
         plot_spectrograms(versions, outdir, song_title, song_label)
@@ -274,7 +277,7 @@ class SongAnalyser:
     ):
         if not versions:
             return None, None, None
-        attach_pitch_features(versions)
+        # attach_pitch_features(versions)
         ref_label_used = self._ref_label_used(versions)
         ref = next((v for v in versions if v.label == ref_label_used), versions[0])
 
