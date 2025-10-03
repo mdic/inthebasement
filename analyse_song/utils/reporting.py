@@ -44,13 +44,15 @@ def generate_markdown(
         fmd.write(f"![Waveforms (Right)]({v0.plots['waveform_R']})\n\n")
         fmd.write(f"![Radar Plot]({v0.plots['radar_plot']})\n\n")
 
-        dup_file = os.path.join(outdir, f"{song_label}-radar_duplicates.txt")
-        if os.path.exists(dup_file):
-            fmd.write("\n**Note:** Some versions overlap in the radar plot:\n\n")
-            with open(dup_file, encoding="utf-8") as dfh:
-                for line in dfh:
-                    fmd.write(f"- {line.strip()}\n")
-            fmd.write("\n")
+        # Code below should notify when radar plot lines overlap
+        # however overlapping strategy seems to be too sensitive, leading to false positive
+        # dup_file = os.path.join(outdir, f"{song_label}-radar_duplicates.txt")
+        # if os.path.exists(dup_file):
+        #     fmd.write("\n**Note:** Some versions overlap in the radar plot:\n\n")
+        #     with open(dup_file, encoding="utf-8") as dfh:
+        #         for line in dfh:
+        #             fmd.write(f"- {line.strip()}\n")
+        #     fmd.write("\n")
 
         fmd.write(f"![MFCC Similarity]({v0.plots['similarity_plot']})\n\n")
 

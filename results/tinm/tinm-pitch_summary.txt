@@ -1,0 +1,13 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR: shift=0 st ; Δtuning=3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0153
+MUTM: shift=0 st ; Δtuning=3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9968
+SBD: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0101
+RSD: shift=0 st ; Δtuning=-1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9991
+TGBT: shift=0 st ; Δtuning=23.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0047
+DITB: shift=0 st ; Δtuning=10.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0064
+FTR: shift=0 st ; Δtuning=9.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0275
+FTR: shift=0 st ; Δtuning=-51.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0176

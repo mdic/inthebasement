@@ -291,6 +291,7 @@ class SongAnalyser:
                     "song_label": song_label,
                     "ref_label": ref.label,
                     "cmp_label": v.label,
+                    "cmp_file": os.path.basename(v.file),
                     "tuning_cents_cmp": float(v.tuning_cents),
                     "tuning_cents_ref": float(ref.tuning_cents),
                     "delta_tuning_cents": float(v.tuning_cents - ref.tuning_cents),
@@ -310,15 +311,26 @@ class SongAnalyser:
             fh.write("=" * 60 + "\n\n")
             for r in rows:
                 fh.write(
-                    f"{r['cmp_label']}: shift={r['semitone_shift_vs_ref']} st ; "
+                    f"{r['cmp_label'] - r['cmp_file']}: shift={r['semitone_shift_vs_ref']} st ; "
                     f"Δtuning={r['delta_tuning_cents']:.1f} cents ; "
                     f"speed_from_pitch={r['speed_factor_from_pitch']:.4f} ; "
                     f"duration_ratio(ref/cmp)={r['duration_ratio_ref_over_cmp']:.4f}\n"
                 )
 
         # Plot offsets
-        labels = [r["cmp_label"] for r in rows]
+        seen = {}
+        labels = []
+        for r in rows:
+            base = r["cmp_label"]
+            count = seen.get(base, 0) + 1
+            seen[base] = count
+            if count == 1:
+                labels.append(base)
+            else:
+                labels.append(f"{base}#{count}")
+
         shifts_cents = [r["delta_tuning_cents"] for r in rows]
+
         plt.figure(figsize=(6, 4))
         plt.bar(labels, shifts_cents, color="orange")
         plt.axhline(0, color="k", linewidth=1)
