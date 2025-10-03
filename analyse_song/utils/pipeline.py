@@ -311,7 +311,7 @@ class SongAnalyser:
             fh.write("=" * 60 + "\n\n")
             for r in rows:
                 fh.write(
-                    f"{r['cmp_label'] - r['cmp_file']}: shift={r['semitone_shift_vs_ref']} st ; "
+                    f"{r['cmp_label']} - {r['cmp_file']}: shift={r['semitone_shift_vs_ref']} st ; "
                     f"Δtuning={r['delta_tuning_cents']:.1f} cents ; "
                     f"speed_from_pitch={r['speed_factor_from_pitch']:.4f} ; "
                     f"duration_ratio(ref/cmp)={r['duration_ratio_ref_over_cmp']:.4f}\n"
