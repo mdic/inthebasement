@@ -75,7 +75,9 @@ def plot_spectrograms(
             cmap="magma",
         )
         plt.colorbar(format="%+2.0f dB")
-        plt.title(f"STFT Spectrogram (Mono) - {v.label} {song_title}")
+        plt.title(
+            f"STFT Spectrogram (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         plt.tight_layout()
         path, name = unique_path(
             os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_Mono.png")
@@ -95,7 +97,9 @@ def plot_spectrograms(
             cmap="magma",
         )
         plt.colorbar(format="%+2.0f dB")
-        plt.title(f"STFT Spectrogram (Left) - {v.label} {song_title}")
+        plt.title(
+            f"STFT Spectrogram (Left) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         plt.tight_layout()
         path, name = unique_path(
             os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_L.png")
@@ -115,7 +119,9 @@ def plot_spectrograms(
             cmap="magma",
         )
         plt.colorbar(format="%+2.0f dB")
-        plt.title(f"STFT Spectrogram (Right) - {v.label} {song_title}")
+        plt.title(
+            f"STFT Spectrogram (Right) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         plt.tight_layout()
         path, name = unique_path(
             os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_R.png")
@@ -140,7 +146,9 @@ def plot_mel_spectrograms(
         path, name = unique_path(
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_Mono.png")
         )
-        plt.title(f"Mel Spectrogram (Mono) - {v.label} {song_label}")
+        plt.title(
+            f"Mel Spectrogram (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         plt.tight_layout()
         plt.savefig(path, dpi=150)
         v.plots["melspec_Mono"] = name
@@ -157,7 +165,9 @@ def plot_mel_spectrograms(
         path, name = unique_path(
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_L.png")
         )
-        plt.title(f"Mel Spectrogram (Left) - {v.label} {song_title}")
+        plt.title(
+            f"Mel Spectrogram (Left) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         plt.tight_layout()
         plt.savefig(path, dpi=150)
         v.plots["melspec_L"] = name
@@ -174,7 +184,9 @@ def plot_mel_spectrograms(
         path, name = unique_path(
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_R.png")
         )
-        plt.title(f"Mel Spectrogram (Right) - {v.label} {song_title}")
+        plt.title(
+            f"Mel Spectrogram (Right) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         plt.tight_layout()
         plt.savefig(path, dpi=150)
         v.plots["melspec_R"] = name
@@ -345,7 +357,9 @@ def plot_lr_balance_bars(
 
         ax1.set_xticks(x)
         ax1.set_xticklabels(["L", "R"])
-        plt.title(f"Stereo Balance — {song_label} {v.label}")
+        plt.title(
+            f"Stereo Balance | {v.label} - {os.path.basename(v.file)} - {song_label}"
+        )
         h1, l1 = ax1.get_legend_handles_labels()
         h2, l2 = ax2.get_legend_handles_labels()
         ax1.legend(h1 + h2, l1 + l2, loc="upper left")

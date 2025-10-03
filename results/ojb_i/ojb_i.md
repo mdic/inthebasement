@@ -1,9 +1,10 @@
 ---
 title: "Orange Juice Blues (Instrumental)"
 song_label: ojb_i
+ref_title_version: FTR
 ---
 
-# Orange Juice Blues (Instrumental)
+# Orange Juice Blues (Instrumental) (title taken from FTR)
 
 ## Details
 
@@ -74,11 +75,12 @@ Reference version: **FTR**
 
 ![Pitch Offsets](ojb_i-pitch_offsets.png)
 
-```
+````text
 Pitch/Speed analysis (reference = FTR)
 ============================================================
 
 FTR: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
 FTR: shift=0 st ; Δtuning=-14.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9928
-```
+
+````
 
