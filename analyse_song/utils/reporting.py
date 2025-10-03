@@ -56,21 +56,6 @@ def generate_markdown(
 
         fmd.write(f"![MFCC Similarity]({v0.plots['similarity_plot']})\n\n")
 
-        fmd.write("## Stereo Balance\n\n")
-        for v in analysis.versions:
-            fmd.write(f"### {v.label}\n\n")
-            fmd.write(f"![STFT Spectrogram (Left)]({v.plots['spectrogram_L']})\n\n")
-            fmd.write(f"![STFT Spectrogram (Right)]({v.plots['spectrogram_R']})\n\n")
-            fmd.write(f"![Mel Spectrogram (Left)]({v.plots['melspec_L']})\n\n")
-            fmd.write(f"![Mel Spectrogram (Right)]({v.plots['melspec_R']})\n\n")
-            fmd.write(f"![Stereo Balance Bars]({v.plots['balance_plot']})\n\n")
-
-        fmd.write("## Spectrograms (Mono)\n\n")
-        for v in analysis.versions:
-            fmd.write(f"### {v.label}\n\n")
-            fmd.write(f"![STFT Spectrogram (Mono)]({v.plots['spectrogram_Mono']})\n\n")
-            fmd.write(f"![Mel Spectrogram (Mono)]({v.plots['melspec_Mono']})\n\n")
-
         pitch_csv = os.path.join(outdir, f"{song_label}-pitch_report.csv")
         pitch_summary = os.path.join(outdir, f"{song_label}-pitch_summary.txt")
         pitch_plot = os.path.join(outdir, f"{song_label}-pitch_offsets.png")
@@ -90,6 +75,21 @@ def generate_markdown(
                     fmd.write("````text\n")
                     fmd.write(ps.read())
                     fmd.write("\n````\n\n")
+
+        fmd.write("## Stereo Balance\n\n")
+        for v in analysis.versions:
+            fmd.write(f"### {v.label}\n\n")
+            fmd.write(f"![STFT Spectrogram (Left)]({v.plots['spectrogram_L']})\n\n")
+            fmd.write(f"![STFT Spectrogram (Right)]({v.plots['spectrogram_R']})\n\n")
+            fmd.write(f"![Mel Spectrogram (Left)]({v.plots['melspec_L']})\n\n")
+            fmd.write(f"![Mel Spectrogram (Right)]({v.plots['melspec_R']})\n\n")
+            fmd.write(f"![Stereo Balance Bars]({v.plots['balance_plot']})\n\n")
+
+        fmd.write("## Spectrograms (Mono)\n\n")
+        for v in analysis.versions:
+            fmd.write(f"### {v.label}\n\n")
+            fmd.write(f"![STFT Spectrogram (Mono)]({v.plots['spectrogram_Mono']})\n\n")
+            fmd.write(f"![Mel Spectrogram (Mono)]({v.plots['melspec_Mono']})\n\n")
 
     return md_path
 
