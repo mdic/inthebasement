@@ -16,6 +16,7 @@
 -   clos:
     CBST has false start/take at the beginning (need to check other editions, since BS11 doesn't have this)
     FTR (r05t22) has false start/take at the beginning
+    FTR (r09t12) has false start/take at the beginning
 -   conf_t2:
     BS11 contains 900 miles from my home before Confidential
 -   icciwabh:
@@ -30,4 +31,7 @@
     take numbers is arbitrary by me
 -   yss:
     take numbers is arbitrary by me
+-   ast:
+    FTR R09t22 is a fragment of ast_t2
+    FTR R09t23 is a fragment of ast_t2
 

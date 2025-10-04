@@ -24,7 +24,7 @@ song_label: cotl_t2
 
 ![Radar Plot](cotl_t2-radar_plot.png)
 
-![MFCC Similarity](cotl_t2-similarity_matrix.csv)
+![MFCC Similarity](cotl_t2-similarity_matrix.png)
 
 ## Stereo Balance
 
@@ -144,4 +144,3 @@ ATWR: shift=0 st ; Δtuning=9.0 cents ; speed_from_pitch=1.0000 ; duration_ratio
 MUTM: shift=0 st ; Δtuning=43.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0170
 RSD: shift=0 st ; Δtuning=-3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9993
 ```
-

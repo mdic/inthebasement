@@ -4,14 +4,18 @@ import os
 from typing import Dict, Any
 
 # Default in-code mappings. These can be overridden at runtime by placing
-# a JSON file at CONFIG_PATH (env) or utils/basement/config.json.
+# a JSON file at CONFIG_PATH (env) or analyse_song/utils/config.json.
 LABEL_COLORS: Dict[str, str] = {
-    "HHST": "skyblue",
-    "TGBT": "orange",
-    "CAR": "green",
-    "TCB": "purple",
-    "MUTM": "red",
-    "ATWR": "blue",
+    "ATWR": "#01c472",
+    "CAR": "#a93713",
+    "CB": "#79c8ae",
+    "DITB": "#a20655",
+    "FTR": "#76f014",
+    "MUTM": "#2c647e",
+    "RSD": "#d0d2f0",
+    "SBD": "#4b3596",
+    "TGBT": "#9bb64b",
+    "BS11": "#d37ce6",
 }
 
 VERSION_LABEL_MAP: Dict[str, str] = {

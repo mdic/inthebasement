@@ -1,4 +1,5 @@
-Pitch/Speed analysis (reference = DITB)
+Pitch/Speed analysis (reference = FTR)
 ============================================================
 
-DITB: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+DITB - 12 Instrumental #4.flac: shift=0 st ; Δtuning=3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0539
+FTR - Track No11.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
