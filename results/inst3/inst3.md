@@ -3,7 +3,7 @@ title: ""
 song_label: inst3
 ---
 
-# 
+[](){ #inst3 }# 
 
 ## Notes
 
@@ -18,15 +18,15 @@ This is a test note
 | FTR     | Track No10.flac         | c558b8a1c1f9ac6ec1e40b4acb540c3a |      6 |      10 |        47.0133 | 00:47:013      |   -23.5948 |        -17.2715 |         -28.4454 |           11.1739  | 0.0329555 |  0.0515254 |   0.0275547 |     0.0239707 | 0.0775659 |             1657.84 |
 
 ## Plots
-![Waveforms (Mono)](inst3-waveforms_Mono(2).png)
+![Waveforms (Mono)](inst3-waveforms_Mono(3).png)
 
-![Waveforms (Left)](inst3-waveforms_L(2).png)
+![Waveforms (Left)](inst3-waveforms_L(3).png)
 
-![Waveforms (Right)](inst3-waveforms_R(2).png)
+![Waveforms (Right)](inst3-waveforms_R(3).png)
 
-![Radar Plot](inst3-radar_plot(2).png)
+![Radar Plot](inst3-radar_plot(3).png)
 
-![MFCC Similarity](inst3-similarity_matrix(2).png)
+![MFCC Similarity](inst3-similarity_matrix(3).png)
 
 ## Pitch & Speed Analysis (cents)
 
@@ -37,7 +37,7 @@ Reference version: **FTR**
 | inst3        | FTR         | DITB        | 11 Instrumental #3.flac |                 17 |                 10 |                    7 |                       0 |             0.98603 |                         1 |                       1.20588 |
 | inst3        | FTR         | FTR         | Track No10.flac         |                 10 |                 10 |                    0 |                       0 |             1       |                         1 |                       1       |
 
-![Pitch Offsets](inst3-pitch_offsets(2).png)
+![Pitch Offsets](inst3-pitch_offsets(3).png)
 
 ````text
 Pitch/Speed analysis (reference = FTR)
@@ -52,39 +52,39 @@ FTR - Track No10.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000
 
 ### DITB
 
-![STFT Spectrogram (Left)](inst3-DITB_spectrogram_L(2).png)
+![STFT Spectrogram (Left)](inst3-DITB_spectrogram_L(3).png)
 
-![STFT Spectrogram (Right)](inst3-DITB_spectrogram_R(2).png)
+![STFT Spectrogram (Right)](inst3-DITB_spectrogram_R(3).png)
 
-![Mel Spectrogram (Left)](inst3-DITB_melspec_L(2).png)
+![Mel Spectrogram (Left)](inst3-DITB_melspec_L(3).png)
 
-![Mel Spectrogram (Right)](inst3-DITB_melspec_R(2).png)
+![Mel Spectrogram (Right)](inst3-DITB_melspec_R(3).png)
 
-![Stereo Balance Bars](inst3-DITB_balance(2).png)
+![Stereo Balance Bars](inst3-DITB_balance(3).png)
 
 ### FTR
 
-![STFT Spectrogram (Left)](inst3-FTR_spectrogram_L(2).png)
+![STFT Spectrogram (Left)](inst3-FTR_spectrogram_L(3).png)
 
-![STFT Spectrogram (Right)](inst3-FTR_spectrogram_R(2).png)
+![STFT Spectrogram (Right)](inst3-FTR_spectrogram_R(3).png)
 
-![Mel Spectrogram (Left)](inst3-FTR_melspec_L(2).png)
+![Mel Spectrogram (Left)](inst3-FTR_melspec_L(3).png)
 
-![Mel Spectrogram (Right)](inst3-FTR_melspec_R(2).png)
+![Mel Spectrogram (Right)](inst3-FTR_melspec_R(3).png)
 
-![Stereo Balance Bars](inst3-FTR_balance(2).png)
+![Stereo Balance Bars](inst3-FTR_balance(3).png)
 
 ## Spectrograms (Mono)
 
 ### DITB
 
-![STFT Spectrogram (Mono)](inst3-DITB_spectrogram_Mono(2).png)
+![STFT Spectrogram (Mono)](inst3-DITB_spectrogram_Mono(3).png)
 
-![Mel Spectrogram (Mono)](inst3-DITB_melspec_Mono(2).png)
+![Mel Spectrogram (Mono)](inst3-DITB_melspec_Mono(3).png)
 
 ### FTR
 
-![STFT Spectrogram (Mono)](inst3-FTR_spectrogram_Mono(2).png)
+![STFT Spectrogram (Mono)](inst3-FTR_spectrogram_Mono(3).png)
 
-![Mel Spectrogram (Mono)](inst3-FTR_melspec_Mono(2).png)
+![Mel Spectrogram (Mono)](inst3-FTR_melspec_Mono(3).png)
 

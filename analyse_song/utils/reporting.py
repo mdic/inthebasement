@@ -19,6 +19,7 @@ def generate_markdown(
         if ref_title is not None:
             fmd.write(f"ref_title_version: {ref_title}\n")
         fmd.write("---\n\n")
+        fmd.write(f"[](){{ #{song_label} }}\n\n")
 
         if ref_title:
             fmd.write(f"# {song_title}\n\n")
