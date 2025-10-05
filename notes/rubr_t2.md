@@ -1,0 +1,1 @@
+Griffin (237-238) lists only one entry for the song, a take with no vocals; but discusses the existence of a second take with vocals. The former has been marked [`rubr_t1`][#rubr_t1], the latter as [`rubr_t2`][#rubr_t2].

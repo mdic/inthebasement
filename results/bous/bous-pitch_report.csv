@@ -1,0 +1,7 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+bous,BS11,BS11,21 - Bob Dylan & The Band - Bourbon Street.wav,-40.0,-40.0,0.0,0,1.0,1.0,1.0
+bous,BS11,CAR,04-21-Bob_Dylan-Bourbon_Street-SMR.flac,-40.0,-40.0,0.0,0,0.9999873042106628,1.0,1.0006283861730032
+bous,BS11,ATWR,11 Bourbon Street.flac,-30.0,-40.0,10.0,0,0.9919167160987854,1.0,2.0725228900371677
+bous,BS11,TGBT,4-02 Bourbon Street.flac,-3.9999999999999982,-40.0,36.0,0,0.9898307919502258,1.0,2.0997428361498893
+bous,BS11,FTR,16. Bourbon Street.flac,-17.0,-40.0,23.0,0,0.9912596344947815,1.0,2.1342419716206127
+bous,BS11,CB,16 Gimme Another Burbon Street.flac,-15.999999999999998,-40.0,24.0,0,0.9908632636070251,1.0,2.114697992785126

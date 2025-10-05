@@ -1,3 +1,4 @@
+[](){ #sbd }
 # `sbd` | Sweet Bourbon Daddy
 
 ## Description (from original info file)

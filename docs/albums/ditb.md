@@ -1,3 +1,4 @@
+[](){ #ditb }
 # `ditb` | Down In The Basement
 
 [LosslessBob LB-06691](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-06691.html)

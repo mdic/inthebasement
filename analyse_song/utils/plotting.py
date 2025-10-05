@@ -89,7 +89,7 @@ def plot_spectrograms(
         )
         plt.colorbar(format="%+2.0f dB")
         plt.title(
-            f"STFT Spectrogram (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            f"STFT Spec. (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
         )
         plt.tight_layout()
         path, name = unique_path(
@@ -111,7 +111,7 @@ def plot_spectrograms(
         )
         plt.colorbar(format="%+2.0f dB")
         plt.title(
-            f"STFT Spectrogram (Left) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            f"STFT Spec. (L) | {v.label} - {os.path.basename(v.file)} - {song_label}"
         )
         plt.tight_layout()
         path, name = unique_path(
@@ -133,7 +133,7 @@ def plot_spectrograms(
         )
         plt.colorbar(format="%+2.0f dB")
         plt.title(
-            f"STFT Spectrogram (Right) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            f"STFT Spec. (R) | {v.label} - {os.path.basename(v.file)} - {song_label}"
         )
         plt.tight_layout()
         path, name = unique_path(
@@ -160,7 +160,7 @@ def plot_mel_spectrograms(
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_Mono.png")
         )
         plt.title(
-            f"Mel Spectrogram (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            f"Mel Spec. (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
         )
         plt.tight_layout()
         plt.savefig(path, dpi=150)
@@ -179,7 +179,7 @@ def plot_mel_spectrograms(
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_L.png")
         )
         plt.title(
-            f"Mel Spectrogram (Left) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            f"Mel Spec. (L) | {v.label} - {os.path.basename(v.file)} - {song_label}"
         )
         plt.tight_layout()
         plt.savefig(path, dpi=150)
@@ -198,7 +198,7 @@ def plot_mel_spectrograms(
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_R.png")
         )
         plt.title(
-            f"Mel Spectrogram (Right) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            f"Mel Spec. (R) | {v.label} - {os.path.basename(v.file)} - {song_label}"
         )
         plt.tight_layout()
         plt.savefig(path, dpi=150)

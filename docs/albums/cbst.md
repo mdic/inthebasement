@@ -1,3 +1,4 @@
+[](){ #cbst }
 # `cbst` | "Complete" Basement Safety Tape Reconstructed
 
 [LosslessBob LB-7373](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-07373.html)

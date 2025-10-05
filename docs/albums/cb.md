@@ -1,7 +1,10 @@
+[](){ #cb }
 # `cb` | Complete Basement
 
 [Lossless Bob LB-1979](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-01979.html)
 
+## Notes
+Only Bob Dylan and The Band tracks are taken into account for analysis; cover versions are excluded.
 
 ## Description (from original info file)
 Well, here is it, my third attempt to cover the Basement Recordings. This attempt is more of an 'Anthology' than simply the 'Dylan Basement recordings'.
