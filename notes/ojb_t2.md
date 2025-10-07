@@ -1,0 +1,1 @@
+Griffin (p.242) lists no vocal for this take, and explicitly states "[t]he backing track only for the version found on the official release", despite the tracks appearing on [`CB`][#cb] and [`FTR`][#ftr] containing vocals.

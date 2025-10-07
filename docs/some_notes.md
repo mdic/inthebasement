@@ -10,3 +10,5 @@ Instrumental (#1) has been titled "Organ Riffs" (Griffin 243), only FTR  correct
 "I can't come in with a broken heart" in BS11 is one single file, and also Griffin lists one single take, despite the song being split into two parts in several bootlegs; the parts have been marked as `icciwabh_s1` and `icciwabh_s2`.
 
 "Waltzin' with sin" in BS11 is one single file, and also Griffin lists one single take, despite the song being split into two parts in several bootlegs; the parts have been marked as `wws_s1` and `wws_s2`.
+
+[`cb`][#cb] d07t21 is labelled, reported in the artwork, and detailed in the included original info file as "Nothing was delivered (take 1)" [`nwd_t1`][#nwd_t1] but contains "Too much of nothing (take 2)" [`tmon_t2`][#tmon_t2]. I cannot verify if this is a flaw of my copy alone.
