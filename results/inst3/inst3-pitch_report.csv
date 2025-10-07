@@ -1,3 +1,0 @@
-song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
-inst3,FTR,DITB,11 Instrumental #3.flac,17.000000000000004,9.999999999999998,7.000000000000005,0,0.9860299229621887,1.0,1.2058823529411766
-inst3,FTR,FTR,Track No10.flac,9.999999999999998,9.999999999999998,0.0,0,1.0000001192092896,1.0,1.0

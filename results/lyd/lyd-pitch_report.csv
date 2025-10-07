@@ -1,5 +1,0 @@
-song_label,ref_label,cmp_label,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
-lyd,BS11,BS11,-18.0,-18.0,0.0,0,1.0,1.0,1.0
-lyd,BS11,CAR,-14.000000000000002,-18.0,3.9999999999999982,0,0.9998787641525269,1.0,1.0001671931080398
-lyd,BS11,ATWR,12.0,-18.0,30.0,0,0.9928529262542725,1.0,1.1025308241401686
-lyd,BS11,FTR,-35.0,-18.0,-17.0,-1,0.9920912384986877,0.9438743126816935,1.2092526690391459

@@ -1,9 +1,0 @@
-Pitch/Speed analysis (reference = BS11)
-============================================================
-
-BS11 - 21 - Bob Dylan & The Band - Bourbon Street.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
-CAR - 04-21-Bob_Dylan-Bourbon_Street-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0006
-ATWR - 11 Bourbon Street.flac: shift=0 st ; Δtuning=10.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=2.0725
-TGBT - 4-02 Bourbon Street.flac: shift=0 st ; Δtuning=36.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=2.0997
-FTR - 16. Bourbon Street.flac: shift=0 st ; Δtuning=23.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=2.1342
-CB - 16 Gimme Another Burbon Street.flac: shift=0 st ; Δtuning=24.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=2.1147

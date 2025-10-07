@@ -1,3 +1,0 @@
-song_label,ref_label,cmp_label,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
-ojb_i,FTR,FTR,25.0,25.0,0.0,0,1.0,1.0,1.0
-ojb_i,FTR,FTR,10.999999999999998,25.0,-14.000000000000002,0,0.9959573149681091,1.0,0.9927869753383252

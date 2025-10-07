@@ -1,7 +1,0 @@
-Pitch/Speed analysis (reference = BS11)
-============================================================
-
-BS11: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
-CAR: shift=0 st ; Δtuning=4.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0002
-ATWR: shift=0 st ; Δtuning=30.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.1025
-FTR: shift=-1 st ; Δtuning=-17.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.2093

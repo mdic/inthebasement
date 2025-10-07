@@ -1,3 +1,0 @@
-song_label,ref_label,cmp_label,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
-sylag_t2,BS11,BS11,-13.0,-13.0,0.0,0,0.9999999403953552,1.0,1.0
-sylag_t2,BS11,CAR,-3.9999999999999982,-13.0,9.000000000000002,0,0.9998800754547119,1.0,0.9998721223660637

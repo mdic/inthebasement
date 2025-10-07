@@ -14,3 +14,5 @@ Instrumental (#1) has been titled "Organ Riffs" (Griffin 243), only FTR  correct
 [`CB`][#cb] d07t21 is labelled, reported in the artwork, and detailed in the included original info file as "Nothing was delivered (take 1)" [`nwd_t1`][#nwd_t1] but contains "Too much of nothing (take 2)" [`tmon_t2`][#tmon_t2]. I cannot verify if this is a flaw of my copy alone.
 
 [`ATWR`][#atwr] has both takes [`iaffy_t1`][#iaffy_t1] and [`iaffy_t2`][#iaffy_t2] in one single track.
+
+[`ATWR`][#atwr] has both takes [`sylag_t1`][#sylag_t1] and [`sylag_t2`][#sylag_t2] in one single track.
