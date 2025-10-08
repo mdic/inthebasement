@@ -1,1 +1,1 @@
-[`CB`][#cb] has Dylan's countdown at the beginning.
+[`CB`][cb] has Dylan's countdown at the beginning.

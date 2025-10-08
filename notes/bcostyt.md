@@ -1,1 +1,1 @@
-Bootleg versions all have an initial incomplete take before the one that is included in [`BS11`][#bs11]. The latter has been marked `bcostyt_t2` to accomodate for the existence of the former, which is marked `bcostyt_t1-t2`.
+Bootleg versions all have an initial incomplete take before the one that is included in [`BS11`][bs11]. The latter has been marked `bcostyt_t2` to accomodate for the existence of the former, which is marked `bcostyt_t1-t2`.

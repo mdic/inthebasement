@@ -21,3 +21,5 @@ Click on any entry to view detailed comparisons and plots.
 - [Beautiful Thing (Take 1)](./beat_t1.md)
 - [Beautiful Thing (Take 2)](./beat_t2.md)
 - [Belshazzar](./belsh.md)
+- [Bessie Smith](./bess.md)
+- [Big Dog](./bigd.md)

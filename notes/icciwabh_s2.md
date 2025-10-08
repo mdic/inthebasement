@@ -1,1 +1,1 @@
-[`FTR`][#ftr] contains approx. 32 seconds at the end of an instrumental section not related to [`icciwabh`][#icciwabh]; it appears to be from [`oara`][#oara]. The same audio snippet is present in [`CB`][#cb] as @@@ cb_d02t09
+[`FTR`][ftr] contains approx. 32 seconds at the end of an instrumental section not related to [`icciwabh`][icciwabh]; it appears to be from [`oara`][oara]. The same audio snippet is present in [`CB`][cb] as @@@ cb_d02t09
