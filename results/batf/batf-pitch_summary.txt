@@ -1,0 +1,10 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 14 - Bob Dylan & The Band - Baby Ain't That Fine.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 02-14-Bob_Dylan-Baby_Ain_t_That_Fine-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 17 Baby Ain't That Fine.flac: shift=0 st ; Δtuning=23.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0162
+TGBT - 06 Baby Ain't That Fine.flac: shift=-1 st ; Δtuning=-14.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.0560
+FTR - 18. Baby Ain't That Fine.flac: shift=0 st ; Δtuning=22.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0183
+FTR - 25. Baby Ain't That Fine.flac: shift=0 st ; Δtuning=40.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0535
+CB - 18 Baby Ain't That Fine.flac: shift=0 st ; Δtuning=22.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0183
