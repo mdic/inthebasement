@@ -13,6 +13,7 @@ from .io_utils import (
     compute_md5,
     load_existing_md5s,
     read_input_csv,
+    log_memory,
 )
 from .audio import convert_to_wav, extract_features, attach_pitch_features
 from .plotting import (
@@ -67,6 +68,8 @@ class SongAnalyser:
         outdir = os.path.join(self.outroot, song_label)
         os.makedirs(outdir, exist_ok=True)
 
+        log_memory("Start analyse_song")
+
         versions: List[SongVersion] = []
         for row in versions_rows:
             file_path = (
@@ -103,6 +106,7 @@ class SongAnalyser:
             wav = convert_to_wav(file_path)
             sv.wav_path = wav
             extract_features(wav, sv, md5)
+            log_memory(f"Extracted features for {label}")
             versions.append(sv)
 
             if not self.keep and wav and os.path.exists(wav):
@@ -139,7 +143,10 @@ class SongAnalyser:
                 for v in versions
             ]
         )
+        print("writing::features")
         df.to_csv(os.path.join(outdir, f"{song_label}-features.csv"), index=False)
+        log_memory("Features CSV written")
+        print("written::features")
 
         # Normalised subset
         df_norm = df.copy()
@@ -160,21 +167,48 @@ class SongAnalyser:
         )
 
         # Attach pitch features here so we can liberate/free them after the plots
+        print("writing::pitch")
         attach_pitch_features(versions)
+        print("written::pitch")
 
         # Plots
+
+        log_memory("Before plot_waveforms")
         plot_waveforms(versions, outdir, song_label)
+        log_memory("After plot_waveforms")
+
+        print("writing::spectrograms")
         plot_spectrograms(versions, outdir, song_title, song_label)
+        log_memory("After plot_spectrograms")
+        print("written::spectrograms")
+
+        print("writing::mel_spectrograms")
         plot_mel_spectrograms(versions, outdir, song_title, song_label)
+        log_memory("After plot_mel_spectrograms")
+        print("written::mel_spectrograms")
+
+        print("writing::similarity_matrix")
         plot_similarity_matrix(versions, outdir, song_label)
+        log_memory("After plot_similarity_matrix")
+        print("written::similarity_matrix")
+
+        print("writing::radar_chart")
         plot_radar_chart(versions, outdir, song_label)
+        log_memory("After plot_radar_chart")
+        print("written::radar_chart")
+
+        print("writing::lr_balance_bars")
         plot_lr_balance_bars(versions, outdir, song_label)
+        log_memory("After plot_lr_balance_bars")
+        print("written::lr_balance_bars")
 
         # Free heavy arrays before reporting
+        log_memory("Before freeing signals")
         for v in versions:
             v.signal_mono = None
             v.signal_left = None
             v.signal_right = None
+        log_memory("After freeing signals")
 
         # Pitch/Speed
         pitch_csv, pitch_summary, pitch_plot = self._pitch_speed_analysis(
@@ -190,11 +224,14 @@ class SongAnalyser:
             versions=versions,
             outdir=outdir,
         )
+        print("writing::markdown")
         generate_markdown(
             analysis, ref_label=self._ref_label_used(versions), ref_title=ref_title_used
         )
+        print("written::markdown")
 
         # JSONL cumulative log
+        print("writing::jsonl")
         append_jsonl(
             "metadata.jsonl",
             [
@@ -220,6 +257,7 @@ class SongAnalyser:
                 for v in versions
             ],
         )
+        print("written::jsonl")
 
         smoke_check_outputs(analysis)
         logging.info(

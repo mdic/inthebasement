@@ -1,0 +1,10 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 12 - Bob Dylan & The Band - All American Boy.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 04-12-Bob_Dylan-All_American_Boy-SMR.flac: shift=0 st ; Δtuning=6.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9995
+ATWR - 06 All American Boy.flac: shift=0 st ; Δtuning=35.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0026
+TGBT - 4-03 All American Boy.flac: shift=0 st ; Δtuning=51.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0086
+FTR - 15. All American Boy.flac: shift=-1 st ; Δtuning=-24.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.0432
+FTR - 24. All American Boy.flac: shift=0 st ; Δtuning=38.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0124
+CB - 15 All American boy.flac: shift=-1 st ; Δtuning=-28.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.0247

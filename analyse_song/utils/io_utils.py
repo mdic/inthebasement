@@ -8,6 +8,15 @@ from typing import Dict, Iterable, List, Optional, Tuple
 
 import pandas as pd
 
+import psutil
+
+
+def log_memory(prefix: str = "") -> None:
+    """Log current memory usage (RSS) in MB for debugging."""
+    process = psutil.Process(os.getpid())
+    rss = process.memory_info().rss / (1024 * 1024)
+    logging.info(f"[MEM] {prefix} – RSS: {rss:.1f} MB")
+
 
 def setup_logging(level: int = logging.INFO) -> None:
     """Configure root logger with a succinct format.

@@ -19,7 +19,6 @@ def generate_markdown(
         if ref_title is not None:
             fmd.write(f"ref_title_version: {ref_title}\n")
         fmd.write("---\n\n")
-        fmd.write(f"[](){{ #{song_label} }}\n\n")
 
         if ref_title:
             fmd.write(f"# {song_title}\n\n")
@@ -27,6 +26,7 @@ def generate_markdown(
         else:
             fmd.write(f"# {song_title}\n\n")
 
+        fmd.write(f"[](){{ #{song_label} }}\n\n")
         notes_path = os.path.join("notes/", f"{song_label}.md")
         if os.path.exists(notes_path):
             with open(notes_path, encoding="utf-8") as nf:
@@ -99,6 +99,7 @@ def smoke_check_outputs(analysis: SongAnalysis) -> None:
     song_label = analysis.song_label
     outdir = analysis.outdir
     expected = [
+        os.path.join(outdir, f"{song_label}.md"),
         os.path.join(outdir, f"{song_label}-waveforms_Mono.png"),
         os.path.join(outdir, f"{song_label}-waveforms_L.png"),
         os.path.join(outdir, f"{song_label}-waveforms_R.png"),
@@ -109,6 +110,7 @@ def smoke_check_outputs(analysis: SongAnalysis) -> None:
     ]
     for v in analysis.versions:
         expected += [
+            os.path.join(outdir, f"{song_label}.md"),
             os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_Mono.png"),
             os.path.join(outdir, f"{song_label}-{v.label}_melspec_Mono.png"),
             os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_L.png"),
