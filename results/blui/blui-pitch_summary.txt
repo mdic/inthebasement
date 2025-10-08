@@ -1,0 +1,9 @@
+Pitch/Speed analysis (reference = DITB)
+============================================================
+
+DITB - 05 Instrumental #2.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+FTR - 26. Blues Improvisation.flac: shift=0 st ; Δtuning=11.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0268
+FTR - 13. Blues Instrumental.flac: shift=-1 st ; Δtuning=-28.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=0.9950
+FTR - 28. Blues Instrumental.flac: shift=1 st ; Δtuning=64.0 cents ; speed_from_pitch=1.0595 ; duration_ratio(ref/cmp)=0.9655
+CB - 26 Instrumental.flac: shift=0 st ; Δtuning=14.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0211
+CB - 13 Instrumental (ominous).flac: shift=0 st ; Δtuning=69.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0024
