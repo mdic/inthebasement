@@ -27,11 +27,11 @@ def generate_markdown(
             fmd.write(f"# {song_title}\n\n")
 
         fmd.write(f"[](){{ #{song_label} }}\n\n")
-        notes_path = os.path.join("notes/", f"{song_label}.md")
-        if os.path.exists(notes_path):
-            with open(notes_path, encoding="utf-8") as nf:
-                fmd.write("## Notes\n\n")
-                fmd.write(nf.read() + "\n\n")
+        # notes_path = os.path.join("notes/", f"{song_label}.md")
+        # if os.path.exists(notes_path):
+        #     with open(notes_path, encoding="utf-8") as nf:
+        #         fmd.write("## Notes\n\n")
+        #         fmd.write(nf.read() + "\n\n")
 
         df = pd.read_csv(os.path.join(outdir, f"{song_label}-features.csv"))
         fmd.write("## Details\n\n")

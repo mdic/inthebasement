@@ -1,0 +1,11 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 05 - Bob Dylan & The Band - Belshazzar.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 01-05-Bob_Dylan-Belshazzar-SMR.flac: shift=0 st ; Δtuning=-3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 10 Belchazaar.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9957
+SBD - 11 Belchezaar.flac: shift=0 st ; Δtuning=2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0824
+TGBT - 4-17 Belchezaar 1 And 2.flac: shift=0 st ; Δtuning=16.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9979
+FTR - 01. Belchezaar 1 & 2.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9834
+FTR - 19. Belchezaar.flac: shift=0 st ; Δtuning=27.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0189
+CB - 01 Belshazar.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9739

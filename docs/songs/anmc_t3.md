@@ -12,6 +12,11 @@ song_label: anmc_t3
 This is The Band-only version as it appears on "The Basement Tapes" 1975 album. For cataloguing purposes, it has been labelled as `anmc_t3`.
 
 
+## Notes
+
+This is The Band-only version as it appears on "The Basement Tapes" 1975 album. For cataloguing purposes, it has been labelled as `anmc_t3`.
+
+
 ## Details
 
 | label   | orig_file                   | md5                              |   disc |   track |   duration_sec | duration_fmt   |   loudness |   loudness_left |   loudness_right |   loudness_balance |      rms |   rms_left |   rms_right |   rms_balance |   lr_corr |   spectral_centroid |
@@ -89,4 +94,3 @@ CB - 09 Aint No More Cane.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pit
 ![STFT Spectrogram (Mono)](../assets/songs/anmc_t3/anmc_t3-CB_spectrogram_Mono.png)
 
 ![Mel Spectrogram (Mono)](../assets/songs/anmc_t3/anmc_t3-CB_melspec_Mono.png)
-

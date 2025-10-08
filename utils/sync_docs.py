@@ -70,7 +70,8 @@ def inject_notes(md_content, notes_file):
     for i, line in enumerate(lines):
         injected.append(line)
         # Dopo il primo heading di livello 1 (# titolo)
-        if not inserted and line.startswith("# "):
+        # if not inserted and line.startswith("# "):
+        if not inserted and line.startswith("[](){"):
             injected.append("")
             injected.append("## Notes")
             injected.append("")
@@ -116,7 +117,7 @@ def sync_docs():
         md_content = rewrite_links(md_content, song_label, song_path)
 
         # inject notes.md if present
-        notes_file = os.path.join(song_path, "notes.md")
+        notes_file = os.path.join("notes/", f"{song_label}.md")
         md_content = inject_notes(md_content, notes_file)
 
         dest_md = os.path.join(SONGS_DIR, f"{song_label}.md")

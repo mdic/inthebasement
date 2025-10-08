@@ -16,4 +16,8 @@ Click on any entry to view detailed comparisons and plots.
 - [Apple Suckling Tree (Take 2)](./ast_t2.md)
 - [Apple Suckling Tree (Take 2, Fragment 1)](./ast_t2f1.md)
 - [Apple Suckling Tree (Take 2, Fragment 2)](./ast_t2f2.md)
+- [Baby Ain't That Fine](./batf.md)
 - [Bacon Fat](./bacf.md)
+- [Beautiful Thing (Take 1)](./beat_t1.md)
+- [Beautiful Thing (Take 2)](./beat_t2.md)
+- [Belshazzar](./belsh.md)

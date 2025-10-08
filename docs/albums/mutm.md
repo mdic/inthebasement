@@ -1,17 +1,20 @@
+# `mutm` | _Mixing Up The Medicine_
 
-# `mutm` | Mixing Up The Medicine
 [](){ #mutm }
 
 [LosslessBob LB-11057](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-11057.html)
 
 ## Description ([source](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-11057.html))
+
 ### from original info file
+
 Liberated Hollow Horn bootleg
 Excellent quality, vastly superior to everything that has come before
 
 The legendary Basement Tapes Safety Master was a tape reportedly made by Garth Hudson in early 1968 of the best available original master tapes made in the summer of 1967. This safety tape features truly breathtaking sound quality and also, in the majority of cases, features the material in its original glorious stereo.
 
 ### from LosslessBob
+
 BOOTLEG: mixing up the medicine; Hollow Horn, Safety Tape, General consensus is that you can compile a better quality disc by taking the tracks from tree with roots.
 
 ## Tracklist (from original info file)
