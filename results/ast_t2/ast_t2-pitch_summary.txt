@@ -1,0 +1,11 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 19 - Bob Dylan & The Band - Apple Suckling Tree (Take 2).wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 04-19-Bob_Dylan-Apple_Suckling_Tree_Take_2-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 26 Apple Suckling Tree - Take 2.flac: shift=0 st ; Δtuning=12.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0203
+SBD - 16 Apple Suckling Tree.flac: shift=0 st ; Δtuning=10.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0127
+TGBT - 2-07 Apple Suckling Tree (Version 2).flac: shift=0 st ; Δtuning=-2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9950
+CBST - Dylan & Band - Safety Tape_Track16.flac: shift=0 st ; Δtuning=11.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0238
+FTR - 25. Apple Suckling Tree.flac: shift=0 st ; Δtuning=6.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0146
+CB - 25 Apple Suckling Tree - 5.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0112

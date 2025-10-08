@@ -1,0 +1,7 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+afsai,BS11,BS11,16 - Bob Dylan & The Band - A Fool Such As I.wav,-13.0,-13.0,0.0,0,0.9999998807907104,1.0,1.0
+afsai,BS11,CAR,02-16-Bob_Dylan-A_Fool_Such_As_I-SMR.flac,-12.0,-13.0,1.0,0,0.9999983310699463,1.0,0.999989250894863
+afsai,BS11,ATWR,19 A Fools Such As I.flac,9.999999999999998,-13.0,23.0,0,0.9952159523963928,1.0,1.0346438302841572
+afsai,BS11,TGBT,08 A Fool Such As I.flac,-21.999999999999996,-13.0,-8.999999999999996,-1,0.9792275428771973,0.9438743126816935,1.0853409554920375
+afsai,BS11,FTR,20. A Fool Such As I.flac,8.999999999999996,-13.0,21.999999999999996,0,0.9950101971626282,1.0,1.002791820719837
+afsai,BS11,CB,20 (Now and Then Theres) A Fool Such as I.flac,7.000000000000006,-13.0,20.000000000000007,0,0.995060920715332,1.0,1.002791820719837

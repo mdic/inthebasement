@@ -1,0 +1,7 @@
+BS11 overlaps with CBST in radar plot
+CAR overlaps with CBST in radar plot
+ATWR overlaps with CBST in radar plot
+SBD overlaps with CBST in radar plot
+TGBT overlaps with CBST in radar plot
+FTR overlaps with CBST in radar plot
+CB overlaps with CBST in radar plot

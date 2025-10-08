@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 03 - Bob Dylan & The Band - Any Time.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 06-03-Bob_Dylan-Any_Time-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000

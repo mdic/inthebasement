@@ -1,9 +1,101 @@
 
 # Song Analysis Script — Explanation and Interpretation
 
-This page explains what the `analyse_song.py` script does, and how to interpret the results it produces. The goal is to make the analysis accessible to anyone, whether or not you have prior experience with audio engineering.
+All the details included in this website are produced using a custom-made tool called `analyse_song`, available under open-source GPL license here.
+The analyse_song tool is a complete audio analysis and visualisation pipeline designed to compare different recorded versions of the same song.
+It extracts detailed acoustic features from each version, produces multiple visual summaries, and compiles all results into a structured report.
 
 ---
+
+## How `analyse_song` works
+
+When you run
+
+`uv run -m analyse_song --song [LABEL]`
+
+the program follows a precise sequence of steps — converting, analysing, plotting, and reporting — to describe how each version of the song differs in timing, loudness, balance, and spectral profile.
+
+All outputs are saved in a dedicated folder under `results/[song_label]/`.
+
+### 1. Input
+
+The process begins with a CSV file (usually songs.csv) that lists every available version of each song.
+Each entry specifies:
+
+- the song label (a short code such as `yagn_t2`),
+- the file path to the audio,
+- the title of the song, and
+- the disc and track numbers identifying the version.
+
+The script can process all songs or a specific one via the `--song` option.
+
+### 2. Audio Preparation
+Each file is:
+
+- Converted to a standard .wav format (stereo, 44.1 kHz).
+- Checked for duplicates using an MD5 fingerprint — if the same file has already been processed, it is skipped.
+- Loaded into memory as left, right, and mono (combined) signals for further measurement.
+
+### 3. Feature Extraction:
+From each version, the program computes a set of audio features that quantify its sound properties:
+
+- Duration (in seconds and in mm:ss format)
+- Loudness of each channel (in LUFS)
+- Root Mean Square (RMS) energy — an indicator of perceived intensity
+- Left/right balance for both loudness and RMS
+- Stereo correlation (how similar the two channels are)
+- Spectral centroid (the "brightness" of the sound)
+- MFCC coefficients for timbral similarity
+- Tuning and chroma for pitch and harmonic content
+
+These features are saved in two CSV files:
+
+- `*-features.csv` (raw values)
+- `*-features_normalised.csv` (values scaled between 0 and 1 for easy comparison)
+
+### 4. Visualisation
+
+The system then generates several plots to make differences visible at a glance:
+
+- **Waveforms** (mono, left, right) – overall shape of the sound.
+- **Spectrograms** – colour-coded frequency content over time.
+- **Mel-spectrograms** – an alternative scale reflecting human hearing.
+- **Stereo balance bars** – comparing left/right loudness and RMS.
+- **Radar plot** – summarising duration, loudness, RMS, and brightness for all versions.
+- **MFCC similarity matrix** – measuring how close each version sounds to the others.
+- **Pitch offset chart** – showing how tuning differs between versions.
+
+Each plot is stored as a `.png` file with a consistent naming pattern inside the song’s results folder.
+
+### 5. Pitch and Speed Comparison
+After extracting features, the system analyses relative pitch and tempo differences:
+
+- Finds a reference version (specified via `--ref-label` or defaulting to the first).
+- Compares each version’s chroma pattern to the reference.
+- Detects semitone shifts, tuning offsets (in cents), and estimated playback speed.
+- Writes a detailed summary to:
+    - `*-pitch_report.csv` (structured data)
+    - `*-pitch_summary.txt` (readable text)
+    - `*-pitch_offsets.png` (visual plot of tuning deviations)
+
+### 6. Report Generation (Webpages)
+Finally, all results are compiled into a Markdown file named:
+
+`results/[song_label]/[song_label].md`
+
+This report includes:
+
+- Song title and reference information
+- A Markdown table of features
+- All generated plots embedded inline
+- Notes on overlapping radar plots (if any)
+- Pitch and speed analysis summary
+- References to original files and version labels
+
+This Markdown report is then integrated into a `docs` folder, serving files for this MkDocs site.
+
+### 7. Cumulative Metadata Log
+Each time a version is analysed, a short summary entry is appended to the central [`metadata.jsonl`](https://github.com/mdic/inthebasement/blob/main/metadata.jsonl) file, a cumulative, machine-readable record of all analyses performed — useful for indexing, cross-referencing, or database import.
 
 ## What the script does (technical overview)
 

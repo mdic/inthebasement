@@ -1,0 +1,3 @@
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,loudness_left,loudness_right,loudness_balance,rms,rms_left,rms_right,rms_balance,lr_corr,spectral_centroid
+BS11,03 - Bob Dylan & The Band - A Satisfied Mind.wav,64bbce18657cd78f882922c8885d9d01,5,3,0.0,02:00:773,0.0,1.0,0.0,-0.4517130576840884,1.0,1.0,1.0,0.00455087423324585,0.9022919784368887,1.0
+CAR,05-03-Bob_Dylan-A_Satisfied_Mind-SMR.flac,93c32cd74b6f7f610ae777f096f51878,5,3,1.0,02:00:774,1.0,0.0,1.0,-0.45502582781218237,0.0,0.0,0.0,0.004550255835056305,0.9022924261639941,0.0

@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 06 - Bob Dylan & The Band - Ain't No More Cane (Take 2).wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 05-06-Bob_Dylan-Ain_t_No_More_Cane_Alternate_V-SMR.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0002

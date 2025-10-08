@@ -1,0 +1,9 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+ast_t2,BS11,BS11,19 - Bob Dylan & The Band - Apple Suckling Tree (Take 2).wav,-20.0,-20.0,0.0,0,0.9999999403953552,1.0,1.0
+ast_t2,BS11,CAR,04-19-Bob_Dylan-Apple_Suckling_Tree_Take_2-SMR.flac,-20.0,-20.0,0.0,0,0.9999971389770508,1.0,0.9999668813262153
+ast_t2,BS11,ATWR,26 Apple Suckling Tree - Take 2.flac,-8.000000000000002,-20.0,11.999999999999998,0,0.9815642833709717,1.0,1.0203495331577686
+ast_t2,BS11,SBD,16 Apple Suckling Tree.flac,-9.999999999999998,-20.0,10.000000000000002,0,0.9812803268432617,1.0,1.0126722635830825
+ast_t2,BS11,TGBT,2-07 Apple Suckling Tree (Version 2).flac,-21.999999999999996,-20.0,-1.9999999999999964,0,0.9916417598724365,1.0,0.9950194552529181
+ast_t2,BS11,CBST,Dylan & Band - Safety Tape_Track16.flac,-8.999999999999996,-20.0,11.000000000000004,0,0.9824324250221252,1.0,1.02378092721595
+ast_t2,BS11,FTR,25. Apple Suckling Tree.flac,-14.000000000000002,-20.0,5.999999999999998,0,0.9649813771247864,1.0,1.0146008570068241
+ast_t2,BS11,CB,25 Apple Suckling Tree - 5.flac,-14.999999999999996,-20.0,5.0000000000000036,0,0.9674025774002075,1.0,1.0112306232204997

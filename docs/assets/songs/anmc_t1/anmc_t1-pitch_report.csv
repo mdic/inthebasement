@@ -1,0 +1,3 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+anmc_t1,BS11,BS11,05 - Bob Dylan & The Band - Ain't No More Cane (Take 1).wav,-14.000000000000002,-14.000000000000002,0.0,0,1.0,1.0,1.0
+anmc_t1,BS11,CAR,05-05-Bob_Dylan-Ain_t_No_More_Cane_Take_1-SMR.flac,-15.999999999999998,-14.000000000000002,-1.9999999999999964,0,0.9999995827674866,1.0,0.999966795133855
