@@ -23,11 +23,11 @@ ref_title_version: BS11
 | CB      | 15 All American boy.flac                         | 0b6550d9e3d3910a789779e7165632c5 |      4 |      15 |        233.08  | 03:53:080      |   -29.1387 |        -23.61   |         -34.0425 |         10.4325    | 0.0317153 |  0.059394  |   0.0174333 |    0.0419607  |  0.0533698 |             2261.52 |
 
 ## Plots
-![Waveforms (Mono)](../assets/songs/aab/aab-waveforms_Mono(7).png)
+![Waveforms (Mono)](../assets/songs/aab/aab-waveforms_Mono(2).png)
 
-![Waveforms (Left)](../assets/songs/aab/aab-waveforms_L(7).png)
+![Waveforms (Left)](../assets/songs/aab/aab-waveforms_L(2).png)
 
-![Waveforms (Right)](../assets/songs/aab/aab-waveforms_R(7).png)
+![Waveforms (Right)](../assets/songs/aab/aab-waveforms_R(2).png)
 
 ![Radar Plot](../assets/songs/aab/aab-radar_plot.png)
 
@@ -67,9 +67,9 @@ CB - 15 All American boy.flac: shift=-1 st ; Δtuning=-28.0 cents ; speed_from_p
 
 ### BS11
 
-![STFT Spectrogram (Left)](../assets/songs/aab/aab-BS11_spectrogram_L(6).png)
+![STFT Spectrogram (Left)](../assets/songs/aab/aab-BS11_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](../assets/songs/aab/aab-BS11_spectrogram_R(6).png)
+![STFT Spectrogram (Right)](../assets/songs/aab/aab-BS11_spectrogram_R.png)
 
 ![Mel Spectrogram (Left)](../assets/songs/aab/aab-BS11_melspec_L.png)
 
@@ -79,9 +79,9 @@ CB - 15 All American boy.flac: shift=-1 st ; Δtuning=-28.0 cents ; speed_from_p
 
 ### CAR
 
-![STFT Spectrogram (Left)](../assets/songs/aab/aab-CAR_spectrogram_L(6).png)
+![STFT Spectrogram (Left)](../assets/songs/aab/aab-CAR_spectrogram_L.png)
 
-![STFT Spectrogram (Right)](../assets/songs/aab/aab-CAR_spectrogram_R(6).png)
+![STFT Spectrogram (Right)](../assets/songs/aab/aab-CAR_spectrogram_R.png)
 
 ![Mel Spectrogram (Left)](../assets/songs/aab/aab-CAR_melspec_L.png)
 
@@ -91,7 +91,7 @@ CB - 15 All American boy.flac: shift=-1 st ; Δtuning=-28.0 cents ; speed_from_p
 
 ### ATWR
 
-![STFT Spectrogram (Left)](../assets/songs/aab/aab-ATWR_spectrogram_L(3).png)
+![STFT Spectrogram (Left)](../assets/songs/aab/aab-ATWR_spectrogram_L.png)
 
 ![STFT Spectrogram (Right)](../assets/songs/aab/aab-ATWR_spectrogram_R.png)
 
@@ -153,19 +153,19 @@ CB - 15 All American boy.flac: shift=-1 st ; Δtuning=-28.0 cents ; speed_from_p
 
 ### BS11
 
-![STFT Spectrogram (Mono)](../assets/songs/aab/aab-BS11_spectrogram_Mono(6).png)
+![STFT Spectrogram (Mono)](../assets/songs/aab/aab-BS11_spectrogram_Mono.png)
 
 ![Mel Spectrogram (Mono)](../assets/songs/aab/aab-BS11_melspec_Mono.png)
 
 ### CAR
 
-![STFT Spectrogram (Mono)](../assets/songs/aab/aab-CAR_spectrogram_Mono(6).png)
+![STFT Spectrogram (Mono)](../assets/songs/aab/aab-CAR_spectrogram_Mono.png)
 
 ![Mel Spectrogram (Mono)](../assets/songs/aab/aab-CAR_melspec_Mono.png)
 
 ### ATWR
 
-![STFT Spectrogram (Mono)](../assets/songs/aab/aab-ATWR_spectrogram_Mono(6).png)
+![STFT Spectrogram (Mono)](../assets/songs/aab/aab-ATWR_spectrogram_Mono.png)
 
 ![Mel Spectrogram (Mono)](../assets/songs/aab/aab-ATWR_melspec_Mono.png)
 

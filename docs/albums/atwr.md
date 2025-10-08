@@ -1,5 +1,5 @@
-[](){ #atwr }
 # `atwr` | A Tree With Roots
+[](){ #atwr }
 
 [LosslessBob LB-11201](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-11201.html)
 

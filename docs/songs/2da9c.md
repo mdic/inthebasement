@@ -4,11 +4,11 @@ song_label: 2da9c
 ref_title_version: BS11
 ---
 
-[](){ #2da9c }
-
 # 2 Dollars And 99 Cents
 
 **(title taken from BS11)**
+
+[](){ #2da9c }
 
 ## Details
 

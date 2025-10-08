@@ -1,5 +1,5 @@
-[](){ #rsd }
 # `rsd` | The Basement Tape 2015 RSD
+[](){ #rsd }
 
 ## Description
 Record Store Day 2015 Exclusive, featuring the mono mix of "The Basement Tape" acetate, originally curated by Garth Hudson. [Read more about this story on Rolling Stone](https://archive.is/Cbhzt).<br>

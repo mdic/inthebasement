@@ -1,5 +1,5 @@
-[](){ #ditb }
 # `ditb` | Down In The Basement
+[](){ #ditb }
 
 [LosslessBob LB-06691](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-06691.html)
 

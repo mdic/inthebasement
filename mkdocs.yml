@@ -4,6 +4,7 @@ site_url: https://mdic.github.io/inthebasement/
 
 theme:
   name: material
+  # custom_dir: custom_theme
   language: en
   features:
     - navigation.sections
@@ -15,6 +16,9 @@ theme:
     scheme: preferences
     primary: green
     accent: red
+
+# extra_css:
+#   - style.css
 
 plugins:
   - search

@@ -1,5 +1,5 @@
-[](){ #cb }
 # `cb` | Complete Basement
+[](){ #cb }
 
 [Lossless Bob LB-1979](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-01979.html)
 

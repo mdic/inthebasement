@@ -1,5 +1,5 @@
-[](){ #mutm }
 # `mutm` | Mixing Up The Medicine
+[](){ #mutm }
 
 [LosslessBob LB-11057](http://www.losslessbob.wonderingwhattochoose.com/detail/LB-11057.html)
 
