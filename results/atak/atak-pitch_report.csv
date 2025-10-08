@@ -1,0 +1,3 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+atak,FTR,FTR,31. Ain't that a Kindness.flac,-43.0,-43.0,0.0,0,1.0,1.0,1.0
+atak,FTR,CB,30 Ain't That a Kindness (frag).flac,-49.0,-43.0,-6.0,0,0.9999476671218872,1.0,0.997990174184904

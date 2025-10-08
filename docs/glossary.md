@@ -18,7 +18,7 @@ The analysis uses some technical audio measures. Here is what they mean in plain
   - Higher RMS = consistently louder audio.
   - Lower RMS = softer audio.
 
-  Unlike LUFS, RMS is not perceptually weighted, but it still gives a good idea of “overall power”.
+  Unlike LUFS, RMS is not perceptually weighted (it is less affected by short spikes or silence), but it still gives a good idea of “overall power”.
 
 ## **Spectral centroid**
   Indicates where the “centre of mass” of the spectrum lies.
@@ -29,8 +29,9 @@ The analysis uses some technical audio measures. Here is what they mean in plain
   Think of it as a rough proxy for how “bright” or “dull” a recording sounds.
 
 ## **MFCC (Mel-frequency cepstral coefficients)**
-  A compact representation of the overall timbre of a recording, widely used in speech and music recognition.
-  When compared across versions, MFCCs help quantify how similar two recordings “sound” beyond loudness or duration.
+  A set of numerical values that describe the timbre — the tone colour or texture — of a sound.
+They are widely used in speech and music analysis to compare how similar different recordings sound.
+In the `analyse_song` tool, MFCCs are averaged and compared using cosine similarity to estimate overall sound closeness.
 
 ## **Stereo correlation (L/R correlation)**
   Measures how similar the left and right channels are.
