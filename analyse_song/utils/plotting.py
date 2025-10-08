@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import librosa
 import librosa.display
 from sklearn.metrics.pairwise import cosine_similarity
+import gc
 
 from .config import LABEL_COLORS
 from .io_utils import unique_path
@@ -76,72 +77,38 @@ def plot_waveforms(versions: List[SongVersion], outdir: str, song_label: str) ->
 def plot_spectrograms(
     versions: List[SongVersion], outdir: str, song_title: str, song_label: str
 ) -> None:
+    """Plot full-length spectrograms efficiently with lower FFT size and float32 precision."""
     for v in versions:
-        # MONO
-        Dm = np.abs(librosa.stft(v.signal_mono))
-        plt.figure(figsize=(8, 5))
-        librosa.display.specshow(
-            librosa.amplitude_to_db(Dm, ref=np.max),
-            sr=v.sr,
-            x_axis="time",
-            y_axis="log",
-            cmap="magma",
-        )
-        plt.colorbar(format="%+2.0f dB")
-        plt.title(
-            f"STFT Spec. (Mono) | {v.label} - {os.path.basename(v.file)} - {song_label}"
-        )
-        plt.tight_layout()
-        path, name = unique_path(
-            os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_Mono.png")
-        )
-        plt.savefig(path, dpi=150)
-        v.plots["spectrogram_Mono"] = name
-        plt.close()
-
-        # LEFT
-        Dl = np.abs(librosa.stft(v.signal_left))
-        plt.figure(figsize=(8, 5))
-        librosa.display.specshow(
-            librosa.amplitude_to_db(Dl, ref=np.max),
-            sr=v.sr,
-            x_axis="time",
-            y_axis="log",
-            cmap="magma",
-        )
-        plt.colorbar(format="%+2.0f dB")
-        plt.title(
-            f"STFT Spec. (L) | {v.label} - {os.path.basename(v.file)} - {song_label}"
-        )
-        plt.tight_layout()
-        path, name = unique_path(
-            os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_L.png")
-        )
-        plt.savefig(path, dpi=150)
-        v.plots["spectrogram_L"] = name
-        plt.close()
-
-        # RIGHT
-        Dr = np.abs(librosa.stft(v.signal_right))
-        plt.figure(figsize=(8, 5))
-        librosa.display.specshow(
-            librosa.amplitude_to_db(Dr, ref=np.max),
-            sr=v.sr,
-            x_axis="time",
-            y_axis="log",
-            cmap="magma",
-        )
-        plt.colorbar(format="%+2.0f dB")
-        plt.title(
-            f"STFT Spec. (R) | {v.label} - {os.path.basename(v.file)} - {song_label}"
-        )
-        plt.tight_layout()
-        path, name = unique_path(
-            os.path.join(outdir, f"{song_label}-{v.label}_spectrogram_R.png")
-        )
-        plt.savefig(path, dpi=150)
-        v.plots["spectrogram_R"] = name
-        plt.close()
+        for sig, name_suffix, label in [
+            (v.signal_mono, "Mono", "Mono"),
+            (v.signal_left, "L", "Left"),
+            (v.signal_right, "R", "Right"),
+        ]:
+            # Compute spectrogram with smaller FFT and 32-bit precision
+            D = np.abs(librosa.stft(sig, n_fft=1024, hop_length=512)).astype(np.float32)
+            plt.figure(figsize=(8, 5))
+            librosa.display.specshow(
+                librosa.amplitude_to_db(D, ref=np.max),
+                sr=v.sr,
+                x_axis="time",
+                y_axis="log",
+                cmap="magma",
+            )
+            plt.colorbar(format="%+2.0f dB")
+            plt.title(
+                f"STFT Spec. ({name_suffix}) | {v.label} - {os.path.basename(v.file)} - {song_label}"
+            )
+            plt.tight_layout()
+            path, name = unique_path(
+                os.path.join(
+                    outdir, f"{song_label}-{v.label}_spectrogram_{name_suffix}.png"
+                )
+            )
+            plt.savefig(path, dpi=150)
+            v.plots[f"spectrogram_{name_suffix}"] = name
+            plt.close("all")
+            del D
+            gc.collect()
 
 
 def plot_mel_spectrograms(
@@ -165,7 +132,9 @@ def plot_mel_spectrograms(
         plt.tight_layout()
         plt.savefig(path, dpi=150)
         v.plots["melspec_Mono"] = name
-        plt.close()
+        plt.close("all")
+        del Sm, Sm_dB
+        gc.collect()
 
         # LEFT
         Sl = librosa.feature.melspectrogram(y=v.signal_left, sr=v.sr, n_mels=128)
@@ -184,7 +153,9 @@ def plot_mel_spectrograms(
         plt.tight_layout()
         plt.savefig(path, dpi=150)
         v.plots["melspec_L"] = name
-        plt.close()
+        plt.close("all")
+        del Sl, Sl_dB
+        gc.collect()
 
         # RIGHT
         Sr = librosa.feature.melspectrogram(y=v.signal_right, sr=v.sr, n_mels=128)
@@ -203,7 +174,9 @@ def plot_mel_spectrograms(
         plt.tight_layout()
         plt.savefig(path, dpi=150)
         v.plots["melspec_R"] = name
-        plt.close()
+        plt.close("all")
+        del Sr, Sr_dB
+        gc.collect()
 
 
 def plot_similarity_matrix(
