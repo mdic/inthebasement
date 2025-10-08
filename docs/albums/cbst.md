@@ -1,4 +1,4 @@
-# `cbst` | _"Complete" Basement Safety Tape Reconstructed_
+# `CBST` | _"Complete" Basement Safety Tape Reconstructed_
 
 [](){ #cbst }
 

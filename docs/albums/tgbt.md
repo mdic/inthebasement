@@ -1,4 +1,4 @@
-# `tgbt` | _The Genuine Basement Tapes_
+# `TGBT` | _The Genuine Basement Tapes_
 
 [](){ #tgbt }
 

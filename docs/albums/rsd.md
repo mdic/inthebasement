@@ -1,4 +1,4 @@
-# `rsd` | _The Basement Tape (2015 RSD vinyl)_
+# `RSD` | _The Basement Tape (2015 RSD vinyl)_
 
 [](){ #rsd }
 

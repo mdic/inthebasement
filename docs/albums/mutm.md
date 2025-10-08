@@ -1,4 +1,4 @@
-# `mutm` | _Mixing Up The Medicine_
+# `MUTM` | _Mixing Up The Medicine_
 
 [](){ #mutm }
 

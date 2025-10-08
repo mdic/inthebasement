@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = FTR)
+============================================================
+
+FTR - 07. Bessie Smith.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CB - 31 Bessie Smith.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000

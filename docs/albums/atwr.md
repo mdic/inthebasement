@@ -1,4 +1,4 @@
-# `atwr` | _A Tree With Roots_
+# `ATWR` | _A Tree With Roots_
 
 [](){ #atwr }
 

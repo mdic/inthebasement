@@ -1,4 +1,4 @@
-# `cb` | _Complete Basement_
+# `CB` | _Complete Basement_
 
 [](){ #cb }
 

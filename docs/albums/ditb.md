@@ -1,4 +1,4 @@
-# `ditb` | _Down In The Basement_
+# `DITB` | _Down In The Basement_
 
 [](){ #ditb }
 

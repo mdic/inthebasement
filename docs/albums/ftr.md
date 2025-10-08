@@ -1,4 +1,4 @@
-# `ftr` | _From The Reels_
+# `FTR` | _From The Reels_
 
 [](){ #ftr }
 

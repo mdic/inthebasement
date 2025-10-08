@@ -1,4 +1,4 @@
-# `sbd` | _Sweet Bourbon Daddy_
+# `SBD` | _Sweet Bourbon Daddy_
 
 [](){ #sbd }
 
