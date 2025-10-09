@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-awesome-nav mkdocs-autorefs
+          pip install mkdocs mkdocs-material mkdocs-awesome-nav mkdocs-autorefs mkdocs-document-dates mkdocs-material-extensions mkdocs-recently-updated-docs
 
       - name: Build and deploy
         run: mkdocs gh-deploy --force

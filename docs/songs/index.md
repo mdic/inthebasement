@@ -38,5 +38,7 @@ Click on any entry to view detailed comparisons and plots.
 - [Cool Water](./coow.md)
 - [Crash On The Levee (Take 1)](./cotl_t1.md)
 - [Crash On The Levee (Take 2)](./cotl_t2.md)
+- [Don't Ya Tell Henry](./dyth.md)
 - [Down By The Station](./dbts.md)
+- [Down On Me](./dom.md)
 - [Dress It up, Better Have It All](./diubhia.md)

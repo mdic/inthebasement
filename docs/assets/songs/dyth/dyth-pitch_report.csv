@@ -1,0 +1,10 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+dyth,BS11,BS11,20 - Bob Dylan & The Band - Don't Ya Tell Henry.wav,-37.0,-37.0,0.0,0,0.9999999403953552,1.0,1.0
+dyth,BS11,CAR,04-20-Bob_Dylan-Don_t_Ya_Tell_Henry-SMR.flac,-36.0,-37.0,1.0,0,0.9999665021896362,1.0,0.9999936822819597
+dyth,BS11,ATWR,10 Don't Ya Tell Henry.flac,-25.0,-37.0,12.0,0,0.9959503412246704,1.0,1.0244653860094237
+dyth,BS11,SBD,21 Don't Ya Tell Henry.flac,-25.0,-37.0,12.0,0,0.9960870146751404,1.0,1.0219651089216306
+dyth,BS11,TGBT,2-21 Don'tcha Tell Henry.flac,-6.0,-37.0,31.0,0,0.9933013916015625,1.0,1.0162696629213483
+dyth,BS11,FTR,15. Don't Ya tell Henry.flac,-17.0,-37.0,20.0,0,0.9914746880531311,1.0,1.0650965614696184
+dyth,BS11,FTR,29. Don't Ya Tell Henry.flac,7.000000000000006,-37.0,44.00000000000001,1,0.993938148021698,1.0594630943592953,0.973145119641935
+dyth,BS11,CB,28 Don't Ya Tell Henry.flac,5.000000000000004,-37.0,42.00000000000001,1,0.9933363199234009,1.0594630943592953,0.9738156761412575
+dyth,BS11,CB,05 Don't Ya Tell Henry.flac,-17.0,-37.0,20.0,0,0.9915876388549805,1.0,1.046076980014804

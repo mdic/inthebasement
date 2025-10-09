@@ -1,0 +1,7 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+dom,BS11,BS11,04 - Bob Dylan - Down On Me.wav,-26.0,-26.0,0.0,0,1.0,1.0,1.0
+dom,BS11,CAR,03-04-Bob_Dylan-Down_on_Me-SMR.flac,-27.0,-26.0,-1.0,0,0.9999880194664001,1.0,0.9994328995428844
+dom,BS11,ATWR,07 Down On Me.flac,-1.0000000000000009,-26.0,25.0,0,0.967217743396759,1.0,1.0606860158311346
+dom,BS11,TGBT,03 Down On Me.flac,-21.999999999999996,-26.0,4.0000000000000036,-1,0.9796711206436157,0.9438743126816935,1.0649006622516557
+dom,BS11,FTR,09. Down on Me.flac,-1.0000000000000009,-26.0,25.0,0,0.9656068086624146,1.0,1.087588772404464
+dom,BS11,CB,09 Down on me (frag).flac,1.0000000000000009,-26.0,27.0,0,0.9676108360290527,1.0,1.0551181102362206
