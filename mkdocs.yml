@@ -23,9 +23,10 @@ theme:
 plugins:
   - search
   - autorefs
-  - git-revision-date-localized:
-      type: date
-      format: '%Y-%m-%d'
+  - document-dates:
+      # position: top
+      show_author: false
+      recently-updated: true
   - awesome-nav:
       files:
         - docs/songs/_songs_nav.yml
