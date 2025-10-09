@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = FTR)
+============================================================
+
+FTR - 22. Apple Suckling Tree.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CB - 22 Apple Suckling Tree - 2.flac: shift=0 st ; Δtuning=-3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9081

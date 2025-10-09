@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = FTR)
+============================================================
+
+FTR - 31. Ain't that a Kindness.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CB - 30 Ain't That a Kindness (frag).flac: shift=0 st ; Δtuning=-6.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9980

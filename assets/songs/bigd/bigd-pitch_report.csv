@@ -1,0 +1,5 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+bigd,BS11,BS11,07 - Bob Dylan & The Band - Big Dog.wav,7.000000000000006,7.000000000000006,0.0,0,1.0,1.0,1.0
+bigd,BS11,CAR,02-07-Bob_Dylan-Big_Dog-SMR.flac,7.000000000000006,7.000000000000006,0.0,0,0.9982566237449646,1.0,0.9996430519729798
+bigd,BS11,FTR,06. Won't You Please Come Home.flac,16.000000000000004,7.000000000000006,8.999999999999996,0,0.9911595582962036,1.0,1.2194616977225672
+bigd,BS11,CB,06 Big Dog Won't you Please Come Home.flac,17.000000000000004,7.000000000000006,9.999999999999996,0,0.9937053322792053,1.0,1.2194616977225672

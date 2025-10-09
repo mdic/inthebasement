@@ -1,0 +1,9 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 04 - Bob Dylan - Down On Me.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 03-04-Bob_Dylan-Down_on_Me-SMR.flac: shift=0 st ; Δtuning=-1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9994
+ATWR - 07 Down On Me.flac: shift=0 st ; Δtuning=25.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0607
+TGBT - 03 Down On Me.flac: shift=-1 st ; Δtuning=4.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.0649
+FTR - 09. Down on Me.flac: shift=0 st ; Δtuning=25.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0876
+CB - 09 Down on me (frag).flac: shift=0 st ; Δtuning=27.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0551

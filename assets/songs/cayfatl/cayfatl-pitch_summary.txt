@@ -1,0 +1,9 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 19 - Bob Dylan & The Band - Come All Ye Fair And Tender Ladies.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 06-19-Bob_Dylan-Come_All_Ye_Fair_and_Tender_La-SMR.flac: shift=0 st ; Δtuning=-1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 03 Come All Ye Fair And Tender Ladies.flac: shift=0 st ; Δtuning=3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0270
+SBD - 08 Come All Ye Fair And Tender Ladies.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0246
+FTR - 09. Come All Ye Fair and Tender Ladies.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.8137
+CB - 10 Come All Ye Fair & Tender Maidens.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0228

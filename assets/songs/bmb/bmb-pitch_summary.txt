@@ -1,0 +1,6 @@
+Pitch/Speed analysis (reference = DITB)
+============================================================
+
+DITB - 16 Be My Baby (Tiny Tim).flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+FTR - Track No20.flac: shift=0 st ; Δtuning=54.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9343
+CB - 20 Be my Baby (Tiny Tim Vocal).flac: shift=0 st ; Δtuning=75.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9291

@@ -1,0 +1,3 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+diubhia,BS11,BS11,"10 - Bob Dylan & The Band - Dress It up, Better Have It All.wav",-14.999999999999996,-14.999999999999996,0.0,0,0.9999999403953552,1.0,1.0
+diubhia,BS11,CAR,05-10-Bob_Dylan-Dress_It_up_Better_Have_it_All-SMR.flac,-14.000000000000002,-14.999999999999996,0.9999999999999947,0,0.9999963641166687,1.0,1.0000083752269162

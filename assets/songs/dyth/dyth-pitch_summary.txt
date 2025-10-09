@@ -1,0 +1,12 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 20 - Bob Dylan & The Band - Don't Ya Tell Henry.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 04-20-Bob_Dylan-Don_t_Ya_Tell_Henry-SMR.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 10 Don't Ya Tell Henry.flac: shift=0 st ; Δtuning=12.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0245
+SBD - 21 Don't Ya Tell Henry.flac: shift=0 st ; Δtuning=12.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0220
+TGBT - 2-21 Don'tcha Tell Henry.flac: shift=0 st ; Δtuning=31.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0163
+FTR - 15. Don't Ya tell Henry.flac: shift=0 st ; Δtuning=20.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0651
+FTR - 29. Don't Ya Tell Henry.flac: shift=1 st ; Δtuning=44.0 cents ; speed_from_pitch=1.0595 ; duration_ratio(ref/cmp)=0.9731
+CB - 28 Don't Ya Tell Henry.flac: shift=1 st ; Δtuning=42.0 cents ; speed_from_pitch=1.0595 ; duration_ratio(ref/cmp)=0.9738
+CB - 05 Don't Ya Tell Henry.flac: shift=0 st ; Δtuning=20.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0461

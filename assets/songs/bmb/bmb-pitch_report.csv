@@ -1,0 +1,4 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+bmb,DITB,DITB,16 Be My Baby (Tiny Tim).flac,-26.0,-26.0,0.0,0,0.9999998807907104,1.0,1.0
+bmb,DITB,FTR,Track No20.flac,28.000000000000004,-26.0,54.0,0,0.9986488819122314,1.0,0.9342646740307559
+bmb,DITB,CB,20 Be my Baby (Tiny Tim Vocal).flac,49.0,-26.0,75.0,0,0.9985572099685669,1.0,0.9290663029041174

@@ -1,0 +1,3 @@
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,loudness_left,loudness_right,loudness_balance,rms,rms_left,rms_right,rms_balance,lr_corr,spectral_centroid
+BS11,22 - Bob Dylan & The Band - Confidential.wav,e57ba4d2bc1d3c4d6764b3bbe869df54,6,22,1.0,02:26:680,0.0,1.0,0.0,0.3805228588945262,0.0,0.0,0.0,0.005846872925758362,0.9161883126474961,1.0
+CAR,06-22-Bob_Dylan-900_Miles_from_My_Home_Confide-SMR.flac,c851a5f6f14076134bc555a7db038ff1,6,22,0.0,02:26:489,1.0,0.0,1.0,0.3776089881216649,1.0,1.0,1.0,0.005853787064552307,0.9161883800896077,0.0

@@ -1,0 +1,9 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 16 - Bob Dylan & The Band - A Fool Such As I.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 02-16-Bob_Dylan-A_Fool_Such_As_I-SMR.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 19 A Fools Such As I.flac: shift=0 st ; Δtuning=23.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0346
+TGBT - 08 A Fool Such As I.flac: shift=-1 st ; Δtuning=-9.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.0853
+FTR - 20. A Fool Such As I.flac: shift=0 st ; Δtuning=22.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0028
+CB - 20 (Now and Then Theres) A Fool Such as I.flac: shift=0 st ; Δtuning=20.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0028

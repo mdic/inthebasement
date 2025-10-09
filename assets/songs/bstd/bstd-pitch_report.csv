@@ -1,0 +1,8 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+bstd,BS11,BS11,02 - Bob Dylan - Bonnie Ship The Diamond.wav,-26.0,-26.0,0.0,0,1.0,1.0,1.0
+bstd,BS11,CAR,03-02-Bob_Dylan-Bonnie_Ship_the_Diamond-SMR.flac,-27.0,-26.0,-1.0,0,0.9999588131904602,1.0,0.999977224054195
+bstd,BS11,ATWR,05 Bonnie Ship The Diamond.flac,4.0000000000000036,-26.0,30.000000000000004,0,0.9881845712661743,1.0,0.9796064168344483
+bstd,BS11,SBD,02 Bonnie Ship The Diamond.flac,5.000000000000004,-26.0,31.000000000000004,0,0.9884341955184937,1.0,0.9803704907377315
+bstd,BS11,TGBT,04 Bonnie Ship The Diamond.flac,-19.0,-26.0,7.0,-1,0.9925097227096558,0.9438743126816935,0.9805616954882329
+bstd,BS11,FTR,07. Bonnie Ship the Diamond.flac,6.000000000000005,-26.0,32.00000000000001,0,0.9887068271636963,1.0,0.9808805358652533
+bstd,BS11,CB,07 Bonnie Ship the Diamond.flac,6.000000000000005,-26.0,32.00000000000001,0,0.9887129664421082,1.0,0.9808805358652533

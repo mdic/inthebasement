@@ -1,0 +1,3 @@
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,loudness_left,loudness_right,loudness_balance,rms,rms_left,rms_right,rms_balance,lr_corr,spectral_centroid
+FTR,07. Bessie Smith.flac,3ca0ace45918fd5a6ca8b91e7dff9476,11,7,0.0,04:18:373,0.0,0.0,0.0,-0.18329801147309865,0.0,0.0,0.0,0.0007619857788085938,0.9544930798527436,0.0
+CB,31 Bessie Smith.flac,d80b6552995be2328d5c7ecdd76d967e,9,8,0.0,04:18:373,1.0,1.0,1.0,-0.18331217861271298,1.0,1.0,1.0,0.0007614642381668091,0.9544930798505568,1.0

@@ -1,0 +1,7 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 07 - Bob Dylan & The Band - Big Dog.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 02-07-Bob_Dylan-Big_Dog-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9996
+FTR - 06. Won't You Please Come Home.flac: shift=0 st ; Δtuning=9.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.2195
+CB - 06 Big Dog Won't you Please Come Home.flac: shift=0 st ; Δtuning=10.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.2195

@@ -1,0 +1,3 @@
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,loudness_left,loudness_right,loudness_balance,rms,rms_left,rms_right,rms_balance,lr_corr,spectral_centroid
+BS11,05 - Bob Dylan & The Band - Ain't No More Cane (Take 1).wav,fc5602b17d10ae44bcd720449b18987f,5,5,0.0,02:41:160,0.0,1.0,0.0,-0.9273997125854798,0.0,0.0,0.0,-0.00866883248090744,0.9711494582778359,1.0
+CAR,05-05-Bob_Dylan-Ain_t_No_More_Cane_Take_1-SMR.flac,51a6f319345be746715c211199e958f5,5,5,1.0,02:41:165,1.0,0.0,1.0,-0.943205977499872,1.0,1.0,1.0,-0.008668750524520874,0.9711499119858987,0.0

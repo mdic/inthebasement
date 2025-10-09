@@ -1,0 +1,6 @@
+BS11 overlaps with SBD in radar plot
+CAR overlaps with SBD in radar plot
+ATWR overlaps with SBD in radar plot
+TGBT overlaps with SBD in radar plot
+FTR overlaps with SBD in radar plot
+CB overlaps with SBD in radar plot

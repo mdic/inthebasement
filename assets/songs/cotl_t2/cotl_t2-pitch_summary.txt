@@ -1,0 +1,16 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 14 - Bob Dylan - Crash On The Levee (Take 2).wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 03-14-Bob_Dylan-Crash_on_the_Levee_Take_2-SMR.flac: shift=0 st ; Δtuning=-2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0001
+ATWR - 19 Crash On The Levee - Take 2.flac: shift=0 st ; Δtuning=9.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9955
+MUTM - 05 Down In The Flood.flac: shift=0 st ; Δtuning=43.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0170
+RSD - 04 Crash On The Levee.flac: shift=0 st ; Δtuning=-3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9993
+TGBT - 07 Crash On The Levee #2.flac: shift=0 st ; Δtuning=5.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9868
+CBST - Dylan & Band - Safety Tape_Track05.flac: shift=0 st ; Δtuning=-2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0238
+FTR - 18. Crash on the Levee.flac: shift=0 st ; Δtuning=35.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0250
+FTR - 04. Crash on the Levee.flac: shift=-1 st ; Δtuning=58.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=0.9826
+FTR - 18. Crash on the Levee.flac: shift=-1 st ; Δtuning=42.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=1.0515
+FTR - 17. Crash on the Levee.flac: shift=0 st ; Δtuning=40.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0152
+CB - 18 Down in the Flood.flac: shift=0 st ; Δtuning=24.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0250
+CB - 04 Down in the Flood.flac: shift=0 st ; Δtuning=59.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9826

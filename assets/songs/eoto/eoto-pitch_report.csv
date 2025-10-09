@@ -1,0 +1,3 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+eoto,BS11,BS11,01 - Bob Dylan & The Band - Edge Of The Ocean.wav,-36.0,-36.0,0.0,0,1.0000001192092896,1.0,1.0
+eoto,BS11,CAR,01-01-Bob_Dylan-Edge_of_the_Ocean-SMR.flac,-36.0,-36.0,0.0,0,0.9999803304672241,1.0,0.9999789069857647
