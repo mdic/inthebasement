@@ -1,0 +1,10 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 18 - Bob Dylan & The Band - Cool Water.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 01-18-Bob_Dylan-Cool_Water-SMR.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0001
+ATWR - 08 Cool Water.flac: shift=0 st ; Δtuning=24.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0268
+TGBT - 20 Cool Water.flac: shift=0 st ; Δtuning=21.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0266
+FTR - 14. Cool Water.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0241
+FTR - 22. Cool Water.flac: shift=0 st ; Δtuning=20.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0269
+CB - 16 Cool Water.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0241

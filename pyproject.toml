@@ -12,6 +12,7 @@ dependencies = [
     "mkdocs>=1.6.1",
     "mkdocs-autorefs>=1.4.3",
     "mkdocs-awesome-nav>=3.2.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.7",
     "mkdocs-material>=9.6.20",
     "musicbrainzngs>=0.7.1",
     "nbconvert>=7.16.6",

@@ -35,3 +35,4 @@ Click on any entry to view detailed comparisons and plots.
 - [Come All Ye Fair And Tender Ladies](./cayfatl.md)
 - [Confidential (Take 1)](./conf_t1.md)
 - [Confidential (Take 2)](./conf_t2.md)
+- [Cool Water](./coow.md)
