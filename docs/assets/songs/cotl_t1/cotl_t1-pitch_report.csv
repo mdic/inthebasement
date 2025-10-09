@@ -1,0 +1,8 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+cotl_t1,BS11,BS11,13 - Bob Dylan - Crash On The Levee (Take 1).wav,-18.0,-18.0,0.0,0,1.0,1.0,1.0
+cotl_t1,BS11,CAR,03-13-Bob_Dylan-Crash_on_the_Levee_Take_1-SMR.flac,-18.0,-18.0,0.0,0,0.9906776547431946,1.0,0.9999612549032962
+cotl_t1,BS11,ATWR,18 Crash On The Levee - Take 1.flac,-2.9999999999999973,-18.0,15.000000000000004,0,0.9995071291923523,1.0,0.9972491085073866
+cotl_t1,BS11,SBD,04 Crash On The Levee.flac,1.0000000000000009,-18.0,19.0,0,0.9997061491012573,1.0,1.0259958071278825
+cotl_t1,BS11,TGBT,06 Crash On The Levee (Version 1).flac,-7.000000000000001,-18.0,11.0,0,0.9987308979034424,1.0,0.9891864578069731
+cotl_t1,BS11,FTR,05. Crash on the Levee.flac,10.999999999999998,-18.0,29.0,0,0.9982684850692749,1.0,1.0248141555858026
+cotl_t1,BS11,CB,05 Down in the Flood (new).flac,13.0,-18.0,31.0,0,0.9982194304466248,1.0,1.0248141555858026

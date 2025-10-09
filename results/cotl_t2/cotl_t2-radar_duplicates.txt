@@ -1,0 +1,9 @@
+BS11 overlaps with FTR in radar plot
+CAR overlaps with FTR in radar plot
+ATWR overlaps with FTR in radar plot
+MUTM overlaps with FTR in radar plot
+RSD overlaps with FTR in radar plot
+TGBT overlaps with FTR in radar plot
+CBST overlaps with FTR in radar plot
+CB overlaps with FTR in radar plot
+CB overlaps with FTR in radar plot

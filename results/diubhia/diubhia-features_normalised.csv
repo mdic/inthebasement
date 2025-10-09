@@ -1,0 +1,3 @@
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,loudness_left,loudness_right,loudness_balance,rms,rms_left,rms_right,rms_balance,lr_corr,spectral_centroid
+BS11,"10 - Bob Dylan & The Band - Dress It up, Better Have It All.wav",1fb49455c7143664023af1479cb31486,5,10,1.0,02:53:280,1.0,1.0,0.0,0.7499142100872795,0.0,0.0,0.0,0.023722410202026367,0.816561031412755,1.0
+CAR,05-10-Bob_Dylan-Dress_It_up_Better_Have_it_All-SMR.flac,65e6081dc21200e68bfb3c202b757d77,5,10,0.0,02:53:279,0.0,0.0,1.0,0.7451212428205025,1.0,1.0,1.0,0.02372245490550995,0.8165612109856655,0.0

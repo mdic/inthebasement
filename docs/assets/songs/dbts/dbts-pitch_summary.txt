@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 04 - Bob Dylan & The Band - Down By The Station.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 06-04-Bob_Dylan-Down_by_the_Station-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000

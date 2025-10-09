@@ -1,0 +1,3 @@
+label,orig_file,md5,disc,track,duration_sec,duration_fmt,loudness,loudness_left,loudness_right,loudness_balance,rms,rms_left,rms_right,rms_balance,lr_corr,spectral_centroid
+BS11,04 - Bob Dylan & The Band - Down By The Station.wav,8ee74cd2e85a67bf4640a32edf0be748,6,4,0.0,01:29:427,0.0,0.0,0.0,-1.349894326638175,1.0,1.0,1.0,-0.01859285682439804,0.9301530720309547,1.0
+CAR,06-04-Bob_Dylan-Down_by_the_Station-SMR.flac,8935349d2d539be0b752d1684fc21a0b,6,4,0.0,01:29:427,1.0,1.0,1.0,-1.3498927888842758,0.0,0.0,0.0,-0.01859118789434433,0.9301534130638649,0.0
