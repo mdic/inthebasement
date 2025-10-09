@@ -1,0 +1,7 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+conf_t1,BS11,BS11,23 - Bob Dylan & The Band - Confidential.wav,-26.0,-26.0,0.0,0,1.0,1.0,1.0
+conf_t1,BS11,CAR,05-23-Bob_Dylan-Confidential-SMR.flac,-25.0,-26.0,1.0,0,0.99998539686203,1.0,1.0004146510020733
+conf_t1,BS11,ATWR,19 Confidential To Me.flac,1.0000000000000009,-26.0,27.0,0,0.9876875281333923,1.0,1.0221720096031635
+conf_t1,BS11,TGBT,4-08 Confidential To Me.flac,-14.999999999999996,-26.0,11.000000000000004,0,0.9870196580886841,1.0,1.0266666666666666
+conf_t1,BS11,FTR,Track No06.flac,-3.9999999999999982,-26.0,22.0,0,0.9866207838058472,1.0,1.040091967236672
+conf_t1,BS11,CB,06 Confidential.flac,-2.9999999999999973,-26.0,23.000000000000004,0,0.9864227771759033,1.0,1.037111334002006

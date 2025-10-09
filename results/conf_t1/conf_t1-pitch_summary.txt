@@ -1,0 +1,9 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 23 - Bob Dylan & The Band - Confidential.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 05-23-Bob_Dylan-Confidential-SMR.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0004
+ATWR - 19 Confidential To Me.flac: shift=0 st ; Δtuning=27.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0222
+TGBT - 4-08 Confidential To Me.flac: shift=0 st ; Δtuning=11.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0267
+FTR - Track No06.flac: shift=0 st ; Δtuning=22.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0401
+CB - 06 Confidential.flac: shift=0 st ; Δtuning=23.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0371

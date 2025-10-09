@@ -1,0 +1,7 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+cayfatl,BS11,BS11,19 - Bob Dylan & The Band - Come All Ye Fair And Tender Ladies.wav,-38.0,-38.0,0.0,0,0.9999999403953552,1.0,1.0
+cayfatl,BS11,CAR,06-19-Bob_Dylan-Come_All_Ye_Fair_and_Tender_La-SMR.flac,-39.0,-38.0,-1.0,0,0.9999966621398926,1.0,0.9999945693446513
+cayfatl,BS11,ATWR,03 Come All Ye Fair And Tender Ladies.flac,-35.0,-38.0,3.0,0,0.9931524991989136,1.0,1.0269755633132338
+cayfatl,BS11,SBD,08 Come All Ye Fair And Tender Ladies.flac,-32.99999999999999,-38.0,5.000000000000007,0,0.9929385781288147,1.0,1.0245910290237468
+cayfatl,BS11,FTR,09. Come All Ye Fair and Tender Ladies.flac,-32.99999999999999,-38.0,5.000000000000007,0,0.9885021448135376,1.0,0.8137468566638726
+cayfatl,BS11,CB,10 Come All Ye Fair & Tender Maidens.flac,-32.99999999999999,-38.0,5.000000000000007,0,0.9934874773025513,1.0,1.02275600505689

@@ -1,0 +1,10 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 02 - Bob Dylan - Bonnie Ship The Diamond.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 03-02-Bob_Dylan-Bonnie_Ship_the_Diamond-SMR.flac: shift=0 st ; Δtuning=-1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 05 Bonnie Ship The Diamond.flac: shift=0 st ; Δtuning=30.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9796
+SBD - 02 Bonnie Ship The Diamond.flac: shift=0 st ; Δtuning=31.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9804
+TGBT - 04 Bonnie Ship The Diamond.flac: shift=-1 st ; Δtuning=7.0 cents ; speed_from_pitch=0.9439 ; duration_ratio(ref/cmp)=0.9806
+FTR - 07. Bonnie Ship the Diamond.flac: shift=0 st ; Δtuning=32.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9809
+CB - 07 Bonnie Ship the Diamond.flac: shift=0 st ; Δtuning=32.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9809

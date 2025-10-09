@@ -1,0 +1,8 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 23 - Bob Dylan & The Band - Baby, Won't You Be My Baby.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 02-23-Bob_Dylan-Baby_Won_t_You_be_My_Baby-SMR.flac: shift=0 st ; Δtuning=2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+ATWR - 02 Baby, Won't You Be My Baby.flac: shift=0 st ; Δtuning=32.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0192
+FTR - 02. Baby Won't You Be My Baby.flac: shift=0 st ; Δtuning=31.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0198
+CB - 02 Baby, Won't you be my Baby.flac: shift=0 st ; Δtuning=28.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0198
