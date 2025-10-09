@@ -30,9 +30,17 @@ plugins:
   - awesome-nav:
       files:
         - docs/songs/_songs_nav.yml
+  - recently-updated:
+      limit: 10
+      exclude:
+        - index.md
+        - about.md
+        - songs/index.md
+        - songs/.nav.yml
 
 markdown_extensions:
   - attr_list
+  - admonition
 
 nav:
   - Home: index.md
