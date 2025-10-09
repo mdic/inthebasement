@@ -23,10 +23,10 @@ theme:
 plugins:
   - search
   - autorefs
-  - document-dates:
-      # position: top
-      show_author: false
-      recently-updated: true
+  # - document-dates:
+  #     # position: top
+  #     show_author: false
+  #     recently-updated: true
   - awesome-nav:
       files:
         - docs/songs/_songs_nav.yml
