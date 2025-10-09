@@ -1,6 +1,6 @@
 # How this was made
 
-All the details included in this website are produced using a custom-made tool called `analyse_song`, available under open-source GPL license here.
+All the details included in this website are produced using a custom-made tool called `analyse_song`, available under MIT license.
 The analyse_song tool is a complete audio analysis and visualisation pipeline designed to compare different recorded versions of the same song.
 It extracts detailed acoustic features from each version, produces multiple visual summaries, and compiles all results into a structured report.
 

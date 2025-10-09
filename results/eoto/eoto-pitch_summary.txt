@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 01 - Bob Dylan & The Band - Edge Of The Ocean.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 01-01-Bob_Dylan-Edge_of_the_Ocean-SMR.flac: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000

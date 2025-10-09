@@ -1,0 +1,9 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 26 - Bob Dylan & The Band - Don't You Try Me Now.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 02-26-Bob_Dylan-Don_t_You_Try_Me_Now-SMR.flac: shift=0 st ; Δtuning=-3.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0013
+ATWR - 09 Don't You Try Me Now.flac: shift=0 st ; Δtuning=24.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0056
+TGBT - 18 Don't You Try Me Now.flac: shift=0 st ; Δtuning=41.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0120
+FTR - 05. Don't You Try Me Now.flac: shift=0 st ; Δtuning=24.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0033
+CB - 05 Don't You Try me Now.flac: shift=0 st ; Δtuning=24.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0033

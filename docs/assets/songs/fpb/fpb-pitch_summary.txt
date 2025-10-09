@@ -1,0 +1,10 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 12 - Bob Dylan & The Band - Folsom Prison Blues.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 01-12-Bob_Dylan-Folsom_Prison_Blues-SMR.flac: shift=0 st ; Δtuning=-1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9999
+ATWR - 17 Folsom Prison Blues.flac: shift=0 st ; Δtuning=26.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0274
+TGBT - 09 Folsom Prison Blues.flac: shift=0 st ; Δtuning=29.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0312
+FTR - 10. Folsom Prison Blues.flac: shift=0 st ; Δtuning=-1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0385
+FTR - 25. Folsom Prison Blues.flac: shift=0 st ; Δtuning=29.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0442
+CB - 10 Folsom Prison Blues.flac: shift=0 st ; Δtuning=2.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0007
