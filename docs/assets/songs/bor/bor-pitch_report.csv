@@ -1,0 +1,8 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+bor,BS11,BS11,13 - Bob Dylan & The Band - Bells Of Rhymney.wav,-27.0,-27.0,0.0,0,1.0,1.0,1.0
+bor,BS11,CAR,01-13-Bob_Dylan-Bells_of_Rhymney-SMR.flac,-27.0,-27.0,0.0,0,0.9999944567680359,1.0,0.9999488725591407
+bor,BS11,ATWR,18 Bells of Rhymney.flac,-6.0,-27.0,21.0,0,0.972023606300354,1.0,1.0253287871407695
+bor,BS11,TGBT,10 Bells Of Rhymney.flac,-2.0000000000000018,-27.0,25.0,0,0.9683001041412354,1.0,1.0322241681260946
+bor,BS11,FTR,09. Bells of Rhymney.flac,-27.0,-27.0,0.0,0,0.9977817535400391,1.0,1.0397262207169065
+bor,BS11,FTR,26. Bells Of Rhymney.flac,-1.0000000000000009,-27.0,26.0,0,0.9705337882041931,1.0,1.0346159247296727
+bor,BS11,CB,09 Bells of Rhymney.flac,-27.0,-27.0,0.0,0,0.9977374076843262,1.0,1.0223409422049539

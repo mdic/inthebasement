@@ -4,7 +4,7 @@
 
 ## Description
 
-No info available
+No info available, beside the fact that its contents (tracks, titles, etc...) are a 1:1 copy of [`BS11`][bs11] with _minor_ changes to audio quality - at least, judging from the analyses reported on this website.
 
 ## Tracklist (from original info file)
 

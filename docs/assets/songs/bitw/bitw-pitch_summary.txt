@@ -1,0 +1,5 @@
+Pitch/Speed analysis (reference = BS11)
+============================================================
+
+BS11 - 01 - Bob Dylan & The Band - Blowin' In The Wind.wav: shift=0 st ; Δtuning=0.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=1.0000
+CAR - 05-01-Bob_Dylan-Blowin_in_the_Wind-SMR.flac: shift=0 st ; Δtuning=1.0 cents ; speed_from_pitch=1.0000 ; duration_ratio(ref/cmp)=0.9998

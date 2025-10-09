@@ -1,0 +1,3 @@
+song_label,ref_label,cmp_label,cmp_file,tuning_cents_cmp,tuning_cents_ref,delta_tuning_cents,semitone_shift_vs_ref,chroma_similarity,speed_factor_from_pitch,duration_ratio_ref_over_cmp
+blum_i,FTR,FTR,19. Blue Moon (Instrumental).flac,24.0,24.0,0.0,0,0.9999999403953552,1.0,1.0
+blum_i,FTR,CB,19 Blue Moon (Sax instrumental).flac,25.0,24.0,1.0,0,0.9993922114372253,1.0,0.9324937027707808
